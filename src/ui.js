@@ -123,13 +123,8 @@ function renderSummary(){
     </div>
 
     <div class="card" style="margin-top:12px">
-      <div class="row between">
-        <div>
-          <h3 style="margin:0">Top remaining materials</h3>
-          <div class="muted tiny">Based on current armor levels (0–4)</div>
-        </div>
-        <div class="pill warn">Tap Materials to edit inventory</div>
-      </div>
+      <h3 style="margin:0">Top remaining materials</h3>
+      <div class="muted tiny">Based on current armor levels (0–4)</div>
 
       <div style="margin-top:10px; overflow:auto">
         <table class="table">
@@ -392,10 +387,7 @@ function renderMaterials(){
     </div>
 
     <div class="card">
-      <div class="row between">
-        <h3 style="margin:0">Materials & inventory</h3>
-        <div class="pill warn">Tap to edit your inventory counts</div>
-      </div>
+      <h3 style="margin:0">Materials & inventory</h3>
       <div class="muted tiny">Totals shown against remaining upgrades (above current levels)</div>
 
       <div style="margin-top:12px; overflow:auto">
