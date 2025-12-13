@@ -260,9 +260,9 @@ function renderArmor(){
       return;
     }
 
-    const showAllToggle = t.closest("input[data-kind='toggleAllLevels']");
+    const showAllToggle = t.closest("button[data-kind='toggleAllLevels']");
     if(showAllToggle){
-      STATE.ui.showAllLevels = Boolean(showAllToggle.checked);
+      STATE.ui.showAllLevels = !STATE.ui.showAllLevels;
       persistState();
       preserveOpenState();
       render();
@@ -383,7 +383,7 @@ function renderPiece(p){
   `;
 
   const showAllToggle = materialsByLevel.size > 1
-    ? `<label class="tiny muted show-levels-toggle"><input type="checkbox" data-kind="toggleAllLevels" ${showAllLevels ? "checked" : ""} /> Show all levels</label>`
+    ? `<button type="button" class="show-levels-toggle ${showAllLevels ? "active" : ""}" data-kind="toggleAllLevels" aria-pressed="${showAllLevels}">Show all levels</button>`
     : "";
 
   const visibleLevels = showAllLevels

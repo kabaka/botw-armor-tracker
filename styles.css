@@ -321,12 +321,24 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 }
 .level-buttons{display:flex; gap:8px; flex-wrap:wrap;}
 .show-levels-toggle{
-  display:flex;
+  display:inline-flex;
   align-items:center;
-  gap:6px;
-  color:var(--muted);
+  gap:8px;
+  font-size:12px;
+  background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.18);
+  padding:8px 12px;
+  color:var(--text);
 }
-.show-levels-toggle input{accent-color:rgba(57,214,197,.8)}
+.show-levels-toggle.active{
+  background:linear-gradient(135deg, rgba(244,211,94,.22), rgba(57,214,197,.12));
+  border-color:rgba(244,211,94,.6);
+  box-shadow:0 0 0 1px rgba(57,214,197,.12);
+}
+.show-levels-toggle:focus-visible{
+  outline:2px solid rgba(57,214,197,.65);
+  outline-offset:2px;
+}
 .level-note{margin-top:-6px;}
 .level-stars{
   display:inline-flex;
