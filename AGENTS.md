@@ -8,6 +8,7 @@ These instructions apply to the entire repository.
 - Keep functions small and focused with descriptive names and inline comments only when they add clarity.
 - Avoid introducing external dependencies unless necessary; prefer native browser APIs.
 - Keep assets lightweight; do not add binary files to the repository.
+- Keep changes tightly scoped to the requested feature area; avoid touching unrelated screens or flows.
 
 ## Quality gates
 - Maintain or improve existing tests. Add unit or integration tests for new behavior where practical.
