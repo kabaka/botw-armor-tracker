@@ -457,7 +457,7 @@ function renderPiece(p){
           ${p.setName ? `<div class="muted">${escapeHtml(p.setName)}</div>` : ""}
           ${srcHtml}
         </div>
-        <div class="pill level-stars ${pillClass}" data-kind="lvlPill" data-piece="${p.id}" aria-label="Level ${lvl}">${renderLevelStars(lvl)}</div>
+        <div class="level-stars ${pillClass}" data-kind="lvlPill" data-piece="${p.id}" aria-label="Level ${lvl}">${renderLevelStars(lvl)}</div>
       </div>
 
       ${p.effect ? `<div class="muted tiny">${escapeHtml(p.effect)}</div>` : ""}
