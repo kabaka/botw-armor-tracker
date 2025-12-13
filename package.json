@@ -4,7 +4,8 @@
   "description": "A lightweight, offline-friendly tracker for managing armor sets, upgrades, and materials in *The Legend of Zelda: Breath of the Wild*. The app runs entirely in the browser, making it simple to use on desktop or mobile.",
   "main": "app.js",
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "husky install"
   },
   "keywords": [
     "zelda",
@@ -16,6 +17,7 @@
   "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
+    "husky": "^9.1.6",
     "vitest": "^4.0.15"
   }
 }

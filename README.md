@@ -39,7 +39,8 @@ A lightweight, offline-friendly tracker for managing armor sets, upgrades, and m
   ```bash
   npm test
   ```
-- Tests rely on [Vitest](https://vitest.dev) and currently validate that armor data remains well-formed. Add new tests alongside any new functionality to keep coverage meaningful.
+- Tests rely on [Vitest](https://vitest.dev) and cover both the armor data shape and application state helpers. Add new tests alongside any new functionality to keep coverage meaningful.
+- A Husky pre-commit hook runs `npm test` automatically after you install dependencies, helping catch regressions before code is pushed.
 
 ## Deployment
 - Host the static files on any web server or static hosting provider.
