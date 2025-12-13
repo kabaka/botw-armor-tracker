@@ -171,6 +171,26 @@ describe('renderArmor DOM behaviors', () => {
     expect(input.value).toBe('1');
   });
 
+  it('consumes materials and upgrades when ready button is clicked', () => {
+    const { state } = setup();
+    document.querySelector('.acc-head').click();
+
+    const inc = document.querySelector('button.step[data-mid="mat1"][data-kind="inc"]');
+    inc.click();
+    inc.click();
+
+    const readyBtn = document.querySelector('button[data-kind="quickUpgrade"][data-piece="helm1"][data-level="1"]');
+    expect(readyBtn).not.toBeNull();
+
+    readyBtn.click();
+
+    expect(state.levels.helm1).toBe(1);
+    expect(state.inventory.mat1).toBe(0);
+    expect(document.querySelector('button[data-kind="quickUpgrade"][data-piece="helm1"]')).toBeNull();
+    const activeLevel = document.querySelector('[data-piece="helm1"] button[data-kind="setLvl"].active');
+    expect(activeLevel?.textContent).toBe('Lv1');
+  });
+
   it('filters armor pieces and categories based on search input', () => {
     setup();
     const search = document.querySelector('#armorSearch');

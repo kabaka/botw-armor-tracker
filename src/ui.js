@@ -77,6 +77,49 @@ function renderInvStepper(mid, value){
   `;
 }
 
+function getMaterialLookups(){
+  const nameToId = new Map(DATA.materials.map(m => [m.name, m.id]));
+  return {
+    nameToId,
+    idToName: new Map(DATA.materials.map(m => [m.id, m.name])),
+    byId: new Map(DATA.materials.map(m => [m.id, m])),
+    resolveId: (material) => nameToId.get(material) || material
+  };
+}
+
+function getLevelRequirements(pieceId, level){
+  const piece = DATA.armorPieces.find(p => p.id === pieceId);
+  if(!piece || !piece.materialsByLevel) return [];
+  const mats = piece.materialsByLevel[level];
+  if(!Array.isArray(mats)) return [];
+  const lookups = getMaterialLookups();
+  return mats
+    .map((m)=>({ mid: lookups.resolveId(m.material), qty: Number(m.qty || m.quantity || 0) }))
+    .filter(({ mid, qty }) => mid && Number.isFinite(qty) && qty > 0);
+}
+
+function attemptQuickUpgrade(pieceId, level){
+  const requirements = getLevelRequirements(pieceId, level);
+  if(!requirements.length) return false;
+
+  const currentLevel = clampInt(STATE.levels[pieceId] ?? 0);
+  if(level <= currentLevel) return false;
+
+  const missing = requirements.find(({ mid, qty }) => Number(STATE.inventory[mid] || 0) < qty);
+  if(missing) return false;
+
+  for(const { mid, qty } of requirements){
+    const current = Number(STATE.inventory[mid] || 0);
+    STATE.inventory[mid] = Math.max(0, current - qty);
+  }
+
+  const piece = DATA.armorPieces.find(p => p.id === pieceId);
+  STATE.levels[pieceId] = level;
+  persistState();
+  toast(`${escapeHtml(piece?.name || pieceId)} upgraded to Lv${level}.`);
+  return true;
+}
+
 function preserveOpenState(){
   const openCats = new Set();
   const openPieces = new Set();
@@ -248,6 +291,17 @@ function renderArmor(){
     const t = e.target;
     if(!(t instanceof HTMLElement)) return;
 
+    const quickUpgradeBtn = t.closest("button[data-kind='quickUpgrade']");
+    if(quickUpgradeBtn){
+      const pid = quickUpgradeBtn.dataset.piece;
+      const lvl = clampInt(quickUpgradeBtn.dataset.level);
+      if(attemptQuickUpgrade(pid, lvl)){
+        preserveOpenState();
+        render();
+      }
+      return;
+    }
+
     const stepBtn = t.closest("button.step[data-mid]");
     if(stepBtn){
       const mid = stepBtn.dataset.mid;
@@ -349,9 +403,7 @@ function renderPiece(p){
   ` : ``;
 
   const materials = [];
-  const matNameToId = new Map(DATA.materials.map(m => [m.name, m.id]));
-  const matIdToName = new Map(DATA.materials.map(m => [m.id, m.name]));
-  const matById = new Map(DATA.materials.map(m => [m.id, m]));
+  const lookups = getMaterialLookups();
   const materialsByLevel = new Map();
 
   for(const [lvlStr, arr] of Object.entries(p.materialsByLevel || {})){
@@ -359,8 +411,8 @@ function renderPiece(p){
     for(const obj of arr){
       const material = {
         lvl: lid,
-        id: matNameToId.get(obj.material) || obj.material,
-        name: matIdToName.get(matNameToId.get(obj.material)) || obj.material,
+        id: lookups.resolveId(obj.material),
+        name: lookups.idToName.get(lookups.resolveId(obj.material)) || obj.material,
         qty: Number(obj.qty || obj.quantity || 0)
       };
       materials.push(material);
@@ -408,55 +460,59 @@ function renderPiece(p){
           const statusLabel = (done || ready)
             ? `<span class="badge ok level-status"><b>HAVE</b></span>`
             : `<span class="badge bad level-status"><b>NEED</b></span>`;
-            const statusHint = done ? "Completed" : (ready ? "Ready to upgrade" : "Missing materials");
-            const donePill = done ? `<span class="pill ok mini">Done</span>` : "";
+          const statusHint = done
+            ? `<span class="muted tiny">Completed</span>`
+            : (ready
+              ? `<button type="button" class="ready-upgrade" data-kind="quickUpgrade" data-piece="${p.id}" data-level="${level}">Ready to upgrade</button>`
+              : `<span class="muted tiny">Missing materials</span>`);
+          const donePill = done ? `<span class="pill ok mini">Done</span>` : "";
 
-            const materialRows = mats.map(m => {
-              const inv = Number(STATE.inventory[m.id] || 0);
-              const diff = inv - m.qty;
-              const material = matById.get(m.id);
-              const acquisition = renderMaterialAcquisitionInline(material);
-              let badge = "";
-              if(diff < 0){
-                badge = `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
-              }else if(diff === 0){
-                badge = `<span class="badge ok"><b>HAVE</b></span>`;
-              }else{
-                badge = `<span class="badge ok over"><b>OVER</b> <span>+${diff}</span></span>`;
-              }
-
-              return `
-                <tr class="mat-row">
-                  <td>
-                    <div class="mat-line">
-                      <span class="mat-qty">${m.qty}×</span>
-                      <b class="mat-name">${escapeHtml(m.name)}</b>
-                    </div>
-                    ${acquisition ? `<div class="mat-meta">${acquisition}</div>` : ""}
-                  </td>
-                  <td>
-                    <div class="inv-inline armor-mat-row">
-                      <div class="tiny muted" aria-hidden="true">Inventory</div>
-                      ${renderInvStepper(m.id, inv)}
-                      ${badge}
-                    </div>
-                  </td>
-                </tr>`;
-            }).join("");
+          const materialRows = mats.map(m => {
+            const inv = Number(STATE.inventory[m.id] || 0);
+            const diff = inv - m.qty;
+            const material = lookups.byId.get(m.id);
+            const acquisition = renderMaterialAcquisitionInline(material);
+            let badge = "";
+            if(diff < 0){
+              badge = `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
+            }else if(diff === 0){
+              badge = `<span class="badge ok"><b>HAVE</b></span>`;
+            }else{
+              badge = `<span class="badge ok over"><b>OVER</b> <span>+${diff}</span></span>`;
+            }
 
             return `
-              <tbody class="level-block">
-                <tr class="lvl-head-row">
-                  <td colspan="2">
-                    <div class="level-head row between">
-                      <div class="level-label">Lv${level} ${donePill}</div>
-                      <div class="level-status-wrap">${statusLabel}<span class="muted tiny">${statusHint}</span></div>
-                    </div>
-                  </td>
-                </tr>
-                ${materialRows}
-              </tbody>`;
-          }).join("")}
+              <tr class="mat-row">
+                <td>
+                  <div class="mat-line">
+                    <span class="mat-qty">${m.qty}×</span>
+                    <b class="mat-name">${escapeHtml(m.name)}</b>
+                  </div>
+                  ${acquisition ? `<div class="mat-meta">${acquisition}</div>` : ""}
+                </td>
+                <td>
+                  <div class="inv-inline armor-mat-row">
+                    <div class="tiny muted" aria-hidden="true">Inventory</div>
+                    ${renderInvStepper(m.id, inv)}
+                    ${badge}
+                  </div>
+                </td>
+              </tr>`;
+          }).join("");
+
+          return `
+            <tbody class="level-block">
+              <tr class="lvl-head-row">
+                <td colspan="2">
+                  <div class="level-head row between">
+                    <div class="level-label">Lv${level} ${donePill}</div>
+                    <div class="level-status-wrap">${statusLabel}${statusHint}</div>
+                  </div>
+                </td>
+              </tr>
+              ${materialRows}
+            </tbody>`;
+        }).join("")}
       </table>
     `;
   }else if(materials.length){
