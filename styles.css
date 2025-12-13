@@ -314,6 +314,12 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 .badge.bad{border-color:rgba(255,92,122,.35)}
 .badge span{color:var(--muted); font-family:var(--sans); font-size:12px}
 
+.modal{
+  border:none;
+  padding:0;
+  background:transparent;
+  color:var(--text);
+}
 .modal::backdrop{background:rgba(0,0,0,.6)}
 .modal-card{
   width:min(520px, calc(100vw - 26px));
@@ -322,6 +328,10 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   border-radius:28px;
   padding:16px;
   box-shadow: var(--shadow);
+}
+.modal-card h3{
+  margin:0 0 6px;
+  color:var(--text);
 }
 .modal-actions{
   display:flex;
