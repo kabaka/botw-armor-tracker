@@ -1,0 +1,27 @@
+{
+  "name": "BotW Armor Upgrades",
+  "short_name": "BotW Upgrades",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#061215",
+  "theme_color": "#0b1b1f",
+  "description": "Track Breath of the Wild armor upgrade progress and materials.",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

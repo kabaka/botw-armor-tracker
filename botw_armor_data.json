@@ -1,0 +1,4080 @@
+{
+  "schemaVersion": 1,
+  "game": "Breath of the Wild",
+  "generatedFrom": "botw_armor_upgrades_material_costs.xlsx",
+  "armorPieces": [
+    {
+      "id": "champions-tunic",
+      "name": "Champion's Tunic",
+      "setCategory": "Accessories / Body",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Silent Princess",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Shard of Farosh's Horn",
+            "qty": 2
+          },
+          {
+            "material": "Silent Princess",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Shard of Naydra's Horn",
+            "qty": 2
+          },
+          {
+            "material": "Silent Princess",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Shard of Dinraal's Horn",
+            "qty": 2
+          },
+          {
+            "material": "Silent Princess",
+            "qty": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "sand-boots",
+      "name": "Sand Boots",
+      "setCategory": "Accessories / Legs",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Hightail Lizard",
+            "qty": 10
+          },
+          {
+            "material": "Molduga Fin",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Molduga Fin",
+            "qty": 10
+          },
+          {
+            "material": "Swift Carrot",
+            "qty": 10
+          }
+        ],
+        "3": [
+          {
+            "material": "Molduga Guts",
+            "qty": 3
+          },
+          {
+            "material": "Rushroom",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Molduga Guts",
+            "qty": 5
+          },
+          {
+            "material": "Swift Violet",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "snow-boots",
+      "name": "Snow Boots",
+      "setCategory": "Accessories / Legs",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Hightail Lizard",
+            "qty": 10
+          },
+          {
+            "material": "Octorok Tentacle",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Octo Balloon",
+            "qty": 5
+          },
+          {
+            "material": "Swift Carrot",
+            "qty": 10
+          }
+        ],
+        "3": [
+          {
+            "material": "Octorok Eyeball",
+            "qty": 5
+          },
+          {
+            "material": "Rushroom",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Naydra's Scale",
+            "qty": 2
+          },
+          {
+            "material": "Swift Violet",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "ancient-helm",
+      "name": "Ancient Helm",
+      "setCategory": "Ancient Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ancient Screw",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Ancient Gear",
+            "qty": 10
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 15
+          }
+        ],
+        "3": [
+          {
+            "material": "Ancient Core",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Shaft",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Giant Ancient Core",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "ancient-cuirass",
+      "name": "Ancient Cuirass",
+      "setCategory": "Ancient Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ancient Screw",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Ancient Gear",
+            "qty": 10
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 15
+          }
+        ],
+        "3": [
+          {
+            "material": "Ancient Core",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Shaft",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Giant Ancient Core",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "ancient-greaves",
+      "name": "Ancient Greaves",
+      "setCategory": "Ancient Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ancient Screw",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Ancient Gear",
+            "qty": 10
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 15
+          }
+        ],
+        "3": [
+          {
+            "material": "Ancient Core",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Shaft",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Giant Ancient Core",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "barbarian-helm",
+      "name": "Barbarian Helm",
+      "setCategory": "Barbarian Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Lynel Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Lynel Hoof",
+            "qty": 3
+          },
+          {
+            "material": "Lynel Horn",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Lynel Guts",
+            "qty": 1
+          },
+          {
+            "material": "Lynel Hoof",
+            "qty": 8
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 2
+          },
+          {
+            "material": "Shard of Dinraal's Horn",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "barbarian-armor",
+      "name": "Barbarian Armor",
+      "setCategory": "Barbarian Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Lynel Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Lynel Hoof",
+            "qty": 3
+          },
+          {
+            "material": "Lynel Horn",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Lynel Guts",
+            "qty": 1
+          },
+          {
+            "material": "Lynel Hoof",
+            "qty": 8
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 2
+          },
+          {
+            "material": "Shard of Farosh's Horn",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "barbarian-leg-wraps",
+      "name": "Barbarian Leg Wraps",
+      "setCategory": "Barbarian Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Lynel Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Lynel Hoof",
+            "qty": 3
+          },
+          {
+            "material": "Lynel Horn",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Lynel Guts",
+            "qty": 1
+          },
+          {
+            "material": "Lynel Hoof",
+            "qty": 8
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 2
+          },
+          {
+            "material": "Shard of Naydra's Horn",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "climbers-bandanna",
+      "name": "Climber's Bandanna",
+      "setCategory": "Climbing Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Keese Wing",
+            "qty": 3
+          },
+          {
+            "material": "Rushroom",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Electric Keese Wing",
+            "qty": 5
+          },
+          {
+            "material": "Hightail Lizard",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hot-Footed Frog",
+            "qty": 10
+          },
+          {
+            "material": "Ice Keese Wing",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Fire Keese Wing",
+            "qty": 5
+          },
+          {
+            "material": "Swift Violet",
+            "qty": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "climbing-gear",
+      "name": "Climbing Gear",
+      "setCategory": "Climbing Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Keese Wing",
+            "qty": 3
+          },
+          {
+            "material": "Rushroom",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Electric Keese Wing",
+            "qty": 5
+          },
+          {
+            "material": "Hightail Lizard",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hot-Footed Frog",
+            "qty": 10
+          },
+          {
+            "material": "Ice Keese Wing",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Fire Keese Wing",
+            "qty": 5
+          },
+          {
+            "material": "Swift Violet",
+            "qty": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "climbing-boots",
+      "name": "Climbing Boots",
+      "setCategory": "Climbing Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Keese Wing",
+            "qty": 3
+          },
+          {
+            "material": "Rushroom",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Electric Keese Wing",
+            "qty": 5
+          },
+          {
+            "material": "Hightail Lizard",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hot-Footed Frog",
+            "qty": 10
+          },
+          {
+            "material": "Ice Keese Wing",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Fire Keese Wing",
+            "qty": 5
+          },
+          {
+            "material": "Swift Violet",
+            "qty": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "desert-voe-headband",
+      "name": "Desert Voe Headband",
+      "setCategory": "Desert Voe Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "White Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Ice Keese Wing",
+            "qty": 3
+          },
+          {
+            "material": "White Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Ice Keese Wing",
+            "qty": 8
+          },
+          {
+            "material": "Icy Lizalfos Tail",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Icy Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Sapphire",
+            "qty": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "desert-voe-spaulder",
+      "name": "Desert Voe Spaulder",
+      "setCategory": "Desert Voe Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "White Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Ice Keese Wing",
+            "qty": 3
+          },
+          {
+            "material": "White Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Ice Keese Wing",
+            "qty": 8
+          },
+          {
+            "material": "Icy Lizalfos Tail",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Icy Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Sapphire",
+            "qty": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "desert-voe-trousers",
+      "name": "Desert Voe Trousers",
+      "setCategory": "Desert Voe Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "White Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Ice Keese Wing",
+            "qty": 3
+          },
+          {
+            "material": "White Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Ice Keese Wing",
+            "qty": 8
+          },
+          {
+            "material": "Icy Lizalfos Tail",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Icy Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Sapphire",
+            "qty": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "flamebreaker-helm",
+      "name": "Flamebreaker Helm",
+      "setCategory": "Flamebreaker Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Fireproof Lizard",
+            "qty": 3
+          },
+          {
+            "material": "Moblin Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Fireproof Lizard",
+            "qty": 5
+          },
+          {
+            "material": "Moblin Fang",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Smotherwing Butterfly",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Hinox Guts",
+            "qty": 5
+          },
+          {
+            "material": "Smotherwing Butterfly",
+            "qty": 8
+          }
+        ]
+      }
+    },
+    {
+      "id": "flamebreaker-armor",
+      "name": "Flamebreaker Armor",
+      "setCategory": "Flamebreaker Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Fireproof Lizard",
+            "qty": 3
+          },
+          {
+            "material": "Moblin Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Fireproof Lizard",
+            "qty": 5
+          },
+          {
+            "material": "Moblin Fang",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Smotherwing Butterfly",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Hinox Guts",
+            "qty": 5
+          },
+          {
+            "material": "Smotherwing Butterfly",
+            "qty": 8
+          }
+        ]
+      }
+    },
+    {
+      "id": "flamebreaker-boots",
+      "name": "Flamebreaker Boots",
+      "setCategory": "Flamebreaker Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Fireproof Lizard",
+            "qty": 3
+          },
+          {
+            "material": "Moblin Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Fireproof Lizard",
+            "qty": 5
+          },
+          {
+            "material": "Moblin Fang",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Smotherwing Butterfly",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Hinox Guts",
+            "qty": 5
+          },
+          {
+            "material": "Smotherwing Butterfly",
+            "qty": 8
+          }
+        ]
+      }
+    },
+    {
+      "id": "hylian-hood",
+      "name": "Hylian Hood",
+      "setCategory": "Hylian Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Horn",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Bokoblin Fang",
+            "qty": 5
+          },
+          {
+            "material": "Bokoblin Horn",
+            "qty": 8
+          }
+        ],
+        "3": [
+          {
+            "material": "Bokoblin Fang",
+            "qty": 10
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Amber",
+            "qty": 30
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "hylian-tunic",
+      "name": "Hylian Tunic",
+      "setCategory": "Hylian Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Horn",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Bokoblin Fang",
+            "qty": 5
+          },
+          {
+            "material": "Bokoblin Horn",
+            "qty": 8
+          }
+        ],
+        "3": [
+          {
+            "material": "Bokoblin Fang",
+            "qty": 10
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Amber",
+            "qty": 30
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "hylian-trousers",
+      "name": "Hylian Trousers",
+      "setCategory": "Hylian Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Horn",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Bokoblin Fang",
+            "qty": 5
+          },
+          {
+            "material": "Bokoblin Horn",
+            "qty": 8
+          }
+        ],
+        "3": [
+          {
+            "material": "Bokoblin Fang",
+            "qty": 10
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Amber",
+            "qty": 30
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "radiant-mask",
+      "name": "Radiant Mask",
+      "setCategory": "Radiant Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Luminous Stone",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Luminous Stone",
+            "qty": 8
+          },
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Luminous Stone",
+            "qty": 10
+          },
+          {
+            "material": "Molduga Guts",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Luminous Stone",
+            "qty": 20
+          },
+          {
+            "material": "Lynel Guts",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "radiant-shirt",
+      "name": "Radiant Shirt",
+      "setCategory": "Radiant Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Luminous Stone",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Luminous Stone",
+            "qty": 8
+          },
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Luminous Stone",
+            "qty": 10
+          },
+          {
+            "material": "Molduga Guts",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Luminous Stone",
+            "qty": 20
+          },
+          {
+            "material": "Lynel Guts",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "radiant-tights",
+      "name": "Radiant Tights",
+      "setCategory": "Radiant Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Luminous Stone",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Luminous Stone",
+            "qty": 8
+          },
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Luminous Stone",
+            "qty": 10
+          },
+          {
+            "material": "Molduga Guts",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Luminous Stone",
+            "qty": 20
+          },
+          {
+            "material": "Lynel Guts",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubber-helm",
+      "name": "Rubber Helm",
+      "setCategory": "Rubber Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Yellow Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Voltfruit",
+            "qty": 5
+          },
+          {
+            "material": "Yellow Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Yellow Lizalfos Tail",
+            "qty": 5
+          },
+          {
+            "material": "Zapshroom",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Topaz",
+            "qty": 10
+          },
+          {
+            "material": "Yellow Lizalfos Tail",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubber-armor",
+      "name": "Rubber Armor",
+      "setCategory": "Rubber Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Yellow Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Voltfruit",
+            "qty": 5
+          },
+          {
+            "material": "Yellow Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Yellow Lizalfos Tail",
+            "qty": 5
+          },
+          {
+            "material": "Zapshroom",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Topaz",
+            "qty": 10
+          },
+          {
+            "material": "Yellow Lizalfos Tail",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubber-tights",
+      "name": "Rubber Tights",
+      "setCategory": "Rubber Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Yellow Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Voltfruit",
+            "qty": 5
+          },
+          {
+            "material": "Yellow Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Yellow Lizalfos Tail",
+            "qty": 5
+          },
+          {
+            "material": "Zapshroom",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Topaz",
+            "qty": 10
+          },
+          {
+            "material": "Yellow Lizalfos Tail",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "stealth-mask",
+      "name": "Stealth Mask",
+      "setCategory": "Sheikah Stealth Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Blue Nightshade",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Blue Nightshade",
+            "qty": 5
+          },
+          {
+            "material": "Sunset Firefly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Silent Shroom",
+            "qty": 8
+          },
+          {
+            "material": "Sneaky River Snail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Silent Princess",
+            "qty": 5
+          },
+          {
+            "material": "Stealthfin Fish",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "stealth-chest-guard",
+      "name": "Stealth Chest Guard",
+      "setCategory": "Sheikah Stealth Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Blue Nightshade",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Blue Nightshade",
+            "qty": 5
+          },
+          {
+            "material": "Sunset Firefly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Silent Shroom",
+            "qty": 8
+          },
+          {
+            "material": "Sneaky River Snail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Silent Princess",
+            "qty": 5
+          },
+          {
+            "material": "Stealthfin Fish",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "stealth-tights",
+      "name": "Stealth Tights",
+      "setCategory": "Sheikah Stealth Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Blue Nightshade",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Blue Nightshade",
+            "qty": 5
+          },
+          {
+            "material": "Sunset Firefly",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Silent Shroom",
+            "qty": 8
+          },
+          {
+            "material": "Sneaky River Snail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Silent Princess",
+            "qty": 5
+          },
+          {
+            "material": "Stealthfin Fish",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "snowquill-headdress",
+      "name": "Snowquill Headdress",
+      "setCategory": "Snowquill Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Red Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Red Chuchu Jelly",
+            "qty": 5
+          },
+          {
+            "material": "Warm Safflina",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Fire Keese Wing",
+            "qty": 8
+          },
+          {
+            "material": "Sunshroom",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Red Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Ruby",
+            "qty": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "snowquill-tunic",
+      "name": "Snowquill Tunic",
+      "setCategory": "Snowquill Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Red Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Red Chuchu Jelly",
+            "qty": 5
+          },
+          {
+            "material": "Warm Safflina",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Fire Keese Wing",
+            "qty": 8
+          },
+          {
+            "material": "Sunshroom",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Red Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Ruby",
+            "qty": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "snowquill-trousers",
+      "name": "Snowquill Trousers",
+      "setCategory": "Snowquill Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Red Chuchu Jelly",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Red Chuchu Jelly",
+            "qty": 5
+          },
+          {
+            "material": "Warm Safflina",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Fire Keese Wing",
+            "qty": 8
+          },
+          {
+            "material": "Sunshroom",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Red Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Ruby",
+            "qty": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "soldiers-helm",
+      "name": "Soldier's Helm",
+      "setCategory": "Soldier Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Keese Eyeball",
+            "qty": 3
+          },
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Hinox Guts",
+            "qty": 2
+          },
+          {
+            "material": "Lizalfos Tail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 2
+          },
+          {
+            "material": "Lynel Hoof",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "soldiers-armor",
+      "name": "Soldier's Armor",
+      "setCategory": "Soldier Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Keese Eyeball",
+            "qty": 3
+          },
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Hinox Guts",
+            "qty": 1
+          },
+          {
+            "material": "Lizalfos Tail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 2
+          },
+          {
+            "material": "Lynel Hoof",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "soldiers-greaves",
+      "name": "Soldier's Greaves",
+      "setCategory": "Soldier Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
+          },
+          {
+            "material": "Chuchu Jelly",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Keese Eyeball",
+            "qty": 3
+          },
+          {
+            "material": "Moblin Guts",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Hinox Guts",
+            "qty": 1
+          },
+          {
+            "material": "Lizalfos Tail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 2
+          },
+          {
+            "material": "Lynel Hoof",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "cap-of-the-wild",
+      "name": "Cap of the Wild",
+      "setCategory": "Wild Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Acorn",
+            "qty": 10
+          },
+          {
+            "material": "Farosh's Scale",
+            "qty": 2
+          }
+        ],
+        "2": [
+          {
+            "material": "Courser Bee Honey",
+            "qty": 5
+          },
+          {
+            "material": "Farosh's Claw",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Energetic Rhino Beetle",
+            "qty": 5
+          },
+          {
+            "material": "Farosh's Fang",
+            "qty": 2
+          }
+        ],
+        "4": [
+          {
+            "material": "Farosh's Horn",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "tunic-of-the-wild",
+      "name": "Tunic of the Wild",
+      "setCategory": "Wild Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Acorn",
+            "qty": 10
+          },
+          {
+            "material": "Naydra's Scale",
+            "qty": 2
+          }
+        ],
+        "2": [
+          {
+            "material": "Courser Bee Honey",
+            "qty": 5
+          },
+          {
+            "material": "Naydra's Claw",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Energetic Rhino Beetle",
+            "qty": 5
+          },
+          {
+            "material": "Naydra's Fang",
+            "qty": 2
+          }
+        ],
+        "4": [
+          {
+            "material": "Naydra's Horn",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "trousers-of-the-wild",
+      "name": "Trousers of the Wild",
+      "setCategory": "Wild Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Acorn",
+            "qty": 10
+          },
+          {
+            "material": "Dinraal's Scale",
+            "qty": 2
+          }
+        ],
+        "2": [
+          {
+            "material": "Courser Bee Honey",
+            "qty": 5
+          },
+          {
+            "material": "Dinraal's Claw",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Dinraal's Fang",
+            "qty": 2
+          },
+          {
+            "material": "Energetic Rhino Beetle",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Dinraal's Horn",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "zora-helm",
+      "name": "Zora Helm",
+      "setCategory": "Zora Set",
+      "slot": "Head",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Lizalfos Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Hyrule Bass",
+            "qty": 5
+          },
+          {
+            "material": "Lizalfos Talon",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hearty Bass",
+            "qty": 5
+          },
+          {
+            "material": "Lizalfos Tail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Opal",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "zora-armor",
+      "name": "Zora Armor",
+      "setCategory": "Zora Set",
+      "slot": "Body",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Lizalfos Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Hyrule Bass",
+            "qty": 5
+          },
+          {
+            "material": "Lizalfos Talon",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hearty Bass",
+            "qty": 5
+          },
+          {
+            "material": "Lizalfos Tail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Opal",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "zora-greaves",
+      "name": "Zora Greaves",
+      "setCategory": "Zora Set",
+      "slot": "Legs",
+      "origin": "Base game",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Lizalfos Horn",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Hyrule Bass",
+            "qty": 5
+          },
+          {
+            "material": "Lizalfos Talon",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hearty Bass",
+            "qty": 5
+          },
+          {
+            "material": "Lizalfos Tail",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Lizalfos Tail",
+            "qty": 10
+          },
+          {
+            "material": "Opal",
+            "qty": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "amber-earrings",
+      "name": "Amber Earrings",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Jewelry",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Amber",
+            "qty": 3
+          },
+          {
+            "material": "Flint",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Amber",
+            "qty": 10
+          },
+          {
+            "material": "Flint",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Amber",
+            "qty": 20
+          },
+          {
+            "material": "Flint",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Amber",
+            "qty": 30
+          },
+          {
+            "material": "Flint",
+            "qty": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "diamond-circlet",
+      "name": "Diamond Circlet",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Jewelry",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Diamond",
+            "qty": 2
+          },
+          {
+            "material": "Flint",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Diamond",
+            "qty": 4
+          },
+          {
+            "material": "Flint",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Diamond",
+            "qty": 6
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "4": [
+          {
+            "material": "Diamond",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "opal-earrings",
+      "name": "Opal Earrings",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Jewelry",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Opal",
+            "qty": 3
+          }
+        ],
+        "2": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Opal",
+            "qty": 8
+          }
+        ],
+        "3": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Opal",
+            "qty": 16
+          }
+        ],
+        "4": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Opal",
+            "qty": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "ruby-circlet",
+      "name": "Ruby Circlet",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Jewelry",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Ruby",
+            "qty": 2
+          }
+        ],
+        "2": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Ruby",
+            "qty": 4
+          }
+        ],
+        "3": [
+          {
+            "material": "Ruby",
+            "qty": 6
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "4": [
+          {
+            "material": "Ruby",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "sapphire-circlet",
+      "name": "Sapphire Circlet",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Jewelry",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Sapphire",
+            "qty": 2
+          }
+        ],
+        "2": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Sapphire",
+            "qty": 4
+          }
+        ],
+        "3": [
+          {
+            "material": "Sapphire",
+            "qty": 6
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "4": [
+          {
+            "material": "Sapphire",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "topaz-earrings",
+      "name": "Topaz Earrings",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Jewelry",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Topaz",
+            "qty": 2
+          }
+        ],
+        "2": [
+          {
+            "material": "Flint",
+            "qty": 3
+          },
+          {
+            "material": "Topaz",
+            "qty": 4
+          }
+        ],
+        "3": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 6
+          }
+        ],
+        "4": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "sheiks-mask",
+      "name": "Sheik's Mask",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Silent Princess",
+            "qty": 1
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Silent Princess",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Silent Princess",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Silent Princess",
+            "qty": 4
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "vah-medoh-divine-helm",
+      "name": "Vah Medoh Divine Helm",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Medoh_Divine_Helm",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ancient Screw",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Ancient Gear",
+            "qty": 10
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 15
+          }
+        ],
+        "3": [
+          {
+            "material": "Ancient Core",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Shaft",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Giant Ancient Core",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "vah-naboris-divine-helm",
+      "name": "Vah Naboris Divine Helm",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Naboris_Divine_Helm",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ancient Screw",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Ancient Gear",
+            "qty": 10
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 15
+          }
+        ],
+        "3": [
+          {
+            "material": "Ancient Core",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Shaft",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Giant Ancient Core",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "vah-rudania-divine-helm",
+      "name": "Vah Rudania Divine Helm",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Rudania_Divine_Helm",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ancient Screw",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Ancient Gear",
+            "qty": 10
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 15
+          }
+        ],
+        "3": [
+          {
+            "material": "Ancient Core",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Shaft",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Giant Ancient Core",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "vah-ruta-divine-helm",
+      "name": "Vah Ruta Divine Helm",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Ruta_Divine_Helm",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ancient Screw",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Ancient Gear",
+            "qty": 10
+          },
+          {
+            "material": "Ancient Spring",
+            "qty": 15
+          }
+        ],
+        "3": [
+          {
+            "material": "Ancient Core",
+            "qty": 5
+          },
+          {
+            "material": "Ancient Shaft",
+            "qty": 15
+          }
+        ],
+        "4": [
+          {
+            "material": "Giant Ancient Core",
+            "qty": 2
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "fierce-deity-mask",
+      "name": "Fierce Deity Mask",
+      "setCategory": "Fierce Deity Set",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Dinraal's Scale",
+            "qty": 1
+          },
+          {
+            "material": "Hinox Toenail",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Dinraal's Claw",
+            "qty": 1
+          },
+          {
+            "material": "Hinox Tooth",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hinox Guts",
+            "qty": 5
+          },
+          {
+            "material": "Shard of Dinraal's Fang",
+            "qty": 1
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 5
+          },
+          {
+            "material": "Shard of Dinraal's Horn",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "fierce-deity-armor",
+      "name": "Fierce Deity Armor",
+      "setCategory": "Fierce Deity Set",
+      "slot": "Body",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Hinox Toenail",
+            "qty": 5
+          },
+          {
+            "material": "Naydra's Scale",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Hinox Tooth",
+            "qty": 5
+          },
+          {
+            "material": "Naydra's Claw",
+            "qty": 1
+          }
+        ],
+        "3": [
+          {
+            "material": "Hinox Guts",
+            "qty": 5
+          },
+          {
+            "material": "Shard of Naydra's Fang",
+            "qty": 1
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 5
+          },
+          {
+            "material": "Shard of Naydra's Horn",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "fierce-deity-boots",
+      "name": "Fierce Deity Boots",
+      "setCategory": "Fierce Deity Set",
+      "slot": "Legs",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Farosh's Scale",
+            "qty": 1
+          },
+          {
+            "material": "Hinox Toenail",
+            "qty": 5
+          }
+        ],
+        "2": [
+          {
+            "material": "Farosh's Claw",
+            "qty": 1
+          },
+          {
+            "material": "Hinox Tooth",
+            "qty": 5
+          }
+        ],
+        "3": [
+          {
+            "material": "Hinox Guts",
+            "qty": 5
+          },
+          {
+            "material": "Shard of Farosh's Fang",
+            "qty": 1
+          }
+        ],
+        "4": [
+          {
+            "material": "Lynel Guts",
+            "qty": 5
+          },
+          {
+            "material": "Shard of Farosh's Horn",
+            "qty": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "cap-of-the-hero",
+      "name": "Cap of the Hero",
+      "setCategory": "Hero Set",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ruby",
+            "qty": 1
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Ruby",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Ruby",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Ruby",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "tunic-of-the-hero",
+      "name": "Tunic of the Hero",
+      "setCategory": "Hero Set",
+      "slot": "Body",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ruby",
+            "qty": 1
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Ruby",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Ruby",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Ruby",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "trousers-of-the-hero",
+      "name": "Trousers of the Hero",
+      "setCategory": "Hero Set",
+      "slot": "Legs",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Ruby",
+            "qty": 1
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Ruby",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Ruby",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Ruby",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "cap-of-the-sky",
+      "name": "Cap of the Sky",
+      "setCategory": "Sky Set",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Sapphire",
+            "qty": 1
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Sapphire",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Sapphire",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Sapphire",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "tunic-of-the-sky",
+      "name": "Tunic of the Sky",
+      "setCategory": "Sky Set",
+      "slot": "Body",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Sapphire",
+            "qty": 1
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Sapphire",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Sapphire",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Sapphire",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "trousers-of-the-sky",
+      "name": "Trousers of the Sky",
+      "setCategory": "Sky Set",
+      "slot": "Legs",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Sapphire",
+            "qty": 1
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Sapphire",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Sapphire",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Sapphire",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "cap-of-time",
+      "name": "Cap of Time",
+      "setCategory": "Time Set",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Amber",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Amber",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Amber",
+            "qty": 15
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Amber",
+            "qty": 30
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "tunic-of-time",
+      "name": "Tunic of Time",
+      "setCategory": "Time Set",
+      "slot": "Body",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Amber",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Amber",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Amber",
+            "qty": 15
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Amber",
+            "qty": 30
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "trousers-of-time",
+      "name": "Trousers of Time",
+      "setCategory": "Time Set",
+      "slot": "Legs",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Amber",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Amber",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Amber",
+            "qty": 15
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Amber",
+            "qty": 30
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "cap-of-twilight",
+      "name": "Cap of Twilight",
+      "setCategory": "Twilight Set",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "tunic-of-twilight",
+      "name": "Tunic of Twilight",
+      "setCategory": "Twilight Set",
+      "slot": "Body",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "trousers-of-twilight",
+      "name": "Trousers of Twilight",
+      "setCategory": "Twilight Set",
+      "slot": "Legs",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 3
+          }
+        ],
+        "3": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 5
+          }
+        ],
+        "4": [
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          },
+          {
+            "material": "Topaz",
+            "qty": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "cap-of-the-wind",
+      "name": "Cap of the Wind",
+      "setCategory": "Wind Set",
+      "slot": "Head",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Opal",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Opal",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Opal",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Opal",
+            "qty": 20
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "tunic-of-the-wind",
+      "name": "Tunic of the Wind",
+      "setCategory": "Wind Set",
+      "slot": "Body",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Opal",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Opal",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Opal",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Opal",
+            "qty": 20
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "trousers-of-the-wind",
+      "name": "Trousers of the Wind",
+      "setCategory": "Wind Set",
+      "slot": "Legs",
+      "origin": "Amiibo",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
+      "materialsByLevel": {
+        "1": [
+          {
+            "material": "Opal",
+            "qty": 3
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 1
+          }
+        ],
+        "2": [
+          {
+            "material": "Opal",
+            "qty": 5
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 2
+          }
+        ],
+        "3": [
+          {
+            "material": "Opal",
+            "qty": 10
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 3
+          }
+        ],
+        "4": [
+          {
+            "material": "Opal",
+            "qty": 20
+          },
+          {
+            "material": "Star Fragment",
+            "qty": 4
+          }
+        ]
+      }
+    }
+  ],
+  "materials": [
+    {
+      "id": "acorn",
+      "name": "Acorn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "amber",
+      "name": "Amber",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "ancient-core",
+      "name": "Ancient Core",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "ancient-gear",
+      "name": "Ancient Gear",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "ancient-screw",
+      "name": "Ancient Screw",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "ancient-shaft",
+      "name": "Ancient Shaft",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "ancient-spring",
+      "name": "Ancient Spring",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "blue-nightshade",
+      "name": "Blue Nightshade",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "bokoblin-fang",
+      "name": "Bokoblin Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "bokoblin-guts",
+      "name": "Bokoblin Guts",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "bokoblin-horn",
+      "name": "Bokoblin Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "chuchu-jelly",
+      "name": "Chuchu Jelly",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "courser-bee-honey",
+      "name": "Courser Bee Honey",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "dinraals-claw",
+      "name": "Dinraal's Claw",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "dinraals-fang",
+      "name": "Dinraal's Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "dinraals-horn",
+      "name": "Dinraal's Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "dinraals-scale",
+      "name": "Dinraal's Scale",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "electric-keese-wing",
+      "name": "Electric Keese Wing",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "energetic-rhino-beetle",
+      "name": "Energetic Rhino Beetle",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "faroshs-claw",
+      "name": "Farosh's Claw",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "faroshs-fang",
+      "name": "Farosh's Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "faroshs-horn",
+      "name": "Farosh's Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "faroshs-scale",
+      "name": "Farosh's Scale",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "fire-keese-wing",
+      "name": "Fire Keese Wing",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "fireproof-lizard",
+      "name": "Fireproof Lizard",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "flint",
+      "name": "Flint",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "giant-ancient-core",
+      "name": "Giant Ancient Core",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "hearty-bass",
+      "name": "Hearty Bass",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "hightail-lizard",
+      "name": "Hightail Lizard",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "hinox-guts",
+      "name": "Hinox Guts",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "hinox-toenail",
+      "name": "Hinox Toenail",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "hinox-tooth",
+      "name": "Hinox Tooth",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "hot-footed-frog",
+      "name": "Hot-Footed Frog",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "hyrule-bass",
+      "name": "Hyrule Bass",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "ice-keese-wing",
+      "name": "Ice Keese Wing",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "icy-lizalfos-tail",
+      "name": "Icy Lizalfos Tail",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "keese-eyeball",
+      "name": "Keese Eyeball",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "keese-wing",
+      "name": "Keese Wing",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "lizalfos-horn",
+      "name": "Lizalfos Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "lizalfos-tail",
+      "name": "Lizalfos Tail",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "lizalfos-talon",
+      "name": "Lizalfos Talon",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "luminous-stone",
+      "name": "Luminous Stone",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "lynel-guts",
+      "name": "Lynel Guts",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "lynel-hoof",
+      "name": "Lynel Hoof",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "lynel-horn",
+      "name": "Lynel Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "moblin-fang",
+      "name": "Moblin Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "moblin-guts",
+      "name": "Moblin Guts",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "moblin-horn",
+      "name": "Moblin Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "molduga-fin",
+      "name": "Molduga Fin",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "molduga-guts",
+      "name": "Molduga Guts",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "naydras-claw",
+      "name": "Naydra's Claw",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "naydras-fang",
+      "name": "Naydra's Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "naydras-horn",
+      "name": "Naydra's Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "naydras-scale",
+      "name": "Naydra's Scale",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "octo-balloon",
+      "name": "Octo Balloon",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "octorok-eyeball",
+      "name": "Octorok Eyeball",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "octorok-tentacle",
+      "name": "Octorok Tentacle",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "opal",
+      "name": "Opal",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "red-chuchu-jelly",
+      "name": "Red Chuchu Jelly",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "red-lizalfos-tail",
+      "name": "Red Lizalfos Tail",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "rushroom",
+      "name": "Rushroom",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "sapphire",
+      "name": "Sapphire",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "shard-of-dinraals-fang",
+      "name": "Shard of Dinraal's Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "shard-of-dinraals-horn",
+      "name": "Shard of Dinraal's Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "shard-of-faroshs-fang",
+      "name": "Shard of Farosh's Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "shard-of-faroshs-horn",
+      "name": "Shard of Farosh's Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "shard-of-naydras-fang",
+      "name": "Shard of Naydra's Fang",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "shard-of-naydras-horn",
+      "name": "Shard of Naydra's Horn",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "silent-princess",
+      "name": "Silent Princess",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "silent-shroom",
+      "name": "Silent Shroom",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "smotherwing-butterfly",
+      "name": "Smotherwing Butterfly",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "sneaky-river-snail",
+      "name": "Sneaky River Snail",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "star-fragment",
+      "name": "Star Fragment",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "stealthfin-fish",
+      "name": "Stealthfin Fish",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "sunset-firefly",
+      "name": "Sunset Firefly",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "sunshroom",
+      "name": "Sunshroom",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "swift-carrot",
+      "name": "Swift Carrot",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "swift-violet",
+      "name": "Swift Violet",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "topaz",
+      "name": "Topaz",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "voltfruit",
+      "name": "Voltfruit",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "warm-safflina",
+      "name": "Warm Safflina",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "white-chuchu-jelly",
+      "name": "White Chuchu Jelly",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "yellow-chuchu-jelly",
+      "name": "Yellow Chuchu Jelly",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "yellow-lizalfos-tail",
+      "name": "Yellow Lizalfos Tail",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    },
+    {
+      "id": "zapshroom",
+      "name": "Zapshroom",
+      "notes": "",
+      "howToGet": "",
+      "source": null
+    }
+  ]
+}

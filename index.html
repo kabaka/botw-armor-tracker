@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1b1f" />
+  <title>BotW Armor Upgrades</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="sigil" aria-hidden="true"></div>
+      <div>
+        <div class="title">Armor Upgrades</div>
+        <div class="subtitle">Breath of the Wild · materials + progress</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="btnExport" class="ghost">Export</button>
+      <button id="btnReset" class="ghost danger">Reset</button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab active" data-tab="summary" role="tab" aria-selected="true">Summary</button>
+    <button class="tab" data-tab="armor" role="tab" aria-selected="false">Armor</button>
+    <button class="tab" data-tab="materials" role="tab" aria-selected="false">Materials</button>
+    <button class="tab" data-tab="about" role="tab" aria-selected="false">About</button>
+  </nav>
+
+  <main class="container">
+    <section id="view-summary" class="view active" data-view="summary"></section>
+    <section id="view-armor" class="view" data-view="armor"></section>
+    <section id="view-materials" class="view" data-view="materials"></section>
+    <section id="view-about" class="view" data-view="about"></section>
+  </main>
+  <!-- toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
