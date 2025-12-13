@@ -1,4 +1,5 @@
-import { clampInt, counts, defaultState, saveState, sumRemainingRequirements } from './state.js';
+import { LS_DATA, clampInt, counts, defaultState, saveState, sumRemainingRequirements } from './state.js';
+import { parseBackupFile } from './backup.js';
 
 const el = (sel, root=document) => root.querySelector(sel);
 const els = (sel, root=document) => Array.from(root.querySelectorAll(sel));
@@ -25,6 +26,16 @@ function initUI({ data, state, sources, materialSources, storage }){
 
 function getStorage(){
   return STORAGE ?? (typeof localStorage !== "undefined" ? localStorage : null);
+}
+
+function persistData(data){
+  const store = getStorage();
+  if(!store) return;
+  try{
+    store.setItem(LS_DATA, JSON.stringify(data));
+  }catch(err){
+    console.warn("Failed to persist dataset", err);
+  }
 }
 
 function persistState(){
@@ -619,7 +630,7 @@ function renderAbout(){
           Your armor levels and material counts live entirely on this device (in your browser’s storage). There are no accounts or cloud sync, so clearing site data will remove your progress here.
         </p>
         <p class="muted">
-          Use the <b>Export</b> button in the header to download a backup file that includes your saved progress and the dataset. Keep it somewhere safe if you plan to switch browsers or clear storage.
+          Use the <b>Export</b> button in the header to download a backup file that includes your saved progress and the dataset. Keep it somewhere safe if you plan to switch browsers or clear storage. The <b>Import</b> button restores one of those backups on this device.
         </p>
         <p class="muted tiny">Tip: the exported JSON is a readable snapshot of your current armor levels and inventory totals.</p>
       </div>
@@ -670,6 +681,15 @@ function sanitizeUrl(url){
   }
 }
 
+async function applyBackupFile(file){
+  const { data, state } = await parseBackupFile(file);
+  DATA = data;
+  STATE = state;
+  persistData(DATA);
+  persistState();
+  render();
+}
+
 function wireTabs(){
   els(".tab").forEach(btn=>{
     btn.addEventListener("click", ()=>{
@@ -682,6 +702,83 @@ function wireTabs(){
       window.scrollTo({top:0, behavior:"smooth"});
     });
   });
+}
+
+function wireImportDialog(){
+  const dialog = el("#importDialog");
+  const dropzone = el("#importDropzone");
+  const fileInput = el("#importFile");
+  const cancelBtn = el("#importCancel");
+
+  if(!dialog || !dropzone || !fileInput){
+    return () => {};
+  }
+
+  if(typeof dialog.showModal !== "function"){
+    dialog.showModal = () => dialog.setAttribute("open", "true");
+    dialog.close = () => dialog.removeAttribute("open");
+  }
+
+  let busy = false;
+
+  const resetFileInput = () => { fileInput.value = ""; dropzone.classList.remove("dragging"); };
+  const closeDialog = () => {
+    dialog.close();
+    resetFileInput();
+  };
+  const openDialog = () => {
+    dialog.showModal();
+    window.queueMicrotask(()=>{
+      dropzone.focus();
+    });
+  };
+
+  async function handleFiles(files){
+    if(busy || !files || files.length === 0) return;
+    busy = true;
+    try{
+      await applyBackupFile(files[0]);
+      toast("Imported backup.");
+      closeDialog();
+    }catch(err){
+      console.error(err);
+      toast(err?.message || "Import failed.");
+    }finally{
+      busy = false;
+      resetFileInput();
+    }
+  }
+
+  dropzone.addEventListener("click", ()=>fileInput.click());
+  dropzone.addEventListener("keydown", (event)=>{
+    if(event.key === "Enter" || event.key === " "){
+      event.preventDefault();
+      fileInput.click();
+    }
+  });
+  dropzone.addEventListener("dragover", (event)=>{
+    event.preventDefault();
+    dropzone.classList.add("dragging");
+  });
+  dropzone.addEventListener("dragleave", ()=>{
+    dropzone.classList.remove("dragging");
+  });
+  dropzone.addEventListener("drop", (event)=>{
+    event.preventDefault();
+    dropzone.classList.remove("dragging");
+    handleFiles(event.dataTransfer?.files);
+  });
+
+  fileInput.addEventListener("change", ()=>handleFiles(fileInput.files));
+
+  cancelBtn?.addEventListener("click", ()=>{
+    closeDialog();
+  });
+  dialog.addEventListener("click", (event)=>{
+    if(event.target === dialog) closeDialog();
+  });
+
+  return openDialog;
 }
 
 function wireResetDialog(){
@@ -733,12 +830,18 @@ function wireResetDialog(){
 
 function wireHeader(){
   const openResetDialog = wireResetDialog();
+  const openImportDialog = wireImportDialog();
 
   el("#btnReset").addEventListener("click", ()=>{
     openResetDialog();
   });
 
+  el("#btnImport").addEventListener("click", ()=>{
+    openImportDialog();
+  });
+
   el("#btnExport").addEventListener("click", ()=>{
+    persistState();
     const blob = new Blob([JSON.stringify({ data: DATA, state: STATE }, null, 2)], { type:"application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);

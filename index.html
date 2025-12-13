@@ -19,6 +19,7 @@
       </div>
     </div>
     <div class="top-actions">
+      <button id="btnImport" class="ghost">Import</button>
       <button id="btnExport" class="ghost">Export</button>
       <button id="btnReset" class="ghost danger">Reset</button>
     </div>
@@ -46,6 +47,28 @@
       <div class="modal-actions">
         <button id="resetCancel" type="button" class="ghost" data-focus-default>Cancel</button>
         <button id="resetConfirm" type="button" class="ghost danger">Reset</button>
+      </div>
+    </div>
+  </dialog>
+  <dialog id="importDialog" class="modal" aria-labelledby="importTitle">
+    <div class="modal-card">
+      <h3 id="importTitle">Import backup</h3>
+      <p class="muted" style="margin:0">Restore a backup JSON that was exported from this app.</p>
+      <div class="tiny muted reset-hint">Imports replace your saved progress on this device. Max file size: 1MB.</div>
+      <div id="importDropzone" class="dropzone" role="button" tabindex="0" aria-label="Choose backup file to import">
+        <div>
+          <div class="drop-title">Drag & drop backup JSON</div>
+          <div class="drop-sub">or click to browse for the exported file</div>
+        </div>
+        <div class="drop-action" aria-hidden="true">Browse</div>
+        <input id="importFile" type="file" accept="application/json" />
+      </div>
+      <ul class="tiny muted import-notes">
+        <li>Only backups created via the Export button are accepted.</li>
+        <li>Imported data overwrites current armor levels and inventory totals.</li>
+      </ul>
+      <div class="modal-actions">
+        <button id="importCancel" type="button" class="ghost" data-focus-default>Cancel</button>
       </div>
     </div>
   </dialog>

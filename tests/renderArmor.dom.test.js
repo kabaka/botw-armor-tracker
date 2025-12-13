@@ -52,6 +52,7 @@ function createDOM(){
   document.body.innerHTML = `
     <div id="toast"></div>
     <button id="btnReset"></button>
+    <button id="btnImport"></button>
     <button id="btnExport"></button>
     <nav class="tabs" role="tablist">
       <button class="tab active" data-tab="summary" aria-selected="true">Summary</button>
@@ -76,6 +77,13 @@ function createDOM(){
         </div>
       </div>
     </dialog>
+    <dialog id="importDialog">
+      <div class="modal-card">
+        <div id="importDropzone" tabindex="0"></div>
+        <input id="importFile" type="file" />
+        <button id="importCancel" type="button">Cancel</button>
+      </div>
+    </dialog>
   `;
 
   const dialog = document.querySelector('dialog#resetDialog');
@@ -86,6 +94,16 @@ function createDOM(){
   dialog.close = () => {
     dialog.removeAttribute('open');
     dialog.open = false;
+  };
+
+  const importDialog = document.querySelector('dialog#importDialog');
+  importDialog.showModal = () => {
+    importDialog.setAttribute('open', 'true');
+    importDialog.open = true;
+  };
+  importDialog.close = () => {
+    importDialog.removeAttribute('open');
+    importDialog.open = false;
   };
 }
 
