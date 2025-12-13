@@ -49,6 +49,13 @@ function toast(msg){
   toast._tm = window.setTimeout(()=>t.classList.remove("show"), 2400);
 }
 
+function resetProgress(){
+  STATE = defaultState(DATA);
+  persistState();
+  toast("Reset complete.");
+  render();
+}
+
 function renderInvStepper(mid, value){
   return `
     <div class="stepper">
@@ -677,13 +684,58 @@ function wireTabs(){
   });
 }
 
+function wireResetDialog(){
+  const dialog = el("#resetDialog");
+  const cancelBtn = el("#resetCancel");
+  const confirmBtn = el("#resetConfirm");
+
+  if(!dialog){
+    return () => {
+      if(window.confirm("Reset all progress + inventory? (Dataset remains cached.)")) resetProgress();
+    };
+  }
+
+  if(typeof dialog.showModal !== "function"){
+    dialog.showModal = () => {
+      dialog.setAttribute("open", "true");
+      dialog.open = true;
+    };
+  }
+  if(typeof dialog.close !== "function"){
+    dialog.close = () => {
+      dialog.removeAttribute("open");
+      dialog.open = false;
+    };
+  }
+
+  const closeDialog = () => dialog.close();
+  const openDialog = () => {
+    dialog.showModal();
+    const focusTarget = el("[data-focus-default]", dialog);
+    focusTarget?.focus();
+  };
+
+  cancelBtn?.addEventListener("click", closeDialog);
+  dialog.addEventListener("cancel", (event)=>{
+    event.preventDefault();
+    closeDialog();
+  });
+  dialog.addEventListener("click", (event)=>{
+    if(event.target === dialog) closeDialog();
+  });
+  confirmBtn?.addEventListener("click", ()=>{
+    resetProgress();
+    closeDialog();
+  });
+
+  return openDialog;
+}
+
 function wireHeader(){
+  const openResetDialog = wireResetDialog();
+
   el("#btnReset").addEventListener("click", ()=>{
-    if(!confirm("Reset all progress + inventory? (Dataset remains cached.)")) return;
-    STATE = defaultState(DATA);
-    persistState();
-    toast("Reset complete.");
-    render();
+    openResetDialog();
   });
 
   el("#btnExport").addEventListener("click", ()=>{

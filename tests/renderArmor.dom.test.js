@@ -65,7 +65,28 @@ function createDOM(){
       <section id="view-materials" class="view" data-view="materials"></section>
       <section id="view-about" class="view" data-view="about"></section>
     </main>
+    <dialog id="resetDialog">
+      <div class="modal-card">
+        <h3 id="resetTitle">Reset progress?</h3>
+        <p>This will clear saved progress from this device.</p>
+        <div class="reset-hint">Consider exporting a backup first.</div>
+        <div class="modal-actions">
+          <button id="resetCancel" type="button" data-focus-default>Cancel</button>
+          <button id="resetConfirm" type="button">Reset</button>
+        </div>
+      </div>
+    </dialog>
   `;
+
+  const dialog = document.querySelector('dialog#resetDialog');
+  dialog.showModal = () => {
+    dialog.setAttribute('open', 'true');
+    dialog.open = true;
+  };
+  dialog.close = () => {
+    dialog.removeAttribute('open');
+    dialog.open = false;
+  };
 }
 
 function createStorage(){
@@ -201,6 +222,28 @@ describe('renderArmor DOM behaviors', () => {
 
     const filteredNames = getMaterialNames();
     expect(filteredNames).toEqual(['Molduga Guts']);
+  });
+
+  it('asks for confirmation before clearing progress', () => {
+    const { storage } = setup();
+    document.querySelector('.acc-head').click();
+    document.querySelector('button.step[data-kind="inc"][data-mid="mat1"]').click();
+
+    const resetBtn = document.querySelector('#btnReset');
+    const dialog = document.querySelector('#resetDialog');
+    const confirmBtn = document.querySelector('#resetConfirm');
+
+    resetBtn.click();
+
+    const savedBefore = JSON.parse(storage.getItem(LS_STATE));
+    expect(dialog.open).toBe(true);
+    expect(savedBefore.inventory.mat1).toBe(1);
+
+    confirmBtn.click();
+
+    const savedAfter = JSON.parse(storage.getItem(LS_STATE));
+    expect(savedAfter.inventory.mat1).toBe(0);
+    expect(dialog.open).toBe(false);
   });
 
   it('saves material view preferences to storage', () => {
