@@ -63,6 +63,11 @@ function saveState(){
   localStorage.setItem(LS_STATE, JSON.stringify(STATE));
 }
 
+function setDataStateForTests(data, state){
+  DATA = data;
+  STATE = state;
+}
+
 function validateData(data){
   return data
     && data.schemaVersion === 1
@@ -133,6 +138,17 @@ function counts(){
   const totalLevels = DATA.armorPieces.length * 4;
   return { remainingReq, completedLevels, totalLevels };
 }
+
+export {
+  clampInt,
+  counts,
+  defaultState,
+  ensureStateAligned,
+  migrateOldStateIfNeeded,
+  setDataStateForTests,
+  sumRemainingRequirements,
+  validateData
+};
 
 
 function renderInvStepper(mid, value){
@@ -1255,7 +1271,9 @@ async function init(){
   render();
 }
 
-init().catch(err=>{
-  console.error(err);
-  alert("Failed to initialize app. Check console for details.");
-});
+if (typeof window !== "undefined" && typeof document !== "undefined") {
+  init().catch(err=>{
+    console.error(err);
+    alert("Failed to initialize app. Check console for details.");
+  });
+}
