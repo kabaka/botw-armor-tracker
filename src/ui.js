@@ -472,14 +472,13 @@ function renderMaterials(){
     const remaining = Number(remainingReq.get(mid) || 0);
     const have = Number(STATE.inventory[mid] || 0);
     const diff = have - remaining;
-    const badge = tr.querySelector(".badge");
-    if(badge){
+    tr.querySelectorAll(".badge").forEach(badge => {
       badge.outerHTML = diff >= 0
-        ? `<span class="badge ok"><b>OK</b> <span>+${diff}</span></span>`
-        : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
-    }
-    const remCell = tr.querySelector("td:nth-child(2)");
-    if(remCell) remCell.textContent = String(remaining);
+        ? `<span class=\"badge ok\"><b>OK</b> <span>+${diff}</span></span>`
+        : `<span class=\"badge bad\"><b>NEED</b> <span>${-diff}</span></span>`;
+    });
+    const remValue = tr.querySelector(".mat-col-value");
+    if(remValue) remValue.textContent = String(remaining);
   };
 
   tbl.addEventListener("input", (e)=>{
