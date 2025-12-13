@@ -310,6 +310,24 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   background:linear-gradient(135deg, rgba(244,211,94,.22), rgba(57,214,197,.12));
   border-color:rgba(244,211,94,.6);
 }
+.level-controls{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:14px 0 12px;
+}
+.level-buttons{display:flex; gap:8px; flex-wrap:wrap;}
+.show-levels-toggle{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:var(--muted);
+}
+.show-levels-toggle input{accent-color:rgba(57,214,197,.8)}
+.level-note{margin-top:-6px;}
+.level-stars{letter-spacing:2px; font-weight:700;}
 
 .badge{
   display:inline-flex; align-items:center; gap:8px;
