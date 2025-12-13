@@ -350,9 +350,13 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   cursor:pointer;
 }
 .dropzone:hover{border-color:rgba(57,214,197,.7)}
+.dropzone.dragging{border-color:rgba(57,214,197,.9); background:rgba(57,214,197,.05);}
 .dropzone input{display:none}
 .drop-title{font-weight:750}
 .drop-sub{font-size:12px; color:var(--muted); margin-top:2px}
+.drop-action{margin-left:auto; color:var(--accent2); font-weight:700}
+.import-notes{margin:10px 0 0 18px; color:var(--muted);}
+.import-notes li{margin-bottom:4px}
 .details{margin-top:10px}
 .details summary{cursor:pointer; color:var(--accent2)}
 .details-body{padding-top:8px}
