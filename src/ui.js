@@ -196,8 +196,6 @@ function renderArmor(){
   const view = el("#view-armor");
   const categories = groupBy(DATA.armorPieces, p => p.setCategory || "Unsorted");
 
-  const { remainingReq } = counts(DATA, STATE);
-
   view.innerHTML = `
     <div class="search">
       <input id="armorSearch" placeholder="Search armor pieces or sets…" />
@@ -262,6 +260,15 @@ function renderArmor(){
       return;
     }
 
+    const showAllToggle = t.closest("input[data-kind='toggleAllLevels']");
+    if(showAllToggle){
+      STATE.ui.showAllLevels = Boolean(showAllToggle.checked);
+      persistState();
+      preserveOpenState();
+      render();
+      return;
+    }
+
     const lvlBtn = t.closest("button[data-kind='setLvl']");
     if(lvlBtn){
       const pid = lvlBtn.dataset.piece;
@@ -275,7 +282,10 @@ function renderArmor(){
           b.classList.toggle("active", b.dataset.lvl === String(lvl));
         }
         const pill = group.querySelector("[data-kind='lvlPill']");
-        if(pill) pill.textContent = `Lv${lvl}`;
+        if(pill){
+          pill.textContent = renderLevelStars(lvl);
+          pill.setAttribute("aria-label", `Level ${lvl}`);
+        }
       }
 
       preserveOpenState();
@@ -312,9 +322,17 @@ function renderArmor(){
   });
 }
 
+function renderLevelStars(level){
+  const maxStars = 4;
+  const safeLevel = Math.max(0, Math.min(maxStars, Number(level) || 0));
+  return Array.from({ length: maxStars }, (_, i) => (i < safeLevel ? "★" : "☆")).join(" ");
+}
+
 function renderPiece(p){
   const lvl = clampInt(STATE.levels[p.id] ?? 0);
   const pillClass = lvl===4 ? "ok" : (lvl===0 ? "bad" : "warn");
+  const showAllLevels = Boolean(STATE.ui?.showAllLevels);
+  const pursuedLevel = lvl >= 4 ? null : lvl + 1;
 
   const src = SOURCES[p.id];
   const srcRegions = src?.regions?.length ? src.regions.join(" • ") : "";
@@ -334,57 +352,98 @@ function renderPiece(p){
   const matNameToId = new Map(DATA.materials.map(m => [m.name, m.id]));
   const matIdToName = new Map(DATA.materials.map(m => [m.id, m.name]));
   const matById = new Map(DATA.materials.map(m => [m.id, m]));
+  const materialsByLevel = new Map();
 
   for(const [lvlStr, arr] of Object.entries(p.materialsByLevel || {})){
     const lid = Number(lvlStr);
     for(const obj of arr){
-      materials.push({
+      const material = {
         lvl: lid,
         id: matNameToId.get(obj.material) || obj.material,
         name: matIdToName.get(matNameToId.get(obj.material)) || obj.material,
         qty: Number(obj.qty || obj.quantity || 0)
-      });
+      };
+      materials.push(material);
+      if(!materialsByLevel.has(lid)) materialsByLevel.set(lid, []);
+      materialsByLevel.get(lid).push(material);
     }
   }
 
-  const { remainingReq } = counts(DATA, STATE);
-  const bodyHtml = materials.length ? `
-    <table class="table lvl-table">
-      <thead>
-        <tr><th>Level</th><th>Materials</th></tr>
-      </thead>
-      <tbody>
-        ${materials.sort((a,b)=>a.lvl-b.lvl).map(m=>{
-          const inv = Number(STATE.inventory[m.id] || 0);
-          const needed = Number(remainingReq.get(m.id) || 0);
-          const diff = inv - needed;
-          const material = matById.get(m.id);
-          const acquisition = renderMaterialAcquisitionInline(material);
-          const badge = diff >= 0
-            ? `<span class="badge ok"><b>OK</b> <span>+${diff}</span></span>`
-            : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
-          const pill = STATE.levels[p.id] >= m.lvl
-            ? `<span class="pill ok">Paid</span>`
-            : `<span class="pill warn">Unpaid</span>`;
-          return `
-            <tr>
-              <td>
-                Lv${m.lvl}
-                ${pill}
-              </td>
-              <td>
-                <div class="muted">${m.qty}× ${escapeHtml(m.name)} ${acquisition}</div>
-                <div class="inv-inline armor-mat-row">
-                  <div class="tiny muted" aria-hidden="true">Inventory</div>
-                  ${renderInvStepper(m.id, inv)}
-                  ${badge}
-                </div>
-              </td>
-            </tr>`;
-        }).join("")}
-      </tbody>
-    </table>
-  ` : ``;
+  const levelStates = new Map();
+  for(const [level, mats] of materialsByLevel.entries()){
+    const done = lvl >= level;
+    const ready = !done && mats.every(m => (Number(STATE.inventory[m.id] || 0) >= m.qty));
+    levelStates.set(level, { done, ready });
+  }
+
+  const levelButtonsHtml = `
+    <div class="btn-group level-buttons" data-levelgroup="${p.id}">
+      ${[0,1,2,3,4].map(i=>`<button data-kind="setLvl" data-piece="${p.id}" data-lvl="${i}" class="${lvl===i ? "active" : ""}">Lv${i}</button>`).join("")}
+    </div>
+  `;
+
+  const showAllToggle = materialsByLevel.size > 1
+    ? `<label class="tiny muted show-levels-toggle"><input type="checkbox" data-kind="toggleAllLevels" ${showAllLevels ? "checked" : ""} /> Show all levels</label>`
+    : "";
+
+  const visibleLevels = showAllLevels
+    ? Array.from(materialsByLevel.keys()).sort((a,b)=>a-b)
+    : (pursuedLevel ? [pursuedLevel] : []);
+
+  const visibleMaterials = materials
+    .sort((a,b)=>a.lvl-b.lvl)
+    .filter(m => visibleLevels.includes(m.lvl));
+
+  const controlsHtml = `<div class="level-controls row between">${levelButtonsHtml}${showAllToggle}</div>`;
+
+  let materialsHtml = "";
+  if(visibleMaterials.length){
+    materialsHtml = `
+      <table class="table lvl-table">
+        <thead>
+          <tr><th>Level</th><th>Materials</th></tr>
+        </thead>
+        <tbody>
+          ${visibleMaterials.map(m=>{
+            const inv = Number(STATE.inventory[m.id] || 0);
+            const diff = inv - m.qty;
+            const material = matById.get(m.id);
+            const acquisition = renderMaterialAcquisitionInline(material);
+            const badge = diff >= 0
+              ? `<span class="badge ok"><b>HAVE</b> <span>+${diff}</span></span>`
+              : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
+            const { done, ready } = levelStates.get(m.lvl) || {};
+            const pill = done
+              ? `<span class="pill ok">Done</span>`
+              : ready
+                ? `<span class="pill warn">Have materials</span>`
+                : `<span class="pill bad">Need materials</span>`;
+            return `
+              <tr>
+                <td>
+                  Lv${m.lvl}
+                  ${pill}
+                </td>
+                <td>
+                  <div class="muted">${m.qty}× ${escapeHtml(m.name)} ${acquisition}</div>
+                  <div class="inv-inline armor-mat-row">
+                    <div class="tiny muted" aria-hidden="true">Inventory</div>
+                    ${renderInvStepper(m.id, inv)}
+                    ${badge}
+                  </div>
+                </td>
+              </tr>`;
+          }).join("")}
+        </tbody>
+      </table>
+    `;
+  }else if(materials.length){
+    const note = pursuedLevel === null
+      ? "Fully upgraded."
+      : "No material requirements for the selected level.";
+    const toggleHint = showAllToggle && !showAllLevels ? " Enable \"Show all levels\" to review past upgrades." : "";
+    materialsHtml = `<div class="muted tiny level-note">${note}${toggleHint}</div>`;
+  }
 
   const searchText = [p.name, p.setName, p.setCategory, p.slot, (p.tags||[]).join(" ")]
     .filter(Boolean).join(" ").toLowerCase();
@@ -398,17 +457,15 @@ function renderPiece(p){
           ${p.setName ? `<div class="muted">${escapeHtml(p.setName)}</div>` : ""}
           ${srcHtml}
         </div>
-        <div class="pill ${pillClass}" data-kind="lvlPill" data-piece="${p.id}">Lv${lvl}</div>
+        <div class="pill level-stars ${pillClass}" data-kind="lvlPill" data-piece="${p.id}" aria-label="Level ${lvl}">${renderLevelStars(lvl)}</div>
       </div>
 
       ${p.effect ? `<div class="muted tiny">${escapeHtml(p.effect)}</div>` : ""}
       <div class="muted tiny">${escapeHtml(p.description || "")}</div>
 
-      <div class="btn-group" data-levelgroup="${p.id}" style="margin-top:8px">
-        ${[0,1,2,3,4].map(i=>`<button data-kind="setLvl" data-piece="${p.id}" data-lvl="${i}" class="${lvl===i ? "active" : ""}">Lv${i}</button>`).join("")}
-      </div>
+      ${controlsHtml}
 
-      ${bodyHtml}
+      ${materialsHtml}
     </div>
   `;
 }

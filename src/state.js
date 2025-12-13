@@ -10,6 +10,7 @@ function defaultUIState(){
   return {
     openCats: [],
     openPieces: [],
+    showAllLevels: false,
     materials: {
       deficitsOnly: false,
       sort: "needed"
@@ -112,6 +113,7 @@ function ensureStateAligned(data, state){
   state.ui ||= defaultUIState();
   state.ui.openCats ||= [];
   state.ui.openPieces ||= [];
+  if(typeof state.ui.showAllLevels !== "boolean") state.ui.showAllLevels = false;
   state.ui.materials ||= defaultUIState().materials;
   if(!["needed", "alpha", "category"].includes(state.ui.materials.sort)){
     state.ui.materials.sort = "needed";
