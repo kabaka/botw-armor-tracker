@@ -774,7 +774,6 @@ function renderArmor(){
   view.innerHTML = `
     <div class="search">
       <input id="armorSearch" placeholder="Search armor pieces or sets…" />
-      <span class="pill">Offline-ready</span>
     </div>
     <div id="armorAccordions"></div>
   `;
@@ -1000,7 +999,6 @@ function renderMaterials(){
   view.innerHTML = `
     <div class="search">
       <input id="matSearch" placeholder="Search materials…" />
-      <span class="pill">Inventory saved</span>
     </div>
 
     <div class="card">
@@ -1131,24 +1129,24 @@ function renderAbout(){
       </div>
 
       <div class="card">
-        <h3>Data loading options</h3>
+        <h3>Saving & backups</h3>
         <p class="muted">
-          This app loads its dataset from <span style="font-family:var(--mono)">${escapeHtml(DATA_PATH)}</span>.
-          To switch to “load from URL”, edit <span style="font-family:var(--mono)">app.js</span>:
+          Your armor levels and material counts live entirely on this device (in your browser’s storage). There are no accounts or cloud sync, so clearing site data will remove your progress here.
         </p>
-        <pre style="white-space:pre-wrap; font-family:var(--mono); font-size:12px; color:#cfeff1; background:rgba(0,0,0,.25); border:1px solid var(--line); padding:10px 12px; border-radius:18px">
-const DATA_URL = "https://example.com/botw_armor_data.json";</pre>
-        <p class="muted tiny">
-          First-run behavior: if local storage has <i>no</i> dataset yet, it will fetch from that URL and store it.
+        <p class="muted">
+          Use the <b>Export</b> button in the header to download a backup file that includes your saved progress and the dataset. Keep it somewhere safe if you plan to switch browsers or clear storage.
         </p>
+        <p class="muted tiny">Tip: the exported JSON is a readable snapshot of your current armor levels and inventory totals.</p>
       </div>
     </div>
 
     <div class="card" style="margin-top:12px">
-      <h3>Upgrade model</h3>
-      <p class="muted">
-        Each armor piece has a <b>current level (0–4)</b>. Remaining material totals are computed from levels above your current level.
-      </p>
+      <h3>How upgrade totals are calculated</h3>
+      <ul class="muted">
+        <li><b>Levels 0–4:</b> set the level you have already upgraded to. Level 0 means unupgraded; level 4 is maxed out.</li>
+        <li><b>Remaining materials:</b> the materials list sums every upgrade cost above your current level for each piece.</li>
+        <li><b>Inventory check:</b> your recorded inventory is subtracted from those totals, showing what you still need to gather.</li>
+      </ul>
     </div>
   `;
 }
