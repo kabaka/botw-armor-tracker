@@ -59,8 +59,8 @@ jobs:
       - name: Prepare site content
         run: |
           mkdir -p dist
-          cp index.html app.js styles.css manifest.json sw.js botw_armor_data.json dist/
-          cp -r icons dist/
+          cp index.html app.js styles.css manifest.json sw.js dist/
+          cp -r icons data dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
