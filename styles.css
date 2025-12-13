@@ -368,6 +368,65 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   flex-wrap: wrap;
 }
 
+@media (max-width: 640px){
+  .lvl-table{
+    display:block;
+    border:none;
+    background:transparent;
+  }
+
+  .lvl-table thead{display:none;}
+
+  .lvl-table tbody{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .lvl-table tr{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:10px;
+    background:rgba(255,255,255,.02);
+  }
+
+  .lvl-table td{
+    padding:0;
+    border-bottom:none;
+  }
+
+  .lvl-table td:first-child{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+  }
+
+  .armor-mat-row{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    width:100%;
+  }
+
+  .armor-mat-row .badge{align-self:flex-start;}
+
+  .inv-inline .stepper input{
+    width:100%;
+    max-width:160px;
+  }
+
+  .mat-acq-inline{
+    display:block;
+    margin-left:0;
+    margin-top:4px;
+    white-space:normal;
+  }
+}
+
 /* Armor acquisition line */
 .armor-src{
   margin-top: 4px;
