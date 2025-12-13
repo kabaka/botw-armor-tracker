@@ -85,6 +85,10 @@ function setup({ materialSources = {} } = {}){
   return { storage, state };
 }
 
+function getMaterialNames(){
+  return Array.from(document.querySelectorAll('#matTable tbody tr .mat-name b')).map((el) => el.textContent);
+}
+
 describe('renderArmor DOM behaviors', () => {
   it('switches tabs and view visibility when a tab is clicked', () => {
     setup();
@@ -178,5 +182,42 @@ describe('renderArmor DOM behaviors', () => {
     const labelAfter = row.querySelector('.mat-col-label');
     expect(labelAfter).not.toBeNull();
     expect(labelAfter.textContent).toContain('Remaining');
+  });
+
+  it('filters to deficits and sorts after filtering', () => {
+    setup();
+    const matTab = document.querySelector('button[data-tab="materials"]');
+    matTab.click();
+
+    const mat1Input = document.querySelector('input[data-kind="inv"][data-mid="mat1"]');
+    mat1Input.value = '5';
+    mat1Input.dispatchEvent(new Event('input', { bubbles: true }));
+
+    const namesByNeed = getMaterialNames();
+    expect(namesByNeed[0]).toBe('Molduga Guts');
+
+    const deficitsToggle = document.querySelector('#matDeficitsOnly');
+    deficitsToggle.click();
+
+    const filteredNames = getMaterialNames();
+    expect(filteredNames).toEqual(['Molduga Guts']);
+  });
+
+  it('saves material view preferences to storage', () => {
+    const { storage } = setup();
+    const matTab = document.querySelector('button[data-tab="materials"]');
+    matTab.click();
+
+    const sortSelect = document.querySelector('#matSort');
+    sortSelect.value = 'alpha';
+    sortSelect.dispatchEvent(new Event('change', { bubbles: true }));
+
+    const deficitsToggle = document.querySelector('#matDeficitsOnly');
+    deficitsToggle.checked = true;
+    deficitsToggle.dispatchEvent(new Event('change', { bubbles: true }));
+
+    const saved = JSON.parse(storage.getItem(LS_STATE));
+    expect(saved.ui.materials.sort).toBe('alpha');
+    expect(saved.ui.materials.deficitsOnly).toBe(true);
   });
 });

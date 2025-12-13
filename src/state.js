@@ -6,6 +6,17 @@ const DEFAULT_SOURCES_PATH = "./data/armor_sources.json";
 const DEFAULT_MATERIAL_SOURCES_PATH = "./data/material_sources.json";
 const DEFAULT_DATA_URL = null; // optional remote dataset override
 
+function defaultUIState(){
+  return {
+    openCats: [],
+    openPieces: [],
+    materials: {
+      deficitsOnly: false,
+      sort: "needed"
+    }
+  };
+}
+
 function resolveStorage(storage){
   if(storage) return storage;
   if(typeof localStorage !== "undefined") return localStorage;
@@ -48,7 +59,7 @@ function defaultState(data){
     schemaVersion: 2,
     levels,
     inventory,
-    ui: { openCats: [], openPieces: [] },
+    ui: defaultUIState(),
     lastUpdated: new Date().toISOString()
   };
 }
@@ -76,11 +87,15 @@ function migrateOldStateIfNeeded(state){
       }
       levels[pid] = lvl;
     }
+    const uiDefaults = defaultUIState();
+    const nextUI = state.ui
+      ? { ...uiDefaults, ...state.ui, materials: { ...uiDefaults.materials, ...(state.ui.materials || {}) } }
+      : uiDefaults;
     return {
       schemaVersion: 2,
       levels,
       inventory: state.inventory || {},
-      ui: state.ui || { openCats: [], openPieces: [] },
+      ui: nextUI,
       lastUpdated: state.lastUpdated || new Date().toISOString()
     };
   }
@@ -94,9 +109,14 @@ function ensureStateAligned(data, state){
   for(const m of data.materials){
     if(!(m.id in state.inventory)) state.inventory[m.id] = 0;
   }
-  state.ui ||= { openCats: [], openPieces: [] };
+  state.ui ||= defaultUIState();
   state.ui.openCats ||= [];
   state.ui.openPieces ||= [];
+  state.ui.materials ||= defaultUIState().materials;
+  if(!["needed", "alpha", "category"].includes(state.ui.materials.sort)){
+    state.ui.materials.sort = "needed";
+  }
+  state.ui.materials.deficitsOnly = Boolean(state.ui.materials.deficitsOnly);
 }
 
 function clampInt(v){

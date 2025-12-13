@@ -9,6 +9,8 @@ let SOURCES;
 let MATERIAL_SOURCES;
 let STORAGE;
 
+const MATERIALS_SORTS = ["needed", "alpha", "category"];
+
 function initUI({ data, state, sources, materialSources, storage }){
   DATA = data;
   STATE = state;
@@ -27,6 +29,16 @@ function getStorage(){
 
 function persistState(){
   saveState(STATE, getStorage());
+}
+
+function ensureMaterialsUIState(hasCategoryOption = false){
+  STATE.ui ||= {};
+  STATE.ui.materials ||= { deficitsOnly: false, sort: "needed" };
+  if(!MATERIALS_SORTS.includes(STATE.ui.materials.sort) || (!hasCategoryOption && STATE.ui.materials.sort === "category")){
+    STATE.ui.materials.sort = "needed";
+  }
+  STATE.ui.materials.deficitsOnly = Boolean(STATE.ui.materials.deficitsOnly);
+  return STATE.ui.materials;
 }
 
 function toast(msg){
@@ -413,11 +425,28 @@ function renderMaterialAcquisitionInline(material){
 
 function renderMaterials(){
   const view = el("#view-materials");
-  const remainingReq = sumRemainingRequirements(DATA, STATE);
+  const hasCategoryOption = DATA.materials.some(m => !!m.category);
+  const matUI = ensureMaterialsUIState(hasCategoryOption);
 
   view.innerHTML = `
-    <div class="search">
-      <input id="matSearch" placeholder="Search materials…" />
+    <div class="materials-toolbar">
+      <div class="search" style="margin-bottom:0">
+        <input id="matSearch" placeholder="Search materials…" />
+      </div>
+      <div class="mat-view-controls">
+        <label class="tiny muted mat-toggle">
+          <input type="checkbox" id="matDeficitsOnly" ${matUI.deficitsOnly ? "checked" : ""} />
+          Deficits only
+        </label>
+        <label class="tiny muted mat-sort">
+          Sort
+          <select id="matSort">
+            <option value="needed">Most needed</option>
+            <option value="alpha">A–Z</option>
+            ${hasCategoryOption ? `<option value="category">Category</option>` : ""}
+          </select>
+        </label>
+      </div>
     </div>
 
     <div class="card">
@@ -429,57 +458,80 @@ function renderMaterials(){
           <thead>
             <tr><th>Material</th><th>Remaining</th><th>Inventory</th><th>Status</th></tr>
           </thead>
-          <tbody>
-            ${DATA.materials.map(m=>{
-              const rem = Number(remainingReq.get(m.id) || 0);
-              const inv = Number(STATE.inventory[m.id] || 0);
-              const diff = inv - rem;
-              const badge = diff >= 0
-                ? `<span class="badge ok"><b>OK</b> <span>+${diff}</span></span>`
-                : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
-              const acquisition = renderMaterialAcquisition(m);
-              return `
-                <tr data-mid="${m.id}" data-search="${escapeHtml((m.tags||[]).concat([m.name, acquisition.searchText]).join(" ").toLowerCase())}">
-                  <td class="mat-main">
-                    <div class="mat-row-top">
-                      <div class="mat-name"><b>${escapeHtml(m.name)}</b></div>
-                      <span class="mat-status mat-status-mobile">${badge}</span>
-                    </div>
-                    ${acquisition.html}
-                  </td>
-                  <td class="mat-remaining">
-                    <div class="mat-col-label tiny muted">Remaining</div>
-                    <div class="mat-col-value">${rem}</div>
-                  </td>
-                  <td class="mat-inventory">
-                    <div class="mat-col-label tiny muted">Inventory</div>
-                    ${renderInvStepper(m.id, inv)}
-                  </td>
-                  <td class="mat-status mat-status-desktop">${badge}</td>
-                </tr>`;
-            }).join("")}
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </div>
   `;
 
   const tbl = el("#matTable");
+  const tbody = tbl.querySelector("tbody");
+  const search = el("#matSearch");
+  const deficitsToggle = el("#matDeficitsOnly");
+  const sortSelect = el("#matSort");
 
-  const updateRow = (mid)=>{
-    const tr = tbl.querySelector(`tr[data-mid='${cssEscape(mid)}']`);
-    if(!tr) return;
-    const remaining = Number(remainingReq.get(mid) || 0);
-    const have = Number(STATE.inventory[mid] || 0);
-    const diff = have - remaining;
-    tr.querySelectorAll(".badge").forEach(badge => {
-      badge.outerHTML = diff >= 0
-        ? `<span class=\"badge ok\"><b>OK</b> <span>+${diff}</span></span>`
-        : `<span class=\"badge bad\"><b>NEED</b> <span>${-diff}</span></span>`;
-    });
-    const remValue = tr.querySelector(".mat-col-value");
-    if(remValue) remValue.textContent = String(remaining);
-  };
+  if(sortSelect){
+    const validSort = matUI.sort && Array.from(sortSelect.options).some(o => o.value === matUI.sort);
+    sortSelect.value = validSort ? matUI.sort : "needed";
+  }
+
+  function renderTable(){
+    const remainingReq = sumRemainingRequirements(DATA, STATE);
+    const settings = ensureMaterialsUIState(hasCategoryOption);
+    if(sortSelect && sortSelect.value !== settings.sort){
+      settings.sort = MATERIALS_SORTS.includes(sortSelect.value) ? sortSelect.value : "needed";
+    }
+    const q = search?.value.trim().toLowerCase() || "";
+
+    const rows = DATA.materials
+      .map(m => {
+        const rem = Number(remainingReq.get(m.id) || 0);
+        const inv = Number(STATE.inventory[m.id] || 0);
+        const diff = inv - rem;
+        const needed = Math.max(0, rem - inv);
+        const badge = diff >= 0
+          ? `<span class="badge ok"><b>OK</b> <span>+${diff}</span></span>`
+          : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
+        const acquisition = renderMaterialAcquisition(m);
+        const searchText = (m.tags || []).concat([m.name, acquisition.searchText]).join(" ").toLowerCase();
+        return { m, rem, inv, needed, badge, acquisition, searchText };
+      })
+      .filter(({ needed, searchText }) => {
+        if(settings.deficitsOnly && needed <= 0) return false;
+        if(q && !searchText.includes(q)) return false;
+        return true;
+      })
+      .sort((a, b) => {
+        if(settings.sort === "alpha") return a.m.name.localeCompare(b.m.name);
+        if(settings.sort === "category"){
+          return (a.m.category || "").localeCompare(b.m.category || "") || a.m.name.localeCompare(b.m.name);
+        }
+        return b.needed - a.needed || a.m.name.localeCompare(b.m.name);
+      });
+
+    tbody.innerHTML = rows.map(({ m, rem, inv, badge, acquisition }) => `
+      <tr data-mid="${m.id}">
+        <td class="mat-main">
+          <div class="mat-row-top">
+            <div class="mat-name"><b>${escapeHtml(m.name)}</b></div>
+            <span class="mat-status mat-status-mobile">${badge}</span>
+          </div>
+          ${acquisition.html}
+        </td>
+        <td class="mat-remaining">
+          <div class="mat-col-label tiny muted">Remaining</div>
+          <div class="mat-col-value">${rem}</div>
+        </td>
+        <td class="mat-inventory">
+          <div class="mat-col-label tiny muted">Inventory</div>
+          ${renderInvStepper(m.id, inv)}
+        </td>
+        <td class="mat-status mat-status-desktop">${badge}</td>
+      </tr>
+    `).join("");
+  }
+
+  renderTable();
 
   tbl.addEventListener("input", (e)=>{
     const t = e.target;
@@ -491,7 +543,7 @@ function renderMaterials(){
       STATE.inventory[mid] = v;
       persistState();
 
-      updateRow(mid);
+      renderTable();
       renderSummary();
     }
   });
@@ -511,17 +563,27 @@ function renderMaterials(){
     const input = tbl.querySelector(`input[data-kind='inv'][data-mid='${cssEscape(mid)}']`);
     if(input) input.value = String(next);
 
-    updateRow(mid);
+    renderTable();
     renderSummary();
   });
 
-  const search = el("#matSearch");
-  search.addEventListener("input", ()=>{
-    const q = search.value.trim().toLowerCase();
-    for(const tr of Array.from(tbl.querySelectorAll("tbody tr"))){
-      const hay = tr.dataset.search || "";
-      tr.style.display = (!q || hay.includes(q)) ? "" : "none";
-    }
+  search?.addEventListener("input", ()=>{
+    renderTable();
+  });
+
+  deficitsToggle?.addEventListener("change", ()=>{
+    const settings = ensureMaterialsUIState(hasCategoryOption);
+    settings.deficitsOnly = Boolean(deficitsToggle.checked);
+    persistState();
+    renderTable();
+  });
+
+  sortSelect?.addEventListener("change", ()=>{
+    const settings = ensureMaterialsUIState(hasCategoryOption);
+    settings.sort = MATERIALS_SORTS.includes(sortSelect.value) ? sortSelect.value : "needed";
+    sortSelect.value = settings.sort;
+    persistState();
+    renderTable();
   });
 }
 

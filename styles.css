@@ -164,6 +164,24 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 }
 .search input:focus{border-color:rgba(57,214,197,.7)}
 
+.materials-toolbar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.materials-toolbar .search{flex:1; min-width:200px; margin-bottom:0}
+.mat-view-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; white-space:nowrap}
+.mat-view-controls select{
+  background:rgba(255,255,255,.03);
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:6px 8px;
+}
+.mat-view-controls input[type='checkbox']{accent-color:#39d6c5}
+
 .accordion{
   border:1px solid var(--line);
   border-radius:var(--radius2);
