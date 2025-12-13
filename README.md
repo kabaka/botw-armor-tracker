@@ -6,6 +6,7 @@ A lightweight, offline-friendly tracker for managing armor sets, upgrades, and m
 - Browse armor sets and individual pieces with icons and descriptions.
 - Track upgrade progress and required materials for each level.
 - Adjust material inventory directly from armor upgrade details or the Materials tab.
+- See concise acquisition tips for materials to quickly restock what you need.
 - Works offline using a service worker and cached assets.
 - Installable as a Progressive Web App (PWA).
 
@@ -32,10 +33,11 @@ A lightweight, offline-friendly tracker for managing armor sets, upgrades, and m
   - `app.js`: bootstrap that wires state loading to the UI layer.
   - `src/state.js`: data loading, validation, and local state helpers.
   - `src/ui.js`: rendering logic and in-browser interactions.
-  - `styles.css`: global styling and layout.
-  - `sw.js`: service worker for caching assets.
+- `styles.css`: global styling and layout.
+- `sw.js`: service worker for caching assets.
 - `data/botw_armor_data.json`: armor data source.
 - `data/armor_sources.json`: curated acquisition info shown in the UI.
+- `data/material_sources.json`: concise acquisition locations and notes for materials.
 - Use modern browsers for development and testing; no build step is required.
 
 ## Testing

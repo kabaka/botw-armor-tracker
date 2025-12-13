@@ -28,6 +28,7 @@ const SAMPLE_DATA = {
 };
 
 const SAMPLE_SOURCES = { 'piece-1': { where: 'Test' } };
+const SAMPLE_MATERIAL_SOURCES = { 'mat-a': { where: 'Found near town' } };
 
 function createMemoryStorage(initial = {}){
   const store = { ...initial };
@@ -47,7 +48,11 @@ describe('loadArmorData', () => {
 
   beforeEach(() => {
     fetchMock = vi.fn(async (url) => {
-      const payload = url.includes('sources') ? SAMPLE_SOURCES : SAMPLE_DATA;
+      const payload = url.includes('material')
+        ? SAMPLE_MATERIAL_SOURCES
+        : url.includes('sources')
+          ? SAMPLE_SOURCES
+          : SAMPLE_DATA;
       return new Response(JSON.stringify(payload), { status: 200, headers: { 'content-type': 'application/json' } });
     });
     vi.stubGlobal('fetch', fetchMock);
@@ -63,7 +68,8 @@ describe('loadArmorData', () => {
 
     expect(result.data.armorPieces).toHaveLength(1);
     expect(result.sources).toEqual(SAMPLE_SOURCES);
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(result.materialSources).toEqual(SAMPLE_MATERIAL_SOURCES);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(fetchMock).toHaveBeenCalledWith('/sources.json', { cache: 'no-store' });
   });
 
@@ -72,8 +78,9 @@ describe('loadArmorData', () => {
     const result = await loadArmorData({ dataPath: '/data.json', sourcesPath: '/sources.json', storage });
 
     expect(result.data).toEqual(SAMPLE_DATA);
+    expect(result.materialSources).toEqual(SAMPLE_MATERIAL_SOURCES);
     expect(JSON.parse(storage.getItem(LS_DATA))).toEqual(SAMPLE_DATA);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 });
 
