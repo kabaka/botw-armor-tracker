@@ -265,6 +265,54 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 .mat-status-mobile{display:none;}
 .mat-col-label{display:none;}
 .mat-col-value{font-weight:750;}
+.lvl-head-row td{
+  background: rgba(255,255,255,0.02);
+}
+.level-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.level-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  letter-spacing:0.02em;
+}
+.level-status-wrap{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.level-status-wrap .badge{margin:0;}
+.mat-row td{vertical-align:top;}
+.mat-line{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.mat-qty{
+  font-weight:700;
+  color:var(--muted);
+}
+.mat-meta{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4;
+}
+.mat-meta .mat-acq-inline{
+  margin:0;
+  display:block;
+  white-space:normal;
+}
 .table th{font-size:12px; color:var(--muted); font-weight:650}
 .table tr:last-child td{border-bottom:none}
 .qty{
@@ -526,21 +574,22 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   }
 
   .lvl-table thead{display:none;}
-
-  .lvl-table tbody{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-
-  .lvl-table tr{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+  .lvl-table tbody.level-block{
+    display:block;
     border:1px solid var(--line);
     border-radius:16px;
     padding:10px;
     background:rgba(255,255,255,.02);
+  }
+
+  .lvl-table tbody.level-block + tbody.level-block{margin-top:10px;}
+
+  .lvl-table tbody.level-block tr{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    border:none;
+    padding:0;
   }
 
   .lvl-table td{
@@ -548,11 +597,10 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
     border-bottom:none;
   }
 
-  .lvl-table td:first-child{
+  .lvl-table .mat-row td:first-child{
     display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:700;
+    flex-direction:column;
+    gap:6px;
   }
 
   .armor-mat-row{

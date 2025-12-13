@@ -390,51 +390,73 @@ function renderPiece(p){
     ? Array.from(materialsByLevel.keys()).sort((a,b)=>a-b)
     : (pursuedLevel ? [pursuedLevel] : []);
 
-  const visibleMaterials = materials
-    .sort((a,b)=>a.lvl-b.lvl)
-    .filter(m => visibleLevels.includes(m.lvl));
-
   const controlsHtml = `<div class="level-controls row between">${levelButtonsHtml}${showAllToggle}</div>`;
 
   let materialsHtml = "";
-  if(visibleMaterials.length){
+  if(visibleLevels.length){
+    const tableHead = showAllLevels ? `
+      <thead>
+        <tr><th>Level</th><th>Materials</th></tr>
+      </thead>` : "";
+
     materialsHtml = `
       <table class="table lvl-table">
-        <thead>
-          <tr><th>Level</th><th>Materials</th></tr>
-        </thead>
-        <tbody>
-          ${visibleMaterials.map(m=>{
-            const inv = Number(STATE.inventory[m.id] || 0);
-            const diff = inv - m.qty;
-            const material = matById.get(m.id);
-            const acquisition = renderMaterialAcquisitionInline(material);
-            const badge = diff >= 0
-              ? `<span class="badge ok"><b>HAVE</b> <span>+${diff}</span></span>`
-              : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
-            const { done, ready } = levelStates.get(m.lvl) || {};
-            const pill = done
-              ? `<span class="pill ok">Done</span>`
-              : ready
-                ? `<span class="pill warn">Have materials</span>`
-                : `<span class="pill bad">Need materials</span>`;
+        ${tableHead}
+        ${visibleLevels.map(level => {
+          const mats = [...(materialsByLevel.get(level) || [])];
+          const { done, ready } = levelStates.get(level) || {};
+          const statusLabel = (done || ready)
+            ? `<span class="badge ok level-status"><b>HAVE</b></span>`
+            : `<span class="badge bad level-status"><b>NEED</b></span>`;
+            const statusHint = done ? "Completed" : (ready ? "Ready to upgrade" : "Missing materials");
+            const donePill = done ? `<span class="pill ok mini">Done</span>` : "";
+
+            const materialRows = mats.map(m => {
+              const inv = Number(STATE.inventory[m.id] || 0);
+              const diff = inv - m.qty;
+              const material = matById.get(m.id);
+              const acquisition = renderMaterialAcquisitionInline(material);
+              let badge = "";
+              if(diff < 0){
+                badge = `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
+              }else if(diff === 0){
+                badge = `<span class="badge ok"><b>HAVE</b></span>`;
+              }else{
+                badge = `<span class="badge ok over"><b>OVER</b> <span>+${diff}</span></span>`;
+              }
+
+              return `
+                <tr class="mat-row">
+                  <td>
+                    <div class="mat-line">
+                      <span class="mat-qty">${m.qty}×</span>
+                      <b class="mat-name">${escapeHtml(m.name)}</b>
+                    </div>
+                    ${acquisition ? `<div class="mat-meta">${acquisition}</div>` : ""}
+                  </td>
+                  <td>
+                    <div class="inv-inline armor-mat-row">
+                      <div class="tiny muted" aria-hidden="true">Inventory</div>
+                      ${renderInvStepper(m.id, inv)}
+                      ${badge}
+                    </div>
+                  </td>
+                </tr>`;
+            }).join("");
+
             return `
-              <tr>
-                <td>
-                  Lv${m.lvl}
-                  ${pill}
-                </td>
-                <td>
-                  <div class="muted">${m.qty}× ${escapeHtml(m.name)} ${acquisition}</div>
-                  <div class="inv-inline armor-mat-row">
-                    <div class="tiny muted" aria-hidden="true">Inventory</div>
-                    ${renderInvStepper(m.id, inv)}
-                    ${badge}
-                  </div>
-                </td>
-              </tr>`;
+              <tbody class="level-block">
+                <tr class="lvl-head-row">
+                  <td colspan="2">
+                    <div class="level-head row between">
+                      <div class="level-label">Lv${level} ${donePill}</div>
+                      <div class="level-status-wrap">${statusLabel}<span class="muted tiny">${statusHint}</span></div>
+                    </div>
+                  </td>
+                </tr>
+                ${materialRows}
+              </tbody>`;
           }).join("")}
-        </tbody>
       </table>
     `;
   }else if(materials.length){
