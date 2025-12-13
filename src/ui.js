@@ -302,6 +302,7 @@ function renderPiece(p){
   const materials = [];
   const matNameToId = new Map(DATA.materials.map(m => [m.name, m.id]));
   const matIdToName = new Map(DATA.materials.map(m => [m.id, m.name]));
+  const matById = new Map(DATA.materials.map(m => [m.id, m]));
 
   for(const [lvlStr, arr] of Object.entries(p.materialsByLevel || {})){
     const lid = Number(lvlStr);
@@ -326,6 +327,8 @@ function renderPiece(p){
           const inv = Number(STATE.inventory[m.id] || 0);
           const needed = Number(remainingReq.get(m.id) || 0);
           const diff = inv - needed;
+          const material = matById.get(m.id);
+          const acquisition = renderMaterialAcquisitionInline(material);
           const badge = diff >= 0
             ? `<span class="badge ok"><b>OK</b> <span>+${diff}</span></span>`
             : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
@@ -339,7 +342,7 @@ function renderPiece(p){
                 ${pill}
               </td>
               <td>
-                <div class="muted">${m.qty}× ${escapeHtml(m.name)}</div>
+                <div class="muted">${m.qty}× ${escapeHtml(m.name)} ${acquisition}</div>
                 <div class="inv-inline armor-mat-row">
                   <div class="tiny muted" aria-hidden="true">Inventory</div>
                   ${renderInvStepper(m.id, inv)}
@@ -379,11 +382,16 @@ function renderPiece(p){
   `;
 }
 
-function renderMaterialAcquisition(material){
-  const src = (MATERIAL_SOURCES && MATERIAL_SOURCES[material.id]) || {};
-  const where = src.where || src.location || material.howToGet || "";
+function getMaterialAcquisition(material){
+  const src = (MATERIAL_SOURCES && MATERIAL_SOURCES[material?.id]) || {};
+  const where = src.where || src.location || material?.howToGet || "";
   const coords = src.coords || "";
-  const notes = src.notes || material.notes || "";
+  const notes = src.notes || material?.notes || "";
+  return { where, coords, notes };
+}
+
+function renderMaterialAcquisition(material){
+  const { where, coords, notes } = getMaterialAcquisition(material);
   const parts = [];
   if(where) parts.push(`<div>${escapeHtml(where)}</div>`);
   if(coords) parts.push(`<div class="muted tiny">${escapeHtml(coords)}</div>`);
@@ -393,6 +401,14 @@ function renderMaterialAcquisition(material){
     html: parts.length ? `<div class="mat-info muted tiny">${parts.join(" ")}</div>` : "",
     searchText: [where, coords, notes].filter(Boolean).join(" ")
   };
+}
+
+function renderMaterialAcquisitionInline(material){
+  const { where, coords, notes } = getMaterialAcquisition(material);
+  const text = [where, notes].filter(Boolean).join(" • ");
+  if(!text && !coords) return "";
+  const coordsHtml = coords ? ` <span class="muted">(${escapeHtml(coords)})</span>` : "";
+  return `<span class="mat-acq-inline tiny muted">${escapeHtml(text)}${coordsHtml}</span>`;
 }
 
 function renderMaterials(){
