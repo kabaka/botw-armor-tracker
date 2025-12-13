@@ -1,15 +1,7 @@
 {
-  "schemaVersion": 1,
-  "game": "Breath of the Wild",
-  "generatedFrom": "botw_armor_upgrades_material_costs.xlsx",
   "armorPieces": [
     {
       "id": "champions-tunic",
-      "name": "Champion's Tunic",
-      "setCategory": "Accessories / Body",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -44,18 +36,18 @@
           },
           {
             "material": "Silent Princess",
-            "qty": 3
+            "qty": 10
           }
         ]
-      }
+      },
+      "name": "Champion's Tunic",
+      "origin": "Base game",
+      "setCategory": "Accessories / Body",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "sand-boots",
-      "name": "Sand Boots",
-      "setCategory": "Accessories / Legs",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -97,15 +89,15 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Sand Boots",
+      "origin": "Base game",
+      "setCategory": "Accessories / Legs",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "snow-boots",
-      "name": "Snow Boots",
-      "setCategory": "Accessories / Legs",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -147,15 +139,15 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Snow Boots",
+      "origin": "Base game",
+      "setCategory": "Accessories / Legs",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "ancient-helm",
-      "name": "Ancient Helm",
-      "setCategory": "Ancient Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -197,15 +189,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Ancient Helm",
+      "origin": "Base game",
+      "setCategory": "Ancient Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "ancient-cuirass",
-      "name": "Ancient Cuirass",
-      "setCategory": "Ancient Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -247,15 +239,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Ancient Cuirass",
+      "origin": "Base game",
+      "setCategory": "Ancient Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "ancient-greaves",
-      "name": "Ancient Greaves",
-      "setCategory": "Ancient Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -297,15 +289,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Ancient Greaves",
+      "origin": "Base game",
+      "setCategory": "Ancient Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "barbarian-helm",
-      "name": "Barbarian Helm",
-      "setCategory": "Barbarian Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -343,15 +335,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Barbarian Helm",
+      "origin": "Base game",
+      "setCategory": "Barbarian Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "barbarian-armor",
-      "name": "Barbarian Armor",
-      "setCategory": "Barbarian Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -389,15 +381,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Barbarian Armor",
+      "origin": "Base game",
+      "setCategory": "Barbarian Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "barbarian-leg-wraps",
-      "name": "Barbarian Leg Wraps",
-      "setCategory": "Barbarian Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -435,15 +427,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Barbarian Leg Wraps",
+      "origin": "Base game",
+      "setCategory": "Barbarian Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "climbers-bandanna",
-      "name": "Climber's Bandanna",
-      "setCategory": "Climbing Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -485,15 +477,15 @@
             "qty": 20
           }
         ]
-      }
+      },
+      "name": "Climber's Bandanna",
+      "origin": "Base game",
+      "setCategory": "Climbing Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "climbing-gear",
-      "name": "Climbing Gear",
-      "setCategory": "Climbing Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -535,15 +527,15 @@
             "qty": 20
           }
         ]
-      }
+      },
+      "name": "Climbing Gear",
+      "origin": "Base game",
+      "setCategory": "Climbing Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "climbing-boots",
-      "name": "Climbing Boots",
-      "setCategory": "Climbing Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -585,15 +577,15 @@
             "qty": 20
           }
         ]
-      }
+      },
+      "name": "Climbing Boots",
+      "origin": "Base game",
+      "setCategory": "Climbing Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "desert-voe-headband",
-      "name": "Desert Voe Headband",
-      "setCategory": "Desert Voe Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -631,15 +623,15 @@
             "qty": 5
           }
         ]
-      }
+      },
+      "name": "Desert Voe Headband",
+      "origin": "Base game",
+      "setCategory": "Desert Voe Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "desert-voe-spaulder",
-      "name": "Desert Voe Spaulder",
-      "setCategory": "Desert Voe Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -677,15 +669,15 @@
             "qty": 5
           }
         ]
-      }
+      },
+      "name": "Desert Voe Spaulder",
+      "origin": "Base game",
+      "setCategory": "Desert Voe Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "desert-voe-trousers",
-      "name": "Desert Voe Trousers",
-      "setCategory": "Desert Voe Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -723,20 +715,20 @@
             "qty": 5
           }
         ]
-      }
+      },
+      "name": "Desert Voe Trousers",
+      "origin": "Base game",
+      "setCategory": "Desert Voe Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "flamebreaker-helm",
-      "name": "Flamebreaker Helm",
-      "setCategory": "Flamebreaker Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
             "material": "Fireproof Lizard",
-            "qty": 3
+            "qty": 1
           },
           {
             "material": "Moblin Horn",
@@ -746,47 +738,47 @@
         "2": [
           {
             "material": "Fireproof Lizard",
-            "qty": 5
+            "qty": 3
           },
           {
             "material": "Moblin Fang",
-            "qty": 5
+            "qty": 4
           }
         ],
         "3": [
           {
-            "material": "Moblin Guts",
+            "material": "Smotherwing Butterfly",
             "qty": 3
           },
           {
-            "material": "Smotherwing Butterfly",
-            "qty": 5
+            "material": "Moblin Guts",
+            "qty": 3
           }
         ],
         "4": [
           {
-            "material": "Hinox Guts",
+            "material": "Smotherwing Butterfly",
             "qty": 5
           },
           {
-            "material": "Smotherwing Butterfly",
-            "qty": 8
+            "material": "Hinox Guts",
+            "qty": 2
           }
         ]
-      }
+      },
+      "name": "Flamebreaker Helm",
+      "origin": "Base game",
+      "setCategory": "Flamebreaker Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "flamebreaker-armor",
-      "name": "Flamebreaker Armor",
-      "setCategory": "Flamebreaker Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
             "material": "Fireproof Lizard",
-            "qty": 3
+            "qty": 1
           },
           {
             "material": "Moblin Horn",
@@ -796,47 +788,47 @@
         "2": [
           {
             "material": "Fireproof Lizard",
-            "qty": 5
+            "qty": 3
           },
           {
             "material": "Moblin Fang",
-            "qty": 5
+            "qty": 4
           }
         ],
         "3": [
           {
-            "material": "Moblin Guts",
+            "material": "Smotherwing Butterfly",
             "qty": 3
           },
           {
-            "material": "Smotherwing Butterfly",
-            "qty": 5
+            "material": "Moblin Guts",
+            "qty": 3
           }
         ],
         "4": [
           {
-            "material": "Hinox Guts",
+            "material": "Smotherwing Butterfly",
             "qty": 5
           },
           {
-            "material": "Smotherwing Butterfly",
-            "qty": 8
+            "material": "Hinox Guts",
+            "qty": 2
           }
         ]
-      }
+      },
+      "name": "Flamebreaker Armor",
+      "origin": "Base game",
+      "setCategory": "Flamebreaker Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "flamebreaker-boots",
-      "name": "Flamebreaker Boots",
-      "setCategory": "Flamebreaker Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
             "material": "Fireproof Lizard",
-            "qty": 3
+            "qty": 1
           },
           {
             "material": "Moblin Horn",
@@ -846,42 +838,42 @@
         "2": [
           {
             "material": "Fireproof Lizard",
-            "qty": 5
+            "qty": 3
           },
           {
             "material": "Moblin Fang",
-            "qty": 5
+            "qty": 4
           }
         ],
         "3": [
           {
-            "material": "Moblin Guts",
+            "material": "Smotherwing Butterfly",
             "qty": 3
           },
           {
-            "material": "Smotherwing Butterfly",
-            "qty": 5
+            "material": "Moblin Guts",
+            "qty": 3
           }
         ],
         "4": [
           {
-            "material": "Hinox Guts",
+            "material": "Smotherwing Butterfly",
             "qty": 5
           },
           {
-            "material": "Smotherwing Butterfly",
-            "qty": 8
+            "material": "Hinox Guts",
+            "qty": 2
           }
         ]
-      }
+      },
+      "name": "Flamebreaker Boots",
+      "origin": "Base game",
+      "setCategory": "Flamebreaker Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "hylian-hood",
-      "name": "Hylian Hood",
-      "setCategory": "Hylian Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -919,15 +911,15 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Hylian Hood",
+      "origin": "Base game",
+      "setCategory": "Hylian Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "hylian-tunic",
-      "name": "Hylian Tunic",
-      "setCategory": "Hylian Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -965,15 +957,15 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Hylian Tunic",
+      "origin": "Base game",
+      "setCategory": "Hylian Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "hylian-trousers",
-      "name": "Hylian Trousers",
-      "setCategory": "Hylian Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1011,15 +1003,15 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Hylian Trousers",
+      "origin": "Base game",
+      "setCategory": "Hylian Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "radiant-mask",
-      "name": "Radiant Mask",
-      "setCategory": "Radiant Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1061,15 +1053,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Radiant Mask",
+      "origin": "Base game",
+      "setCategory": "Radiant Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "radiant-shirt",
-      "name": "Radiant Shirt",
-      "setCategory": "Radiant Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1111,15 +1103,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Radiant Shirt",
+      "origin": "Base game",
+      "setCategory": "Radiant Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "radiant-tights",
-      "name": "Radiant Tights",
-      "setCategory": "Radiant Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1161,15 +1153,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Radiant Tights",
+      "origin": "Base game",
+      "setCategory": "Radiant Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "rubber-helm",
-      "name": "Rubber Helm",
-      "setCategory": "Rubber Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1207,15 +1199,15 @@
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Rubber Helm",
+      "origin": "Base game",
+      "setCategory": "Rubber Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "rubber-armor",
-      "name": "Rubber Armor",
-      "setCategory": "Rubber Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1253,15 +1245,15 @@
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Rubber Armor",
+      "origin": "Base game",
+      "setCategory": "Rubber Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "rubber-tights",
-      "name": "Rubber Tights",
-      "setCategory": "Rubber Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1299,15 +1291,15 @@
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Rubber Tights",
+      "origin": "Base game",
+      "setCategory": "Rubber Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "stealth-mask",
-      "name": "Stealth Mask",
-      "setCategory": "Sheikah Stealth Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1341,19 +1333,19 @@
             "qty": 5
           },
           {
-            "material": "Stealthfin Fish",
+            "material": "Stealthfin Trout",
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Stealth Mask",
+      "origin": "Base game",
+      "setCategory": "Sheikah Stealth Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "stealth-chest-guard",
-      "name": "Stealth Chest Guard",
-      "setCategory": "Sheikah Stealth Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1387,19 +1379,19 @@
             "qty": 5
           },
           {
-            "material": "Stealthfin Fish",
+            "material": "Stealthfin Trout",
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Stealth Chest Guard",
+      "origin": "Base game",
+      "setCategory": "Sheikah Stealth Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "stealth-tights",
-      "name": "Stealth Tights",
-      "setCategory": "Sheikah Stealth Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1433,19 +1425,19 @@
             "qty": 5
           },
           {
-            "material": "Stealthfin Fish",
+            "material": "Stealthfin Trout",
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Stealth Tights",
+      "origin": "Base game",
+      "setCategory": "Sheikah Stealth Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "snowquill-headdress",
-      "name": "Snowquill Headdress",
-      "setCategory": "Snowquill Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1483,15 +1475,15 @@
             "qty": 5
           }
         ]
-      }
+      },
+      "name": "Snowquill Headdress",
+      "origin": "Base game",
+      "setCategory": "Snowquill Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "snowquill-tunic",
-      "name": "Snowquill Tunic",
-      "setCategory": "Snowquill Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1529,15 +1521,15 @@
             "qty": 5
           }
         ]
-      }
+      },
+      "name": "Snowquill Tunic",
+      "origin": "Base game",
+      "setCategory": "Snowquill Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "snowquill-trousers",
-      "name": "Snowquill Trousers",
-      "setCategory": "Snowquill Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1575,30 +1567,30 @@
             "qty": 5
           }
         ]
-      }
+      },
+      "name": "Snowquill Trousers",
+      "origin": "Base game",
+      "setCategory": "Snowquill Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "soldiers-helm",
-      "name": "Soldier's Helm",
-      "setCategory": "Soldier Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
-            "material": "Bokoblin Guts",
-            "qty": 3
-          },
-          {
             "material": "Chuchu Jelly",
             "qty": 5
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
           }
         ],
         "2": [
           {
             "material": "Keese Eyeball",
-            "qty": 3
+            "qty": 5
           },
           {
             "material": "Moblin Guts",
@@ -1607,48 +1599,48 @@
         ],
         "3": [
           {
-            "material": "Hinox Guts",
+            "material": "Lizalfos Tail",
             "qty": 2
           },
           {
-            "material": "Lizalfos Tail",
-            "qty": 5
+            "material": "Hinox Guts",
+            "qty": 2
           }
         ],
         "4": [
           {
-            "material": "Lynel Guts",
+            "material": "Lynel Hoof",
             "qty": 2
           },
           {
-            "material": "Lynel Hoof",
-            "qty": 4
+            "material": "Lynel Guts",
+            "qty": 2
           }
         ]
-      }
+      },
+      "name": "Soldier's Helm",
+      "origin": "Base game",
+      "setCategory": "Soldier Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "soldiers-armor",
-      "name": "Soldier's Armor",
-      "setCategory": "Soldier Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
-            "material": "Bokoblin Guts",
-            "qty": 3
-          },
-          {
             "material": "Chuchu Jelly",
             "qty": 5
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
           }
         ],
         "2": [
           {
             "material": "Keese Eyeball",
-            "qty": 3
+            "qty": 5
           },
           {
             "material": "Moblin Guts",
@@ -1657,48 +1649,48 @@
         ],
         "3": [
           {
-            "material": "Hinox Guts",
-            "qty": 1
+            "material": "Lizalfos Tail",
+            "qty": 3
           },
           {
-            "material": "Lizalfos Tail",
-            "qty": 5
+            "material": "Hinox Guts",
+            "qty": 1
           }
         ],
         "4": [
           {
-            "material": "Lynel Guts",
+            "material": "Lynel Hoof",
             "qty": 2
           },
           {
-            "material": "Lynel Hoof",
-            "qty": 4
+            "material": "Lynel Guts",
+            "qty": 2
           }
         ]
-      }
+      },
+      "name": "Soldier's Armor",
+      "origin": "Base game",
+      "setCategory": "Soldier Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "soldiers-greaves",
-      "name": "Soldier's Greaves",
-      "setCategory": "Soldier Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
-            "material": "Bokoblin Guts",
-            "qty": 3
-          },
-          {
             "material": "Chuchu Jelly",
             "qty": 5
+          },
+          {
+            "material": "Bokoblin Guts",
+            "qty": 3
           }
         ],
         "2": [
           {
             "material": "Keese Eyeball",
-            "qty": 3
+            "qty": 5
           },
           {
             "material": "Moblin Guts",
@@ -1707,33 +1699,33 @@
         ],
         "3": [
           {
-            "material": "Hinox Guts",
-            "qty": 1
+            "material": "Lizalfos Tail",
+            "qty": 3
           },
           {
-            "material": "Lizalfos Tail",
-            "qty": 5
+            "material": "Hinox Guts",
+            "qty": 1
           }
         ],
         "4": [
           {
-            "material": "Lynel Guts",
+            "material": "Lynel Hoof",
             "qty": 2
           },
           {
-            "material": "Lynel Hoof",
-            "qty": 4
+            "material": "Lynel Guts",
+            "qty": 2
           }
         ]
-      }
+      },
+      "name": "Soldier's Greaves",
+      "origin": "Base game",
+      "setCategory": "Soldier Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "cap-of-the-wild",
-      "name": "Cap of the Wild",
-      "setCategory": "Wild Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1761,13 +1753,13 @@
             "qty": 5
           },
           {
-            "material": "Farosh's Fang",
+            "material": "Shard of Farosh's Fang",
             "qty": 2
           }
         ],
         "4": [
           {
-            "material": "Farosh's Horn",
+            "material": "Shard of Farosh's Horn",
             "qty": 2
           },
           {
@@ -1775,15 +1767,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Cap of the Wild",
+      "origin": "Base game",
+      "setCategory": "Wild Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "tunic-of-the-wild",
-      "name": "Tunic of the Wild",
-      "setCategory": "Wild Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1811,13 +1803,13 @@
             "qty": 5
           },
           {
-            "material": "Naydra's Fang",
+            "material": "Shard of Naydra's Fang",
             "qty": 2
           }
         ],
         "4": [
           {
-            "material": "Naydra's Horn",
+            "material": "Shard of Naydra's Horn",
             "qty": 2
           },
           {
@@ -1825,15 +1817,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Tunic of the Wild",
+      "origin": "Base game",
+      "setCategory": "Wild Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "trousers-of-the-wild",
-      "name": "Trousers of the Wild",
-      "setCategory": "Wild Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1857,7 +1849,7 @@
         ],
         "3": [
           {
-            "material": "Dinraal's Fang",
+            "material": "Shard of Dinraal's Fang",
             "qty": 2
           },
           {
@@ -1867,7 +1859,7 @@
         ],
         "4": [
           {
-            "material": "Dinraal's Horn",
+            "material": "Shard of Dinraal's Horn",
             "qty": 2
           },
           {
@@ -1875,15 +1867,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Trousers of the Wild",
+      "origin": "Base game",
+      "setCategory": "Wild Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "zora-helm",
-      "name": "Zora Helm",
-      "setCategory": "Zora Set",
-      "slot": "Head",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1921,15 +1913,15 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Zora Helm",
+      "origin": "Base game",
+      "setCategory": "Zora Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "zora-armor",
-      "name": "Zora Armor",
-      "setCategory": "Zora Set",
-      "slot": "Body",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -1967,15 +1959,15 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Zora Armor",
+      "origin": "Base game",
+      "setCategory": "Zora Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "zora-greaves",
-      "name": "Zora Greaves",
-      "setCategory": "Zora Set",
-      "slot": "Legs",
-      "origin": "Base game",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2013,20 +2005,20 @@
             "qty": 15
           }
         ]
-      }
+      },
+      "name": "Zora Greaves",
+      "origin": "Base game",
+      "setCategory": "Zora Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "amber-earrings",
-      "name": "Amber Earrings",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Jewelry",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
             "material": "Amber",
-            "qty": 3
+            "qty": 5
           },
           {
             "material": "Flint",
@@ -2063,15 +2055,15 @@
             "qty": 3
           }
         ]
-      }
+      },
+      "name": "Amber Earrings",
+      "origin": "Jewelry",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "diamond-circlet",
-      "name": "Diamond Circlet",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Jewelry",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2113,23 +2105,23 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Diamond Circlet",
+      "origin": "Jewelry",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "opal-earrings",
-      "name": "Opal Earrings",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Jewelry",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
-            "material": "Flint",
-            "qty": 3
+            "material": "Opal",
+            "qty": 5
           },
           {
-            "material": "Opal",
+            "material": "Flint",
             "qty": 3
           }
         ],
@@ -2163,15 +2155,15 @@
             "qty": 20
           }
         ]
-      }
+      },
+      "name": "Opal Earrings",
+      "origin": "Jewelry",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "ruby-circlet",
-      "name": "Ruby Circlet",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Jewelry",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2213,15 +2205,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Ruby Circlet",
+      "origin": "Jewelry",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "sapphire-circlet",
-      "name": "Sapphire Circlet",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Jewelry",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2263,15 +2255,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Sapphire Circlet",
+      "origin": "Jewelry",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "topaz-earrings",
-      "name": "Topaz Earrings",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Jewelry",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2313,15 +2305,15 @@
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Topaz Earrings",
+      "origin": "Jewelry",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "sheiks-mask",
-      "name": "Sheik's Mask",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2363,15 +2355,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Sheik's Mask",
+      "origin": "Amiibo",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "vah-medoh-divine-helm",
-      "name": "Vah Medoh Divine Helm",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://www.zeldadungeon.net/wiki/Vah_Medoh_Divine_Helm",
       "materialsByLevel": {
         "1": [
           {
@@ -2413,15 +2405,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Vah Medoh Divine Helm",
+      "origin": "Amiibo",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Medoh_Divine_Helm"
     },
     {
       "id": "vah-naboris-divine-helm",
-      "name": "Vah Naboris Divine Helm",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://www.zeldadungeon.net/wiki/Vah_Naboris_Divine_Helm",
       "materialsByLevel": {
         "1": [
           {
@@ -2463,15 +2455,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Vah Naboris Divine Helm",
+      "origin": "Amiibo",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Naboris_Divine_Helm"
     },
     {
       "id": "vah-rudania-divine-helm",
-      "name": "Vah Rudania Divine Helm",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://www.zeldadungeon.net/wiki/Vah_Rudania_Divine_Helm",
       "materialsByLevel": {
         "1": [
           {
@@ -2513,15 +2505,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Vah Rudania Divine Helm",
+      "origin": "Amiibo",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Rudania_Divine_Helm"
     },
     {
       "id": "vah-ruta-divine-helm",
-      "name": "Vah Ruta Divine Helm",
-      "setCategory": "Accessories / Head",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://www.zeldadungeon.net/wiki/Vah_Ruta_Divine_Helm",
       "materialsByLevel": {
         "1": [
           {
@@ -2563,15 +2555,15 @@
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Vah Ruta Divine Helm",
+      "origin": "Amiibo",
+      "setCategory": "Accessories / Head",
+      "slot": "Head",
+      "source": "https://www.zeldadungeon.net/wiki/Vah_Ruta_Divine_Helm"
     },
     {
       "id": "fierce-deity-mask",
-      "name": "Fierce Deity Mask",
-      "setCategory": "Fierce Deity Set",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2596,7 +2588,7 @@
         "3": [
           {
             "material": "Hinox Guts",
-            "qty": 5
+            "qty": 2
           },
           {
             "material": "Shard of Dinraal's Fang",
@@ -2606,22 +2598,22 @@
         "4": [
           {
             "material": "Lynel Guts",
-            "qty": 5
+            "qty": 2
           },
           {
             "material": "Shard of Dinraal's Horn",
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Fierce Deity Mask",
+      "origin": "Amiibo",
+      "setCategory": "Fierce Deity Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "fierce-deity-armor",
-      "name": "Fierce Deity Armor",
-      "setCategory": "Fierce Deity Set",
-      "slot": "Body",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2646,7 +2638,7 @@
         "3": [
           {
             "material": "Hinox Guts",
-            "qty": 5
+            "qty": 2
           },
           {
             "material": "Shard of Naydra's Fang",
@@ -2656,22 +2648,22 @@
         "4": [
           {
             "material": "Lynel Guts",
-            "qty": 5
+            "qty": 2
           },
           {
             "material": "Shard of Naydra's Horn",
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Fierce Deity Armor",
+      "origin": "Amiibo",
+      "setCategory": "Fierce Deity Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "fierce-deity-boots",
-      "name": "Fierce Deity Boots",
-      "setCategory": "Fierce Deity Set",
-      "slot": "Legs",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2696,7 +2688,7 @@
         "3": [
           {
             "material": "Hinox Guts",
-            "qty": 5
+            "qty": 2
           },
           {
             "material": "Shard of Farosh's Fang",
@@ -2706,22 +2698,22 @@
         "4": [
           {
             "material": "Lynel Guts",
-            "qty": 5
+            "qty": 2
           },
           {
             "material": "Shard of Farosh's Horn",
             "qty": 1
           }
         ]
-      }
+      },
+      "name": "Fierce Deity Boots",
+      "origin": "Amiibo",
+      "setCategory": "Fierce Deity Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "cap-of-the-hero",
-      "name": "Cap of the Hero",
-      "setCategory": "Hero Set",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2763,15 +2755,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Cap of the Hero",
+      "origin": "Amiibo",
+      "setCategory": "Hero Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "tunic-of-the-hero",
-      "name": "Tunic of the Hero",
-      "setCategory": "Hero Set",
-      "slot": "Body",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2813,15 +2805,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Tunic of the Hero",
+      "origin": "Amiibo",
+      "setCategory": "Hero Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "trousers-of-the-hero",
-      "name": "Trousers of the Hero",
-      "setCategory": "Hero Set",
-      "slot": "Legs",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2863,15 +2855,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Trousers of the Hero",
+      "origin": "Amiibo",
+      "setCategory": "Hero Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "cap-of-the-sky",
-      "name": "Cap of the Sky",
-      "setCategory": "Sky Set",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2913,15 +2905,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Cap of the Sky",
+      "origin": "Amiibo",
+      "setCategory": "Sky Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "tunic-of-the-sky",
-      "name": "Tunic of the Sky",
-      "setCategory": "Sky Set",
-      "slot": "Body",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -2963,15 +2955,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Tunic of the Sky",
+      "origin": "Amiibo",
+      "setCategory": "Sky Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "trousers-of-the-sky",
-      "name": "Trousers of the Sky",
-      "setCategory": "Sky Set",
-      "slot": "Legs",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3013,15 +3005,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Trousers of the Sky",
+      "origin": "Amiibo",
+      "setCategory": "Sky Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "cap-of-time",
-      "name": "Cap of Time",
-      "setCategory": "Time Set",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3063,15 +3055,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Cap of Time",
+      "origin": "Amiibo",
+      "setCategory": "Time Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "tunic-of-time",
-      "name": "Tunic of Time",
-      "setCategory": "Time Set",
-      "slot": "Body",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3113,15 +3105,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Tunic of Time",
+      "origin": "Amiibo",
+      "setCategory": "Time Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "trousers-of-time",
-      "name": "Trousers of Time",
-      "setCategory": "Time Set",
-      "slot": "Legs",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3163,15 +3155,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Trousers of Time",
+      "origin": "Amiibo",
+      "setCategory": "Time Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "cap-of-twilight",
-      "name": "Cap of Twilight",
-      "setCategory": "Twilight Set",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3213,15 +3205,15 @@
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Cap of Twilight",
+      "origin": "Amiibo",
+      "setCategory": "Twilight Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "tunic-of-twilight",
-      "name": "Tunic of Twilight",
-      "setCategory": "Twilight Set",
-      "slot": "Body",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3263,15 +3255,15 @@
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Tunic of Twilight",
+      "origin": "Amiibo",
+      "setCategory": "Twilight Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "trousers-of-twilight",
-      "name": "Trousers of Twilight",
-      "setCategory": "Twilight Set",
-      "slot": "Legs",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3313,15 +3305,15 @@
             "qty": 10
           }
         ]
-      }
+      },
+      "name": "Trousers of Twilight",
+      "origin": "Amiibo",
+      "setCategory": "Twilight Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "cap-of-the-wind",
-      "name": "Cap of the Wind",
-      "setCategory": "Wind Set",
-      "slot": "Head",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3363,15 +3355,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Cap of the Wind",
+      "origin": "Amiibo",
+      "setCategory": "Wind Set",
+      "slot": "Head",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "tunic-of-the-wind",
-      "name": "Tunic of the Wind",
-      "setCategory": "Wind Set",
-      "slot": "Body",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3413,15 +3405,15 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Tunic of the Wind",
+      "origin": "Amiibo",
+      "setCategory": "Wind Set",
+      "slot": "Body",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     },
     {
       "id": "trousers-of-the-wind",
-      "name": "Trousers of the Wind",
-      "setCategory": "Wind Set",
-      "slot": "Legs",
-      "origin": "Amiibo",
-      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/",
       "materialsByLevel": {
         "1": [
           {
@@ -3463,618 +3455,584 @@
             "qty": 4
           }
         ]
-      }
+      },
+      "name": "Trousers of the Wind",
+      "origin": "Amiibo",
+      "setCategory": "Wind Set",
+      "slot": "Legs",
+      "source": "https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/"
     }
   ],
+  "game": "Breath of the Wild",
+  "generatedFrom": "botw_armor_upgrades_material_costs.xlsx",
   "materials": [
     {
+      "howToGet": "",
       "id": "acorn",
       "name": "Acorn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "amber",
       "name": "Amber",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "ancient-core",
       "name": "Ancient Core",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "ancient-gear",
       "name": "Ancient Gear",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "ancient-screw",
       "name": "Ancient Screw",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "ancient-shaft",
       "name": "Ancient Shaft",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "ancient-spring",
       "name": "Ancient Spring",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "blue-nightshade",
       "name": "Blue Nightshade",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "bokoblin-fang",
       "name": "Bokoblin Fang",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "bokoblin-guts",
       "name": "Bokoblin Guts",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "bokoblin-horn",
       "name": "Bokoblin Horn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "chuchu-jelly",
       "name": "Chuchu Jelly",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "courser-bee-honey",
       "name": "Courser Bee Honey",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "diamond",
       "name": "Diamond",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "dinraals-claw",
       "name": "Dinraal's Claw",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
-      "id": "dinraals-fang",
-      "name": "Dinraal's Fang",
-      "notes": "",
       "howToGet": "",
-      "source": null
-    },
-    {
-      "id": "dinraals-horn",
-      "name": "Dinraal's Horn",
-      "notes": "",
-      "howToGet": "",
-      "source": null
-    },
-    {
       "id": "dinraals-scale",
       "name": "Dinraal's Scale",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "electric-keese-wing",
       "name": "Electric Keese Wing",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "energetic-rhino-beetle",
       "name": "Energetic Rhino Beetle",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "faroshs-claw",
       "name": "Farosh's Claw",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
-      "id": "faroshs-fang",
-      "name": "Farosh's Fang",
-      "notes": "",
       "howToGet": "",
-      "source": null
-    },
-    {
-      "id": "faroshs-horn",
-      "name": "Farosh's Horn",
-      "notes": "",
-      "howToGet": "",
-      "source": null
-    },
-    {
       "id": "faroshs-scale",
       "name": "Farosh's Scale",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "fire-keese-wing",
       "name": "Fire Keese Wing",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "fireproof-lizard",
       "name": "Fireproof Lizard",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "flint",
       "name": "Flint",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "giant-ancient-core",
       "name": "Giant Ancient Core",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "hearty-bass",
       "name": "Hearty Bass",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "hightail-lizard",
       "name": "Hightail Lizard",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "hinox-guts",
       "name": "Hinox Guts",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "hinox-toenail",
       "name": "Hinox Toenail",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "hinox-tooth",
       "name": "Hinox Tooth",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "hot-footed-frog",
       "name": "Hot-Footed Frog",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "hyrule-bass",
       "name": "Hyrule Bass",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "ice-keese-wing",
       "name": "Ice Keese Wing",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "icy-lizalfos-tail",
       "name": "Icy Lizalfos Tail",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "keese-eyeball",
       "name": "Keese Eyeball",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "keese-wing",
       "name": "Keese Wing",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "lizalfos-horn",
       "name": "Lizalfos Horn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "lizalfos-tail",
       "name": "Lizalfos Tail",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "lizalfos-talon",
       "name": "Lizalfos Talon",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "luminous-stone",
       "name": "Luminous Stone",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "lynel-guts",
       "name": "Lynel Guts",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "lynel-hoof",
       "name": "Lynel Hoof",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "lynel-horn",
       "name": "Lynel Horn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "moblin-fang",
       "name": "Moblin Fang",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "moblin-guts",
       "name": "Moblin Guts",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "moblin-horn",
       "name": "Moblin Horn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "molduga-fin",
       "name": "Molduga Fin",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "molduga-guts",
       "name": "Molduga Guts",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "naydras-claw",
       "name": "Naydra's Claw",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
-      "id": "naydras-fang",
-      "name": "Naydra's Fang",
-      "notes": "",
       "howToGet": "",
-      "source": null
-    },
-    {
-      "id": "naydras-horn",
-      "name": "Naydra's Horn",
-      "notes": "",
-      "howToGet": "",
-      "source": null
-    },
-    {
       "id": "naydras-scale",
       "name": "Naydra's Scale",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "octo-balloon",
       "name": "Octo Balloon",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "octorok-eyeball",
       "name": "Octorok Eyeball",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "octorok-tentacle",
       "name": "Octorok Tentacle",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "opal",
       "name": "Opal",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "red-chuchu-jelly",
       "name": "Red Chuchu Jelly",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "red-lizalfos-tail",
       "name": "Red Lizalfos Tail",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "ruby",
       "name": "Ruby",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "rushroom",
       "name": "Rushroom",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "sapphire",
       "name": "Sapphire",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "shard-of-dinraals-fang",
       "name": "Shard of Dinraal's Fang",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "shard-of-dinraals-horn",
       "name": "Shard of Dinraal's Horn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "shard-of-faroshs-fang",
       "name": "Shard of Farosh's Fang",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "shard-of-faroshs-horn",
       "name": "Shard of Farosh's Horn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "shard-of-naydras-fang",
       "name": "Shard of Naydra's Fang",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "shard-of-naydras-horn",
       "name": "Shard of Naydra's Horn",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "silent-princess",
       "name": "Silent Princess",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "silent-shroom",
       "name": "Silent Shroom",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "smotherwing-butterfly",
       "name": "Smotherwing Butterfly",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "sneaky-river-snail",
       "name": "Sneaky River Snail",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "star-fragment",
       "name": "Star Fragment",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
-      "id": "stealthfin-fish",
-      "name": "Stealthfin Fish",
+      "howToGet": "",
+      "id": "stealthfin-trout",
+      "name": "Stealthfin Trout",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "sunset-firefly",
       "name": "Sunset Firefly",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "sunshroom",
       "name": "Sunshroom",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "swift-carrot",
       "name": "Swift Carrot",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "swift-violet",
       "name": "Swift Violet",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "topaz",
       "name": "Topaz",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "voltfruit",
       "name": "Voltfruit",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "warm-safflina",
       "name": "Warm Safflina",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "white-chuchu-jelly",
       "name": "White Chuchu Jelly",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "yellow-chuchu-jelly",
       "name": "Yellow Chuchu Jelly",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "yellow-lizalfos-tail",
       "name": "Yellow Lizalfos Tail",
       "notes": "",
-      "howToGet": "",
       "source": null
     },
     {
+      "howToGet": "",
       "id": "zapshroom",
       "name": "Zapshroom",
       "notes": "",
-      "howToGet": "",
       "source": null
     }
-  ]
+  ],
+  "schemaVersion": 1
 }

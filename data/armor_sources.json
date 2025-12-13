@@ -1,59 +1,87 @@
 {
-  "champions-tunic": {
+  "amber-earrings": {
     "regions": [
-      "Kakariko Village (Dueling Peaks)"
+      "Gerudo"
     ],
-    "where": "Given by Impa during the main quest 'Captured Memories'."
-  },
-  "sand-boots": {
-    "regions": [
-      "Gerudo Desert",
-      "Gerudo Town / Kara Kara Bazaar"
-    ],
-    "where": "Earned via Bozai side quests (then can be repurchased from Granté if sold)."
-  },
-  "snow-boots": {
-    "regions": [
-      "Gerudo Desert",
-      "Gerudo Town / Kara Kara Bazaar"
-    ],
-    "where": "Earned via Bozai side quests (then can be repurchased from Granté if sold)."
-  },
-  "ancient-helm": {
-    "regions": [
-      "Akkala (Akkala Ancient Tech Lab)"
-    ],
-    "where": "Purchase from the Akkala Ancient Tech Lab after 'Robbie's Research' (requires Ancient materials)."
+    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
   },
   "ancient-cuirass": {
     "regions": [
-      "Akkala (Akkala Ancient Tech Lab)"
+      "Akkala"
     ],
     "where": "Purchase from the Akkala Ancient Tech Lab after 'Robbie's Research' (requires Ancient materials)."
   },
   "ancient-greaves": {
     "regions": [
-      "Akkala (Akkala Ancient Tech Lab)"
+      "Akkala"
     ],
     "where": "Purchase from the Akkala Ancient Tech Lab after 'Robbie's Research' (requires Ancient materials)."
   },
-  "barbarian-helm": {
+  "ancient-helm": {
     "regions": [
-      "Labyrinths (Hebra / Akkala / Gerudo Highlands)"
+      "Akkala"
     ],
-    "where": "Found in chests inside the three Lomei Labyrinth shrine-quests (one piece per labyrinth)."
+    "where": "Purchase from the Akkala Ancient Tech Lab after 'Robbie's Research' (requires Ancient materials)."
   },
   "barbarian-armor": {
     "regions": [
-      "Labyrinths (Hebra / Akkala / Gerudo Highlands)"
+      "Gerudo"
     ],
-    "where": "Found in chests inside the three Lomei Labyrinth shrine-quests (one piece per labyrinth)."
+    "where": "Found in a treasure chest inside South Lomei Labyrinth (Gerudo Desert)."
+  },
+  "barbarian-helm": {
+    "regions": [
+      "Akkala"
+    ],
+    "where": "Found in a treasure chest inside Lomei Labyrinth Island (Akkala)."
   },
   "barbarian-leg-wraps": {
     "regions": [
-      "Labyrinths (Hebra / Akkala / Gerudo Highlands)"
+      "Hebra"
     ],
-    "where": "Found in chests inside the three Lomei Labyrinth shrine-quests (one piece per labyrinth)."
+    "where": "Found in a treasure chest inside North Lomei Labyrinth (Hebra)."
+  },
+  "cap-of-the-hero": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "cap-of-the-sky": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "cap-of-the-wild": {
+    "regions": [
+      "Central Hyrule"
+    ],
+    "where": "Reward for completing all shrines: found in chests in the Forgotten Temple (Wild Set)."
+  },
+  "cap-of-the-wind": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "cap-of-time": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "cap-of-twilight": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "champions-tunic": {
+    "regions": [
+      "Dueling Peaks"
+    ],
+    "where": "Given by Impa during the main quest 'Captured Memories'."
   },
   "climbers-bandanna": {
     "regions": [
@@ -61,239 +89,42 @@
     ],
     "where": "Chest in Ree Dahee Shrine (Dueling Peaks)."
   },
-  "climbing-gear": {
-    "regions": [
-      "Hateno Bay / Tenoko Island"
-    ],
-    "where": "Chest in Chaas Qeta Shrine (Tenoko Island, off Hateno Bay)."
-  },
   "climbing-boots": {
     "regions": [
-      "Lanayru Range (Mount Lanayru)"
+      "Lanayru"
     ],
     "where": "Chest in Tahno O'ah Shrine (Mount Lanayru)."
   },
+  "climbing-gear": {
+    "regions": [
+      "Hateno"
+    ],
+    "where": "Chest in Chaas Qeta Shrine (Tenoko Island, off Hateno Bay)."
+  },
   "desert-voe-headband": {
     "regions": [
-      "Gerudo Desert (Gerudo Town)"
+      "Gerudo"
     ],
     "where": "Sold by the Gerudo Secret Club in Gerudo Town."
   },
   "desert-voe-spaulder": {
     "regions": [
-      "Gerudo Desert (Gerudo Town)"
+      "Gerudo"
     ],
     "where": "Sold by the Gerudo Secret Club in Gerudo Town."
   },
   "desert-voe-trousers": {
     "regions": [
-      "Gerudo Desert (Gerudo Town)"
+      "Gerudo"
     ],
     "where": "Sold by the Gerudo Secret Club in Gerudo Town."
   },
-  "flamebreaker-helm": {
-    "regions": [
-      "Eldin (Goron City)"
-    ],
-    "where": "Sold in Goron City; the torso piece is also given during 'Fireproof Lizard Roundup'."
-  },
-  "flamebreaker-armor": {
-    "regions": [
-      "Eldin (Goron City)"
-    ],
-    "where": "Sold in Goron City; the torso piece is also given during 'Fireproof Lizard Roundup'."
-  },
-  "flamebreaker-boots": {
-    "regions": [
-      "Eldin (Goron City)"
-    ],
-    "where": "Sold in Goron City; the torso piece is also given during 'Fireproof Lizard Roundup'."
-  },
-  "hylian-hood": {
-    "regions": [
-      "Hateno Village"
-    ],
-    "where": "Sold in Hateno Village's armor shop."
-  },
-  "hylian-tunic": {
-    "regions": [
-      "Hateno Village"
-    ],
-    "where": "Sold in Hateno Village's armor shop."
-  },
-  "hylian-trousers": {
-    "regions": [
-      "Hateno Village"
-    ],
-    "where": "Sold in Hateno Village's armor shop."
-  },
-  "radiant-mask": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold in Gerudo Town at the Clothing Boutique (Radiant Set)."
-  },
-  "radiant-shirt": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold in Gerudo Town at the Clothing Boutique (Radiant Set)."
-  },
-  "radiant-tights": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold in Gerudo Town at the Clothing Boutique (Radiant Set)."
-  },
-  "stealth-mask": {
-    "regions": [
-      "Kakariko Village"
-    ],
-    "where": "Sold in Kakariko Village at Enchanted (Stealth Set)."
-  },
-  "stealth-chest-guard": {
-    "regions": [
-      "Kakariko Village"
-    ],
-    "where": "Sold in Kakariko Village at Enchanted (Stealth Set)."
-  },
-  "stealth-tights": {
-    "regions": [
-      "Kakariko Village"
-    ],
-    "where": "Sold in Kakariko Village at Enchanted (Stealth Set)."
-  },
-  "snowquill-headdress": {
-    "regions": [
-      "Hebra (Rito Village)"
-    ],
-    "where": "Sold in Rito Village's armor shop (Snowquill Set)."
-  },
-  "snowquill-tunic": {
-    "regions": [
-      "Hebra (Rito Village)"
-    ],
-    "where": "Sold in Rito Village's armor shop (Snowquill Set)."
-  },
-  "snowquill-trousers": {
-    "regions": [
-      "Hebra (Rito Village)"
-    ],
-    "where": "Sold in Rito Village's armor shop (Snowquill Set)."
-  },
-  "soldiers-helm": {
-    "regions": [
-      "Hateno Village"
-    ],
-    "where": "Sold in Hateno Village's armor shop (Soldier's Set)."
-  },
-  "soldiers-armor": {
-    "regions": [
-      "Hateno Village"
-    ],
-    "where": "Sold in Hateno Village's armor shop (Soldier's Set)."
-  },
-  "soldiers-greaves": {
-    "regions": [
-      "Hateno Village"
-    ],
-    "where": "Sold in Hateno Village's armor shop (Soldier's Set)."
-  },
-  "rubber-helm": {
-    "regions": [
-      "Faron / Thunderstorm regions"
-    ],
-    "where": "Found in treasure chests in specific shrines/quests tied to thunderstorms (Rubber Set)."
-  },
-  "rubber-armor": {
-    "regions": [
-      "Faron / Thunderstorm regions"
-    ],
-    "where": "Found in treasure chests in specific shrines/quests tied to thunderstorms (Rubber Set)."
-  },
-  "rubber-tights": {
-    "regions": [
-      "Faron / Thunderstorm regions"
-    ],
-    "where": "Found in treasure chests in specific shrines/quests tied to thunderstorms (Rubber Set)."
-  },
-  "zora-helm": {
-    "regions": [
-      "Lanayru (Zora's Domain)"
-    ],
-    "where": "Obtained through Zora's Domain story/side content (Zora Set)."
-  },
-  "zora-armor": {
-    "regions": [
-      "Lanayru (Zora's Domain)"
-    ],
-    "where": "Obtained through Zora's Domain story/side content (Zora Set)."
-  },
-  "zora-greaves": {
-    "regions": [
-      "Lanayru (Zora's Domain)"
-    ],
-    "where": "Obtained through Zora's Domain story/side content (Zora Set)."
-  },
-  "cap-of-the-wild": {
-    "regions": [
-      "Forgotten Temple (Central/North Hyrule)"
-    ],
-    "where": "Reward for completing all shrines: found in chests in the Forgotten Temple (Wild Set)."
-  },
-  "tunic-of-the-wild": {
-    "regions": [
-      "Forgotten Temple (Central/North Hyrule)"
-    ],
-    "where": "Reward for completing all shrines: found in chests in the Forgotten Temple (Wild Set)."
-  },
-  "trousers-of-the-wild": {
-    "regions": [
-      "Forgotten Temple (Central/North Hyrule)"
-    ],
-    "where": "Reward for completing all shrines: found in chests in the Forgotten Temple (Wild Set)."
-  },
-  "amber-earrings": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
-  },
   "diamond-circlet": {
     "regions": [
-      "Gerudo Desert (Gerudo Town)"
+      "Akkala",
+      "Gerudo"
     ],
-    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
-  },
-  "opal-earrings": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
-  },
-  "ruby-circlet": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
-  },
-  "sapphire-circlet": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
-  },
-  "topaz-earrings": {
-    "regions": [
-      "Gerudo Desert (Gerudo Town)"
-    ],
-    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
-  },
-  "fierce-deity-mask": {
-    "regions": [
-      "Amiibo"
-    ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+    "where": "Sold at Starlight Memories (Gerudo Town). Also found in a treasure chest beneath Tu Ka'loh Shrine on Lomei Labyrinth Island (Akkala)."
   },
   "fierce-deity-armor": {
     "regions": [
@@ -307,31 +138,184 @@
     ],
     "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
   },
-  "cap-of-the-hero": {
+  "fierce-deity-mask": {
     "regions": [
       "Amiibo"
     ],
     "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
   },
-  "tunic-of-the-hero": {
+  "flamebreaker-armor": {
+    "regions": [
+      "Eldin"
+    ],
+    "where": "Sold in Goron City; the torso piece is also given during 'Fireproof Lizard Roundup'."
+  },
+  "flamebreaker-boots": {
+    "regions": [
+      "Eldin"
+    ],
+    "where": "Sold in Goron City; the torso piece is also given during 'Fireproof Lizard Roundup'."
+  },
+  "flamebreaker-helm": {
+    "regions": [
+      "Eldin"
+    ],
+    "where": "Sold in Goron City; the torso piece is also given during 'Fireproof Lizard Roundup'."
+  },
+  "hylian-hood": {
+    "regions": [
+      "Dueling Peaks",
+      "Hateno"
+    ],
+    "where": "Sold at the clothing shops in Hateno Village and Kakariko Village."
+  },
+  "hylian-trousers": {
+    "regions": [
+      "Dueling Peaks",
+      "Hateno"
+    ],
+    "where": "Sold at the clothing shops in Hateno Village and Kakariko Village."
+  },
+  "hylian-tunic": {
+    "regions": [
+      "Dueling Peaks",
+      "Hateno"
+    ],
+    "where": "Sold at the clothing shops in Hateno Village and Kakariko Village."
+  },
+  "opal-earrings": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
+  },
+  "radiant-mask": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Sold in Gerudo Town at the Clothing Boutique (Radiant Set)."
+  },
+  "radiant-shirt": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Sold in Gerudo Town at the Clothing Boutique (Radiant Set)."
+  },
+  "radiant-tights": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Sold in Gerudo Town at the Clothing Boutique (Radiant Set)."
+  },
+  "rubber-armor": {
+    "regions": [
+      "Ridgeland"
+    ],
+    "where": "Found in a treasure chest in Toh Yahsa Shrine (Thundra Plateau)."
+  },
+  "rubber-helm": {
+    "regions": [
+      "Faron"
+    ],
+    "where": "Reward for the side quest 'Thunder Magnet' at Lakeside Stable."
+  },
+  "rubber-tights": {
+    "regions": [
+      "Faron"
+    ],
+    "where": "Found in a treasure chest in Qukah Nata Shrine (near Calora Lake)."
+  },
+  "ruby-circlet": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
+  },
+  "sand-boots": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Earned via Bozai side quests (then can be repurchased from Granté if sold)."
+  },
+  "sapphire-circlet": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
+  },
+  "sheiks-mask": {
     "regions": [
       "Amiibo"
     ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+    "where": "Random drop from treasure chests created by scanning the Sheik amiibo (Super Smash Bros. series)."
+  },
+  "snow-boots": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Earned via Bozai side quests (then can be repurchased from Granté if sold)."
+  },
+  "snowquill-headdress": {
+    "regions": [
+      "Hebra"
+    ],
+    "where": "Sold in Rito Village's armor shop (Snowquill Set)."
+  },
+  "snowquill-trousers": {
+    "regions": [
+      "Hebra"
+    ],
+    "where": "Sold in Rito Village's armor shop (Snowquill Set)."
+  },
+  "snowquill-tunic": {
+    "regions": [
+      "Hebra"
+    ],
+    "where": "Sold in Rito Village's armor shop (Snowquill Set)."
+  },
+  "soldiers-armor": {
+    "regions": [
+      "Hateno"
+    ],
+    "where": "Sold in Hateno Village's armor shop (Soldier's Set)."
+  },
+  "soldiers-greaves": {
+    "regions": [
+      "Hateno"
+    ],
+    "where": "Sold in Hateno Village's armor shop (Soldier's Set)."
+  },
+  "soldiers-helm": {
+    "regions": [
+      "Hateno"
+    ],
+    "where": "Sold in Hateno Village's armor shop (Soldier's Set)."
+  },
+  "stealth-chest-guard": {
+    "regions": [
+      "Dueling Peaks"
+    ],
+    "where": "Sold in Kakariko Village at Enchanted (Stealth Set)."
+  },
+  "stealth-mask": {
+    "regions": [
+      "Dueling Peaks"
+    ],
+    "where": "Sold in Kakariko Village at Enchanted (Stealth Set)."
+  },
+  "stealth-tights": {
+    "regions": [
+      "Dueling Peaks"
+    ],
+    "where": "Sold in Kakariko Village at Enchanted (Stealth Set)."
+  },
+  "topaz-earrings": {
+    "regions": [
+      "Gerudo"
+    ],
+    "where": "Sold at the jewelry shop in Gerudo Town (Starlight Memories)."
   },
   "trousers-of-the-hero": {
-    "regions": [
-      "Amiibo"
-    ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
-  },
-  "cap-of-the-sky": {
-    "regions": [
-      "Amiibo"
-    ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
-  },
-  "tunic-of-the-sky": {
     "regions": [
       "Amiibo"
     ],
@@ -343,13 +327,13 @@
     ],
     "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
   },
-  "cap-of-time": {
+  "trousers-of-the-wild": {
     "regions": [
-      "Amiibo"
+      "Central Hyrule"
     ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+    "where": "Reward for completing all shrines: found in chests in the Forgotten Temple (Wild Set)."
   },
-  "tunic-of-time": {
+  "trousers-of-the-wind": {
     "regions": [
       "Amiibo"
     ],
@@ -361,7 +345,37 @@
     ],
     "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
   },
-  "cap-of-twilight": {
+  "trousers-of-twilight": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "tunic-of-the-hero": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "tunic-of-the-sky": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "tunic-of-the-wild": {
+    "regions": [
+      "Central Hyrule"
+    ],
+    "where": "Reward for completing all shrines: found in chests in the Forgotten Temple (Wild Set)."
+  },
+  "tunic-of-the-wind": {
+    "regions": [
+      "Amiibo"
+    ],
+    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
+  },
+  "tunic-of-time": {
     "regions": [
       "Amiibo"
     ],
@@ -373,58 +387,46 @@
     ],
     "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
   },
-  "trousers-of-twilight": {
-    "regions": [
-      "Amiibo"
-    ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
-  },
-  "cap-of-the-wind": {
-    "regions": [
-      "Amiibo"
-    ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
-  },
-  "tunic-of-the-wind": {
-    "regions": [
-      "Amiibo"
-    ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
-  },
-  "trousers-of-the-wind": {
-    "regions": [
-      "Amiibo"
-    ],
-    "where": "Exclusive to Amiibo treasure chest drops (scan the matching Zelda-series amiibo)."
-  },
-  "sheiks-mask": {
-    "regions": [
-      "DLC (EX Treasure)"
-    ],
-    "where": "DLC chest (EX Treasure): Sheik's Mask — follow 'EX Treasure: Ancient Mask' quest hint."
-  },
   "vah-medoh-divine-helm": {
     "regions": [
-      "DLC (EX Treasure)"
+      "Amiibo"
     ],
-    "where": "DLC chest (EX Treasure): Divine Beast Helm — follow the corresponding EX treasure quest."
+    "where": "Random drop from treasure chests created by scanning the Revali amiibo (Breath of the Wild series) (requires v1.3.3+)."
   },
   "vah-naboris-divine-helm": {
     "regions": [
-      "DLC (EX Treasure)"
+      "Amiibo"
     ],
-    "where": "DLC chest (EX Treasure): Divine Beast Helm — follow the corresponding EX treasure quest."
+    "where": "Random drop from treasure chests created by scanning the Urbosa amiibo (Breath of the Wild series) (requires v1.3.3+)."
   },
   "vah-rudania-divine-helm": {
     "regions": [
-      "DLC (EX Treasure)"
+      "Amiibo"
     ],
-    "where": "DLC chest (EX Treasure): Divine Beast Helm — follow the corresponding EX treasure quest."
+    "where": "Random drop from treasure chests created by scanning the Daruk amiibo (Breath of the Wild series) (requires v1.3.3+)."
   },
   "vah-ruta-divine-helm": {
     "regions": [
-      "DLC (EX Treasure)"
+      "Amiibo"
     ],
-    "where": "DLC chest (EX Treasure): Divine Beast Helm — follow the corresponding EX treasure quest."
+    "where": "Random drop from treasure chests created by scanning the Mipha amiibo (Breath of the Wild series) (requires v1.3.3+)."
+  },
+  "zora-armor": {
+    "regions": [
+      "Lanayru"
+    ],
+    "where": "Main quest reward during 'Divine Beast Vah Ruta' (received from King Dorephan at Zora's Domain)."
+  },
+  "zora-greaves": {
+    "regions": [
+      "Lanayru"
+    ],
+    "where": "Reward for the side quest 'Lynel Safari' in Zora's Domain."
+  },
+  "zora-helm": {
+    "regions": [
+      "Lanayru"
+    ],
+    "where": "Found in a treasure chest at Toto Lake (north of Zora's Domain); pull it up with Magnesis."
   }
 }

@@ -1,89 +1,245 @@
 {
-  "acorn": { "where": "Common drop from trees and squirrels in wooded areas." },
-  "amber": { "where": "Break ore deposits across Hyrule (notably Eldin and Hebra foothills)." },
-  "ancient-core": { "where": "Rare drop from Guardians and mini Guardians in shrines." },
-  "ancient-gear": { "where": "Dropped by Guardians; also sold at Akkala Ancient Tech Lab." },
-  "ancient-screw": { "where": "Common drop from broken Guardian parts and mini Guardians." },
-  "ancient-shaft": { "where": "Drop from Guardians; search decayed Guardians on the plateau." },
-  "ancient-spring": { "where": "Common drop from destroyed Guardians and Guardian Stalkers." },
-  "blue-nightshade": { "where": "Grows at night in forests around Kakariko Village." },
-  "bokoblin-fang": { "where": "Dropped by defeated Bokoblins everywhere." },
-  "bokoblin-guts": { "where": "Rare drop from strong Bokoblins in late-game areas." },
-  "bokoblin-horn": { "where": "Common drop from any Bokoblin." },
-  "chuchu-jelly": { "where": "Dropped by any Chuchu." },
-  "courser-bee-honey": { "where": "Shoot beehives in forests near Hateno and Faron." },
-  "diamond": { "where": "Rare ore deposits (Hebra, Eldin); reward from certain shrines." },
-  "dinraals-claw": { "where": "Shoot Dinraal's claw as the dragon passes over Eldin's sky." },
-  "dinraals-fang": { "where": "Hit Dinraal's mouth while airborne near Eldin Great Skeleton." },
-  "dinraals-horn": { "where": "Strike Dinraal's horn; shards land near Eldin canyon." },
-  "dinraals-scale": { "where": "Shoot Dinraal's body when it travels through Tanagar Canyon." },
-  "electric-keese-wing": { "where": "Dropped by Electric Keese in the Gerudo region." },
-  "energetic-rhino-beetle": { "where": "On trees in West Necluda forests; sneaking helps." },
-  "faroshs-claw": { "where": "Shoot Farosh's claw as it rises near Riola Spring." },
-  "faroshs-fang": { "where": "Hit Farosh's mouth while above Faron Sea." },
-  "faroshs-horn": { "where": "Strike Farosh's horn at Riola Spring for an easy catch." },
-  "faroshs-scale": { "where": "Shoot Farosh's body over Lake Hylia or Faron Sea." },
-  "fire-keese-wing": { "where": "Dropped by Fire Keese around Eldin volcano." },
-  "fireproof-lizard": { "where": "Under rocks near the Southern Mine in Eldin." },
-  "flint": { "where": "Break ore deposits; plentiful around mountains." },
-  "giant-ancient-core": { "where": "Rare drop from Guardian Stalkers and shrine mini bosses." },
-  "hearty-bass": { "where": "Lakes around Necluda and Hyrule Ridge; use bombs or arrows." },
-  "hightail-lizard": { "where": "Common under rocks on roads in West Necluda." },
-  "hinox-guts": { "where": "Dropped by Hinox and Stalnox bosses." },
-  "hinox-toenail": { "where": "Drop from Hinox after destroying their feet." },
-  "hinox-tooth": { "where": "Dropped by Hinox; target the mouth when they fall." },
-  "hot-footed-frog": { "where": "Near ponds after rain in West Necluda." },
-  "hyrule-bass": { "where": "Common fish in most rivers and ponds." },
-  "ice-keese-wing": { "where": "Dropped by Ice Keese in Hebra and Gerudo Highlands." },
-  "icy-lizalfos-tail": { "where": "Dropped by Ice Lizalfos in Hebra and Gerudo Highlands." },
-  "keese-eyeball": { "where": "Rare drop from any Keese when defeated." },
-  "keese-wing": { "where": "Common drop from all Keese." },
-  "lizalfos-horn": { "where": "Common drop from any Lizalfos." },
-  "lizalfos-tail": { "where": "Dropped by Lizalfos; cut tails with two-handed weapons." },
-  "lizalfos-talon": { "where": "Drop from Lizalfos; easy in Lanayru marshes." },
-  "luminous-stone": { "where": "Mine blue-glowing ore deposits at night (notably in Lanayru)." },
-  "lynel-guts": { "where": "Rare drop from Lynels in high-level regions." },
-  "lynel-hoof": { "where": "Drop from Lynels once defeated." },
-  "lynel-horn": { "where": "Common Lynel drop; even basic Lynels carry them." },
-  "moblin-fang": { "where": "Dropped by Moblins throughout Hyrule." },
-  "moblin-guts": { "where": "Rare Moblin drop from blue/black/silver variants." },
-  "moblin-horn": { "where": "Common drop from any Moblin." },
-  "molduga-fin": { "where": "Dropped by Molduga minibosses in Gerudo Desert." },
-  "molduga-guts": { "where": "Guaranteed drop from Molduga bosses in Gerudo Desert." },
-  "naydras-claw": { "where": "Shoot Naydra's claw while it circles Mount Lanayru." },
-  "naydras-fang": { "where": "Hit Naydra's mouth near Lanayru Bay while airborne." },
-  "naydras-horn": { "where": "Strike Naydra's horn over Lanayru Road (East Gate)." },
-  "naydras-scale": { "where": "Shoot Naydra's body as it leaves Mount Lanayru." },
-  "octo-balloon": { "where": "Dropped by Octoroks; deflate after clearing camps." },
-  "octorok-eyeball": { "where": "Rare drop from Octoroks of any type." },
-  "octorok-tentacle": { "where": "Common Octorok drop near rivers and seas." },
-  "opal": { "where": "Ore deposits near water; sold in coastal villages." },
-  "red-chuchu-jelly": { "where": "Burn Chuchu Jelly or defeat Fire Chuchu." },
-  "red-lizalfos-tail": { "where": "Dropped by Fire Lizalfos around Eldin." },
-  "ruby": { "where": "Ore deposits in Eldin and Gerudo; Talus drops." },
-  "rushroom": { "where": "Grows on cliffsides across Hyrule; plentiful in Gerudo Highlands." },
-  "sapphire": { "where": "Ore deposits in Hebra and Gerudo Highlands; Talus drops." },
-  "shard-of-dinraals-fang": { "where": "Shoot Dinraal's mouth for a falling shard over Eldin." },
-  "shard-of-dinraals-horn": { "where": "Strike Dinraal's horn for a shard near the Eldin sky route." },
-  "shard-of-faroshs-fang": { "where": "Hit Farosh's mouth above Lake Hylia for a shard." },
-  "shard-of-faroshs-horn": { "where": "Strike Farosh's horn at Riola Spring to drop a shard." },
-  "shard-of-naydras-fang": { "where": "Hit Naydra's mouth over Lanayru for a shard." },
-  "shard-of-naydras-horn": { "where": "Strike Naydra's horn near Lanayru Road for an easy shard." },
-  "silent-princess": { "where": "Grows near Great Fairy Fountains and around Hyrule Castle." },
-  "silent-shroom": { "where": "Found in shaded forests of West Necluda at night." },
-  "smotherwing-butterfly": { "where": "Flutter near lava in Eldin; approach with fireproof gear." },
-  "sneaky-river-snail": { "where": "On wet rocks near rivers in Necluda at night." },
-  "star-fragment": { "where": "Falls at night; chase glowing comets on clear evenings." },
-  "stealthfin-fish": { "where": "Lanayru Great Spring waters, especially near East Reservoir Lake." },
-  "sunset-firefly": { "where": "Appears at night around Kakariko Village houses." },
-  "sunshroom": { "where": "Warm areas like Eldin foothills and Gerudo Canyon." },
-  "swift-carrot": { "where": "Buy at Kakariko Village or pick in nearby fields." },
-  "swift-violet": { "where": "Cliffside flowers in Gerudo Highlands and Hebra." },
-  "topaz": { "where": "Ore deposits in Lanayru and Faron; Talus drops." },
-  "voltfruit": { "where": "Cacti in Gerudo Desert; also sold in Gerudo Town." },
-  "warm-safflina": { "where": "Grows in Gerudo Desert sand dunes." },
-  "white-chuchu-jelly": { "where": "Freeze Chuchu Jelly or defeat Ice Chuchu." },
-  "yellow-chuchu-jelly": { "where": "Zap Chuchu Jelly or defeat Electric Chuchu." },
-  "yellow-lizalfos-tail": { "where": "Dropped by Electric Lizalfos around Gerudo Desert." },
-  "zapshroom": { "where": "Gerudo Highlands cliffs and canyons." }
+  "acorn": {
+    "where": "Common drop from trees and squirrels in wooded areas."
+  },
+  "amber": {
+    "where": "Break ore deposits across Hyrule (notably Eldin and Hebra foothills)."
+  },
+  "ancient-core": {
+    "where": "Rare drop from Guardians and mini Guardians in shrines."
+  },
+  "ancient-gear": {
+    "where": "Dropped by most Guardians (including Decayed Guardians you can search) and found in some chests. Also sold by the wandering merchant Teli."
+  },
+  "ancient-screw": {
+    "where": "Common drop from broken Guardian parts and mini Guardians."
+  },
+  "ancient-shaft": {
+    "where": "Dropped by most Guardians (including Decayed Guardians you can search) and found in some chests. Also sold by the wandering merchant Teli."
+  },
+  "ancient-spring": {
+    "where": "Common drop from destroyed Guardians and Guardian Stalkers."
+  },
+  "blue-nightshade": {
+    "where": "Grows at night in forests around Kakariko Village."
+  },
+  "bokoblin-fang": {
+    "where": "Dropped by defeated Bokoblins everywhere."
+  },
+  "bokoblin-guts": {
+    "where": "Rare drop from strong Bokoblins in late-game areas."
+  },
+  "bokoblin-horn": {
+    "where": "Common drop from any Bokoblin."
+  },
+  "chuchu-jelly": {
+    "where": "Dropped by any Chuchu."
+  },
+  "courser-bee-honey": {
+    "where": "Shoot beehives in forests near Hateno and Faron."
+  },
+  "diamond": {
+    "where": "Rare ore deposits (Hebra, Eldin); reward from certain shrines."
+  },
+  "dinraals-claw": {
+    "where": "Shoot Dinraal's claw during its route (Eldin Great Skeleton → Tanagar Canyon)."
+  },
+  "dinraals-scale": {
+    "where": "Shoot Dinraal's body during its route (Eldin Great Skeleton → Tanagar Canyon)."
+  },
+  "electric-keese-wing": {
+    "where": "Dropped by Electric Keese (commonly in Gerudo and Lanayru areas)."
+  },
+  "energetic-rhino-beetle": {
+    "where": "Found on tree trunks (common in Akkala and Dueling Peaks / West Necluda forests). Stealth helps."
+  },
+  "faroshs-claw": {
+    "where": "Shoot Farosh's claw (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+  },
+  "faroshs-scale": {
+    "where": "Shoot Farosh's body (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+  },
+  "fire-keese-wing": {
+    "where": "Dropped by Fire Keese around Eldin volcano."
+  },
+  "fireproof-lizard": {
+    "where": "Under rocks near the Southern Mine in Eldin."
+  },
+  "flint": {
+    "where": "Break ore deposits; plentiful around mountains."
+  },
+  "giant-ancient-core": {
+    "where": "Rare drop from Guardian Stalkers and shrine mini bosses."
+  },
+  "hearty-bass": {
+    "where": "Lakes around Necluda and Hyrule Ridge; use bombs or arrows."
+  },
+  "hightail-lizard": {
+    "where": "Common under rocks on roads in West Necluda."
+  },
+  "hinox-guts": {
+    "where": "Dropped by Hinox and Stalnox bosses."
+  },
+  "hinox-toenail": {
+    "where": "Drop from Hinox after destroying their feet."
+  },
+  "hinox-tooth": {
+    "where": "Dropped by Hinox; target the mouth when they fall."
+  },
+  "hot-footed-frog": {
+    "where": "Near ponds after rain in West Necluda."
+  },
+  "hyrule-bass": {
+    "where": "Common fish in most rivers and ponds."
+  },
+  "ice-keese-wing": {
+    "where": "Dropped by Ice Keese in Hebra and Gerudo Highlands."
+  },
+  "icy-lizalfos-tail": {
+    "where": "Dropped by Ice Lizalfos in Hebra and Gerudo Highlands."
+  },
+  "keese-eyeball": {
+    "where": "Rare drop from any Keese when defeated."
+  },
+  "keese-wing": {
+    "where": "Common drop from all Keese."
+  },
+  "lizalfos-horn": {
+    "where": "Common drop from any Lizalfos."
+  },
+  "lizalfos-tail": {
+    "where": "Dropped by Lizalfos (tail drop rates vary by Lizalfos type; higher-tier Lizalfos tend to drop them more often)."
+  },
+  "lizalfos-talon": {
+    "where": "Drop from Lizalfos; easy in Lanayru marshes."
+  },
+  "luminous-stone": {
+    "where": "Mine from Luminous Stone Deposits (they glow at night) or from Luminous Stone Talus drops."
+  },
+  "lynel-guts": {
+    "where": "Rare drop from Lynels in high-level regions."
+  },
+  "lynel-hoof": {
+    "where": "Drop from Lynels once defeated."
+  },
+  "lynel-horn": {
+    "where": "Common Lynel drop; even basic Lynels carry them."
+  },
+  "moblin-fang": {
+    "where": "Dropped by Moblins throughout Hyrule."
+  },
+  "moblin-guts": {
+    "where": "Rare Moblin drop from blue/black/silver variants."
+  },
+  "moblin-horn": {
+    "where": "Common drop from any Moblin."
+  },
+  "molduga-fin": {
+    "where": "Dropped by Molduga minibosses in Gerudo Desert."
+  },
+  "molduga-guts": {
+    "where": "Dropped by Molduga (Gerudo Desert)."
+  },
+  "naydras-claw": {
+    "where": "Shoot Naydra's claw (Mount Lanayru / Lanayru Promenade are common farming routes)."
+  },
+  "naydras-scale": {
+    "where": "Shoot Naydra's body (Mount Lanayru / Lanayru Promenade are common farming routes)."
+  },
+  "octo-balloon": {
+    "where": "Dropped by Octoroks, usually near water (rivers, lakes, and coastal areas)."
+  },
+  "octorok-eyeball": {
+    "where": "Rare drop from Octoroks of any type."
+  },
+  "octorok-tentacle": {
+    "where": "Common Octorok drop near rivers and seas."
+  },
+  "opal": {
+    "where": "Found in Ore Deposits / Rare Ore Deposits and as Stone Talus drops. Can also be bought from the Goron merchant Kairo near Foothill Stable."
+  },
+  "red-chuchu-jelly": {
+    "where": "Burn Chuchu Jelly or defeat Fire Chuchu."
+  },
+  "red-lizalfos-tail": {
+    "where": "Dropped by Fire Lizalfos around Eldin."
+  },
+  "ruby": {
+    "where": "Ore deposits in Eldin and Gerudo; Talus drops."
+  },
+  "rushroom": {
+    "where": "Grows on cliffsides across Hyrule; plentiful in Gerudo Highlands."
+  },
+  "sapphire": {
+    "where": "Ore deposits in Hebra and Gerudo Highlands; Talus drops."
+  },
+  "shard-of-dinraals-fang": {
+    "where": "Shoot Dinraal's mouth (fang) during its route (Eldin Great Skeleton → Tanagar Canyon)."
+  },
+  "shard-of-dinraals-horn": {
+    "where": "Shoot Dinraal's horn during its route (Eldin Great Skeleton → Tanagar Canyon)."
+  },
+  "shard-of-faroshs-fang": {
+    "where": "Shoot Farosh's mouth (fang) (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+  },
+  "shard-of-faroshs-horn": {
+    "where": "Shoot Farosh's horn (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+  },
+  "shard-of-naydras-fang": {
+    "where": "Shoot Naydra's mouth (fang) (Mount Lanayru / Lanayru Promenade are common farming routes)."
+  },
+  "shard-of-naydras-horn": {
+    "where": "Shoot Naydra's horn (Mount Lanayru / Lanayru Promenade are common farming routes)."
+  },
+  "silent-princess": {
+    "where": "Grows near Great Fairy Fountains and around Hyrule Castle."
+  },
+  "silent-shroom": {
+    "where": "Found at the base of trees in forests and sometimes in caves (easy spots include the woods south of Kakariko / Dueling Peaks region)."
+  },
+  "smotherwing-butterfly": {
+    "where": "Flutter near lava in Eldin; approach with fireproof gear."
+  },
+  "sneaky-river-snail": {
+    "where": "Found on riverbanks / lake shores near fresh water (notably around Zora's Domain and various rivers/ponds across Hyrule)."
+  },
+  "star-fragment": {
+    "where": "Falls at night; chase glowing comets on clear evenings."
+  },
+  "stealthfin-trout": {
+    "where": "Found in the Great Hyrule Forest—especially Lake Mekar (around Korok Forest) and Lake Saria."
+  },
+  "sunset-firefly": {
+    "where": "Appears at night around Kakariko Village houses."
+  },
+  "sunshroom": {
+    "where": "Warm areas like Eldin foothills and Gerudo Canyon."
+  },
+  "swift-carrot": {
+    "where": "Buy at Kakariko Village or pick in nearby fields."
+  },
+  "swift-violet": {
+    "where": "Cliffside flowers in Gerudo Highlands and Hebra."
+  },
+  "topaz": {
+    "where": "Ore deposits in Lanayru and Faron; Talus drops."
+  },
+  "voltfruit": {
+    "where": "Cacti in Gerudo Desert; also sold in Gerudo Town."
+  },
+  "warm-safflina": {
+    "where": "Grows in Gerudo Desert sand dunes."
+  },
+  "white-chuchu-jelly": {
+    "where": "Freeze Chuchu Jelly or defeat Ice Chuchu."
+  },
+  "yellow-chuchu-jelly": {
+    "where": "Zap Chuchu Jelly or defeat Electric Chuchu."
+  },
+  "yellow-lizalfos-tail": {
+    "where": "Dropped by Electric Lizalfos around Gerudo Desert."
+  },
+  "zapshroom": {
+    "where": "Gerudo Highlands cliffs and canyons."
+  }
 }
