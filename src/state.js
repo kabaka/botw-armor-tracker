@@ -3,6 +3,7 @@ const LS_STATE = "botw.state.v2";
 
 const DEFAULT_DATA_PATH = "./data/botw_armor_data.json";
 const DEFAULT_SOURCES_PATH = "./data/armor_sources.json";
+const DEFAULT_MATERIAL_SOURCES_PATH = "./data/material_sources.json";
 const DEFAULT_DATA_URL = null; // optional remote dataset override
 
 function resolveStorage(storage){
@@ -137,7 +138,7 @@ async function fetchJSON(url){
   return await res.json();
 }
 
-async function loadArmorData({ dataPath = DEFAULT_DATA_PATH, sourcesPath = DEFAULT_SOURCES_PATH, dataUrl = DEFAULT_DATA_URL, storage } = {}){
+async function loadArmorData({ dataPath = DEFAULT_DATA_PATH, sourcesPath = DEFAULT_SOURCES_PATH, materialSourcesPath = DEFAULT_MATERIAL_SOURCES_PATH, dataUrl = DEFAULT_DATA_URL, storage } = {}){
   let data = loadJSONFromStorage(LS_DATA, storage);
   if(!validateData(data)) data = null;
 
@@ -159,8 +160,9 @@ async function loadArmorData({ dataPath = DEFAULT_DATA_PATH, sourcesPath = DEFAU
   }
 
   const sources = await fetchJSON(sourcesPath);
+  const materialSources = await fetchJSON(materialSourcesPath);
 
-  return { data, sources };
+  return { data, sources, materialSources };
 }
 
 function initializeState(data, { storage } = {}){

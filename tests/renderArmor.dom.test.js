@@ -77,11 +77,11 @@ function createStorage(){
   };
 }
 
-function setup(){
+function setup({ materialSources = {} } = {}){
   createDOM();
   const storage = createStorage();
   const state = defaultState(DATA_FIXTURE);
-  initUI({ data: DATA_FIXTURE, state, sources: {}, storage });
+  initUI({ data: DATA_FIXTURE, state, sources: {}, materialSources, storage });
   return { storage, state };
 }
 
@@ -140,5 +140,16 @@ describe('renderArmor DOM behaviors', () => {
     expect(visibleAccordions).toHaveLength(1);
     expect(visibleAccordions[0].dataset.cat).toBe('Gerudo');
     expect(visibleAccordions[0].querySelector('.piece').style.display).not.toBe('none');
+  });
+
+  it('shows acquisition info for materials when available', () => {
+    setup({ materialSources: { mat1: { where: 'Hyrule Ridge', notes: 'Night only' } } });
+    const matTab = document.querySelector('button[data-tab="materials"]');
+    matTab.click();
+
+    const info = document.querySelector('.mat-info');
+    expect(info).not.toBeNull();
+    expect(info.textContent).toContain('Hyrule Ridge');
+    expect(info.textContent).toContain('Night only');
   });
 });

@@ -9,10 +9,10 @@ function getStorage(){
 
 async function init(){
   const storage = getStorage();
-  const { data, sources } = await loadArmorData({ dataUrl: DATA_URL, storage });
+  const { data, sources, materialSources } = await loadArmorData({ dataUrl: DATA_URL, storage });
   const state = initializeState(data, { storage });
 
-  initUI({ data, state, sources, storage });
+  initUI({ data, state, sources, materialSources, storage });
 }
 
 if (typeof window !== "undefined" && typeof document !== "undefined") {

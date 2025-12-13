@@ -6,12 +6,14 @@ const els = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 let DATA;
 let STATE;
 let SOURCES;
+let MATERIAL_SOURCES;
 let STORAGE;
 
-function initUI({ data, state, sources, storage }){
+function initUI({ data, state, sources, materialSources, storage }){
   DATA = data;
   STATE = state;
   SOURCES = sources || {};
+  MATERIAL_SOURCES = materialSources || {};
   STORAGE = storage;
 
   wireTabs();
@@ -377,6 +379,22 @@ function renderPiece(p){
   `;
 }
 
+function renderMaterialAcquisition(material){
+  const src = (MATERIAL_SOURCES && MATERIAL_SOURCES[material.id]) || {};
+  const where = src.where || src.location || material.howToGet || "";
+  const coords = src.coords || "";
+  const notes = src.notes || material.notes || "";
+  const parts = [];
+  if(where) parts.push(`<div>${escapeHtml(where)}</div>`);
+  if(coords) parts.push(`<div class="muted tiny">${escapeHtml(coords)}</div>`);
+  if(notes) parts.push(`<div class="muted tiny">${escapeHtml(notes)}</div>`);
+
+  return {
+    html: parts.length ? `<div class="mat-info muted tiny">${parts.join(" ")}</div>` : "",
+    searchText: [where, coords, notes].filter(Boolean).join(" ")
+  };
+}
+
 function renderMaterials(){
   const view = el("#view-materials");
   const remainingReq = sumRemainingRequirements(DATA, STATE);
@@ -403,9 +421,13 @@ function renderMaterials(){
               const badge = diff >= 0
                 ? `<span class="badge ok"><b>OK</b> <span>+${diff}</span></span>`
                 : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
+              const acquisition = renderMaterialAcquisition(m);
               return `
-                <tr data-mid="${m.id}" data-search="${escapeHtml((m.tags||[]).concat([m.name]).join(" ").toLowerCase())}">
-                  <td><b>${escapeHtml(m.name)}</b></td>
+                <tr data-mid="${m.id}" data-search="${escapeHtml((m.tags||[]).concat([m.name, acquisition.searchText]).join(" ").toLowerCase())}">
+                  <td>
+                    <div class="mat-name"><b>${escapeHtml(m.name)}</b></div>
+                    ${acquisition.html}
+                  </td>
                   <td>${rem}</td>
                   <td>
                     ${renderInvStepper(m.id, inv)}

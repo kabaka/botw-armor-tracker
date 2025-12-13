@@ -232,6 +232,8 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   border-bottom:1px solid var(--line);
   vertical-align:top;
 }
+.mat-name{display:flex; align-items:center; gap:6px;}
+.mat-info{margin-top:4px; line-height:1.4;}
 .table th{font-size:12px; color:var(--muted); font-weight:650}
 .table tr:last-child td{border-bottom:none}
 .qty{

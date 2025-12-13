@@ -75,7 +75,7 @@ describe('service worker fetch handling', () => {
     await respondPromise;
     expect(resolved).toBeDefined();
     expect(await resolved.text()).toBe('network');
-    const cache = await cacheStorage.open('botw-armor-tracker-v3');
+    const cache = await cacheStorage.open('botw-armor-tracker-v4');
     const cached = await cache.match(req);
     expect(cached).toBeInstanceOf(Response);
     expect(await cached.text()).toBe('network');
@@ -83,7 +83,7 @@ describe('service worker fetch handling', () => {
 
   it('serves cached assets before network for static files', async () => {
     const { listeners, cacheStorage } = await importSW();
-    const cache = await cacheStorage.open('botw-armor-tracker-v3');
+    const cache = await cacheStorage.open('botw-armor-tracker-v4');
     const req = new Request('http://example.com/styles.css');
     const cached = new Response('cached-style');
     await cache.put(req, cached.clone());
