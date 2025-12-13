@@ -103,18 +103,18 @@ function renderSummary(){
     <div class="grid cols-2">
       <div class="card">
         <h3>Progress</h3>
-        <div class="muted tiny">Current upgrade levels across all armor</div>
+        <div class="muted tiny">Upgrade levels across all armor pieces (0–4 per piece)</div>
         <div class="kpis">
           <div class="kpi">
-            <div class="label">Completed</div>
+            <div class="label">Completed upgrade levels</div>
             <div class="value">${completedLevels}</div>
           </div>
           <div class="kpi">
-            <div class="label">Total</div>
+            <div class="label">Total upgrade levels</div>
             <div class="value">${totalLevels}</div>
           </div>
           <div class="kpi">
-            <div class="label">Remaining</div>
+            <div class="label">Remaining upgrade levels</div>
             <div class="value">${Math.max(0, totalLevels - completedLevels)}</div>
           </div>
         </div>
@@ -123,6 +123,7 @@ function renderSummary(){
       <div class="card">
         <h3>Materials health</h3>
         <div class="muted tiny">Deficits vs remaining upgrades</div>
+        <div class="muted tiny">Materials in deficit = unique materials still needed</div>
         <div class="kpis">
           <div class="kpi">
             <div class="label">Materials in deficit</div>
