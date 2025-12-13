@@ -292,7 +292,7 @@ function renderPiece(p){
   const srcRegions = src?.regions?.length ? src.regions.join(" • ") : "";
   const srcWhere = src?.where || "";
   const srcCoords = src?.coords || "";
-  const srcUrl = src?.url || "";
+  const srcUrl = sanitizeUrl(src?.url);
   const srcHtml = (srcRegions || srcWhere || srcCoords) ? `
     <div class="tiny muted armor-src">
       ${srcRegions ? `<span class="pill mini">${escapeHtml(srcRegions)}</span>` : ``}
@@ -549,6 +549,17 @@ function cssEscape(str){
   return String(str).replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/"/g,'\\"');
 }
 
+function sanitizeUrl(url){
+  if(!url) return "";
+  try {
+    const base = typeof window !== "undefined" && window.location?.origin ? window.location.origin : "http://localhost";
+    const parsed = new URL(String(url), base);
+    return (parsed.protocol === "http:" || parsed.protocol === "https:") ? parsed.href : "";
+  } catch {
+    return "";
+  }
+}
+
 function wireTabs(){
   els(".tab").forEach(btn=>{
     btn.addEventListener("click", ()=>{
@@ -588,6 +599,7 @@ function wireHeader(){
 export {
   cssEscape,
   escapeHtml,
+  sanitizeUrl,
   groupBy,
   initUI
 };

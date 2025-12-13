@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { cssEscape, escapeHtml, groupBy } from '../src/ui.js';
+import { cssEscape, escapeHtml, groupBy, sanitizeUrl } from '../src/ui.js';
 
 describe('ui helpers', () => {
   it('groups items by selector function', () => {
@@ -14,5 +14,12 @@ describe('ui helpers', () => {
 
   it('escapes css selectors for use in query strings', () => {
     expect(cssEscape("ma'in\"id")).toBe("ma\\'in\\\"id");
+  });
+
+  it('sanitizes URLs, allowing only http/https origins', () => {
+    expect(sanitizeUrl('https://example.com/path')).toBe('https://example.com/path');
+    expect(sanitizeUrl('http://example.com')).toBe('http://example.com/');
+    expect(sanitizeUrl('javascript:alert(1)')).toBe('');
+    expect(sanitizeUrl('ftp://example.com/file')).toBe('');
   });
 });
