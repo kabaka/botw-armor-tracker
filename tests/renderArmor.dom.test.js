@@ -115,23 +115,17 @@ describe('renderArmor DOM behaviors', () => {
 
   it('updates inventory via steppers and persists changes', () => {
     const { state, storage } = setup();
-    const root = document.querySelector('#armorAccordions');
-    const custom = document.createElement('div');
-    custom.innerHTML = `
-      <div class="stepper">
-        <button class="step" data-kind="inc" data-mid="mat1">+</button>
-        <input data-kind="inv" data-mid="mat1" value="0" />
-        <button class="step" data-kind="dec" data-mid="mat1">-</button>
-      </div>
-    `;
-    root.appendChild(custom.firstElementChild);
+    document.querySelector('.acc-head').click();
 
-    const inc = root.querySelector('button.step[data-mid="mat1"][data-kind="inc"]');
+    const inc = document.querySelector('button.step[data-mid="mat1"][data-kind="inc"]');
     inc.click();
 
     expect(state.inventory.mat1).toBe(1);
     const saved = JSON.parse(storage.getItem(LS_STATE));
     expect(saved.inventory.mat1).toBe(1);
+
+    const input = document.querySelector('input[data-kind="inv"][data-mid="mat1"]');
+    expect(input.value).toBe('1');
   });
 
   it('filters armor pieces and categories based on search input', () => {

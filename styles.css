@@ -357,6 +357,13 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 .inv-inline .stepper input{
   width: 68px;
 }
+.armor-mat-row{
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
 /* Armor acquisition line */
 .armor-src{

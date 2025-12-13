@@ -343,7 +343,11 @@ function renderPiece(p){
               </td>
               <td>
                 <div class="muted">${m.qty}× ${escapeHtml(m.name)}</div>
-                <div style="margin-top:6px">${badge}</div>
+                <div class="inv-inline armor-mat-row">
+                  <div class="tiny muted" aria-hidden="true">Inventory</div>
+                  ${renderInvStepper(m.id, inv)}
+                  ${badge}
+                </div>
               </td>
             </tr>`;
         }).join("")}
