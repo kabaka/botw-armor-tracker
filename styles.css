@@ -253,7 +253,13 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 .mat-row-top{display:flex; align-items:center; justify-content:space-between; gap:8px;}
 .mat-name{display:flex; align-items:center; gap:6px;}
 .mat-info{margin-top:4px; line-height:1.4;}
-.mat-acq-inline{margin-left:6px; font-size:11px; opacity:.82; white-space:nowrap;}
+.mat-acq-inline{
+  margin-left:6px;
+  font-size:11px;
+  opacity:.82;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
 .mat-status{white-space:nowrap;}
 .mat-status-desktop{display:inline-flex;}
 .mat-status-mobile{display:none;}
