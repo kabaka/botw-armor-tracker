@@ -28,10 +28,13 @@ A lightweight, offline-friendly tracker for managing armor sets, upgrades, and m
 - The app is a static site built with vanilla JavaScript, HTML, and CSS.
 - Primary entry points:
   - `index.html`: main page markup and PWA metadata.
-  - `app.js`: core application logic for data loading and interactions.
+  - `app.js`: bootstrap that wires state loading to the UI layer.
+  - `src/state.js`: data loading, validation, and local state helpers.
+  - `src/ui.js`: rendering logic and in-browser interactions.
   - `styles.css`: global styling and layout.
   - `sw.js`: service worker for caching assets.
-  - `botw_armor_data.json`: armor data source.
+- `data/botw_armor_data.json`: armor data source.
+- `data/armor_sources.json`: curated acquisition info shown in the UI.
 - Use modern browsers for development and testing; no build step is required.
 
 ## Testing

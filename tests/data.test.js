@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-const dataPath = path.join(process.cwd(), 'botw_armor_data.json');
+const dataPath = path.join(process.cwd(), 'data', 'botw_armor_data.json');
 const rawData = fs.readFileSync(dataPath, 'utf-8');
 const armorData = JSON.parse(rawData);
 
