@@ -440,15 +440,22 @@ function renderMaterials(){
               const acquisition = renderMaterialAcquisition(m);
               return `
                 <tr data-mid="${m.id}" data-search="${escapeHtml((m.tags||[]).concat([m.name, acquisition.searchText]).join(" ").toLowerCase())}">
-                  <td>
-                    <div class="mat-name"><b>${escapeHtml(m.name)}</b></div>
+                  <td class="mat-main">
+                    <div class="mat-row-top">
+                      <div class="mat-name"><b>${escapeHtml(m.name)}</b></div>
+                      <span class="mat-status mat-status-mobile">${badge}</span>
+                    </div>
                     ${acquisition.html}
                   </td>
-                  <td>${rem}</td>
-                  <td>
+                  <td class="mat-remaining">
+                    <div class="mat-col-label tiny muted">Remaining</div>
+                    <div class="mat-col-value">${rem}</div>
+                  </td>
+                  <td class="mat-inventory">
+                    <div class="mat-col-label tiny muted">Inventory</div>
                     ${renderInvStepper(m.id, inv)}
                   </td>
-                  <td>${badge}</td>
+                  <td class="mat-status mat-status-desktop">${badge}</td>
                 </tr>`;
             }).join("")}
           </tbody>
