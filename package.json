@@ -1,0 +1,21 @@
+{
+  "name": "botw-armor-tracker",
+  "version": "1.0.0",
+  "description": "A lightweight, offline-friendly tracker for managing armor sets, upgrades, and materials in *The Legend of Zelda: Breath of the Wild*. The app runs entirely in the browser, making it simple to use on desktop or mobile.",
+  "main": "app.js",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "keywords": [
+    "zelda",
+    "pwa",
+    "tracker",
+    "breath-of-the-wild"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "vitest": "^4.0.15"
+  }
+}

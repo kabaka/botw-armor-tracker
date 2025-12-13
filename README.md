@@ -14,11 +14,15 @@ A lightweight, offline-friendly tracker for managing armor sets, upgrades, and m
    git clone https://github.com/your-org/botw-armor-tracker.git
    cd botw-armor-tracker
    ```
-2. Serve the static files with your preferred dev server, e.g.:
+2. Install dependencies for running tests:
+   ```bash
+   npm ci
+   ```
+3. Serve the static files with your preferred dev server, e.g.:
    ```bash
    npx serve .
    ```
-3. Open the app in your browser at the provided local URL.
+4. Open the app in your browser at the provided local URL.
 
 ## Development
 - The app is a static site built with vanilla JavaScript, HTML, and CSS.
@@ -31,11 +35,21 @@ A lightweight, offline-friendly tracker for managing armor sets, upgrades, and m
 - Use modern browsers for development and testing; no build step is required.
 
 ## Testing
-- There is no dedicated test suite yet. When adding new features, consider lightweight unit tests (e.g., with Jest) for data utilities and manual verification for UI flows.
+- Run the automated data integrity tests:
+  ```bash
+  npm test
+  ```
+- Tests rely on [Vitest](https://vitest.dev) and currently validate that armor data remains well-formed. Add new tests alongside any new functionality to keep coverage meaningful.
 
 ## Deployment
 - Host the static files on any web server or static hosting provider.
 - Ensure HTTPS to allow PWA installation and service worker registration.
+- The repository includes a GitHub Actions workflow that, on pushes to `main`, runs tests and deploys the contents of the `dist` folder to GitHub Pages.
+
+## Continuous Integration & Automation
+- Pull requests to `main` automatically run the test suite via GitHub Actions to prevent regressions.
+- Merges to `main` re-run the tests and, on success, publish the site to GitHub Pages.
+- Dependabot is configured to open weekly updates for npm packages and GitHub Actions to keep dependencies current.
 
 ## Contributing
 - Use Conventional Commits for commit messages.
