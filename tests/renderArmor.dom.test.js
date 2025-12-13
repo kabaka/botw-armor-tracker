@@ -142,6 +142,16 @@ describe('renderArmor DOM behaviors', () => {
     expect(visibleAccordions[0].querySelector('.piece').style.display).not.toBe('none');
   });
 
+  it('shows acquisition info for armor material requirements when available', () => {
+    setup({ materialSources: { mat1: { where: 'Hyrule Ridge', coords: '123, 456, 789' } } });
+    document.querySelector('.acc-head').click();
+
+    const inlineInfo = document.querySelector('.mat-acq-inline');
+    expect(inlineInfo).not.toBeNull();
+    expect(inlineInfo.textContent).toContain('Hyrule Ridge');
+    expect(inlineInfo.textContent).toContain('123, 456, 789');
+  });
+
   it('shows acquisition info for materials when available', () => {
     setup({ materialSources: { mat1: { where: 'Hyrule Ridge', notes: 'Night only' } } });
     const matTab = document.querySelector('button[data-tab="materials"]');
