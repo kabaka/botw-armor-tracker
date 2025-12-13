@@ -5,10 +5,9 @@ import {
   defaultState,
   ensureStateAligned,
   migrateOldStateIfNeeded,
-  setDataStateForTests,
   sumRemainingRequirements,
   validateData
-} from '../app.js';
+} from '../src/state.js';
 
 const SAMPLE_DATA = {
   schemaVersion: 1,
@@ -86,8 +85,7 @@ describe('state migration and alignment', () => {
       ui: {}
     };
 
-    setDataStateForTests(SAMPLE_DATA, state);
-    ensureStateAligned();
+    ensureStateAligned(SAMPLE_DATA, state);
 
     expect(state.levels).toEqual({ 'piece-1': 1, 'piece-2': 0 });
     expect(state.inventory).toEqual({ 'mat-a': 0, 'mat-b': 0 });
@@ -106,17 +104,16 @@ describe('upgrade calculations', () => {
       ui: { openCats: [], openPieces: [] }
     };
 
-    setDataStateForTests(SAMPLE_DATA, state);
   });
 
   it('summarizes remaining upgrade requirements', () => {
-    const remaining = sumRemainingRequirements();
+    const remaining = sumRemainingRequirements(SAMPLE_DATA, state);
     expect(remaining.get('mat-a')).toBe(3);
     expect(remaining.get('mat-b')).toBe(7);
   });
 
   it('computes aggregate counts', () => {
-    const summary = counts();
+    const summary = counts(SAMPLE_DATA, state);
     expect(summary.completedLevels).toBe(3);
     expect(summary.totalLevels).toBe(8);
     expect(summary.remainingReq.get('mat-b')).toBe(7);
