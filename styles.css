@@ -289,8 +289,30 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   flex-wrap:wrap;
   justify-content:flex-end;
 }
+.level-status-wrap .ready-upgrade{
+  background: rgba(244,211,94,.08);
+  border-color: rgba(244,211,94,.35);
+  color: var(--text);
+  font-size: 12px;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.level-status-wrap .ready-upgrade:hover{border-color:rgba(244,211,94,.6)}
+.level-status-wrap .ready-upgrade:focus-visible{
+  outline:2px solid rgba(244,211,94,.6);
+  outline-offset:2px;
+}
 .level-status-wrap .badge{margin:0;}
 .mat-row td{vertical-align:top;}
+.lvl-table .mat-row td:first-child{
+  width:58%;
+}
+.lvl-table .mat-row td:last-child{
+  width:42%;
+  min-width:320px;
+}
 .mat-line{
   display:flex;
   align-items:center;
@@ -508,8 +530,11 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
+.armor-mat-row .badge{flex-shrink:0;}
+.armor-mat-row .stepper{flex-shrink:0;}
 
 @media (max-width: 760px){
   #matTable{
@@ -603,18 +628,30 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
     gap:6px;
   }
 
-  .armor-mat-row{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-    width:100%;
+  .lvl-table .mat-row td:first-child,
+  .lvl-table .mat-row td:last-child{
+    width:auto;
+    min-width:0;
   }
 
-  .armor-mat-row .badge{align-self:flex-start;}
+  .armor-mat-row{
+    flex-direction:row;
+    align-items:center;
+    gap:8px;
+    width:100%;
+    flex-wrap:wrap;
+  }
+
+  .armor-mat-row .badge{align-self:center;}
+
+  .inv-inline .stepper{
+    flex:1;
+    min-width:160px;
+  }
 
   .inv-inline .stepper input{
     width:100%;
-    max-width:160px;
+    max-width:none;
   }
 
   .mat-acq-inline{
