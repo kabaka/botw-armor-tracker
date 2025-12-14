@@ -23,7 +23,7 @@ describe('ui helpers', () => {
     expect(sanitizeUrl('ftp://example.com/file')).toBe('');
   });
 
-  it('summarizes remaining material coverage accurately', () => {
+  it('summarizes required material coverage accurately', () => {
     const remainingReq = new Map([
       ['mat-a', 3],
       ['mat-b', 1]
@@ -37,9 +37,9 @@ describe('ui helpers', () => {
     const summary = summarizeMaterialNeeds(remainingReq, inventory, materials);
 
     expect(summary.requiredUnique).toBe(2);
-    expect(summary.deficitUnique).toBe(1);
+    expect(summary.shortUnique).toBe(1);
     expect(summary.coveredUnique).toBe(1);
-    expect(summary.items[0].deficit).toBe(1);
+    expect(summary.items[0].short).toBe(1);
   });
 
   it('never reports covered unique materials as negative', () => {
@@ -51,7 +51,7 @@ describe('ui helpers', () => {
 
     const summary = summarizeMaterialNeeds(remainingReq, inventory, materials);
 
-    expect(summary.deficitUnique).toBe(1);
+    expect(summary.shortUnique).toBe(1);
     expect(summary.coveredUnique).toBe(0);
   });
 

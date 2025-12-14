@@ -247,27 +247,30 @@ function render(){
 function summarizeMaterialNeeds(remainingReq, inventory, materials){
   const materialLookup = new Map(materials.map((m)=>[m.id, m.name]));
   const items = Array.from(remainingReq.entries())
-    .map(([mid, qty]) => {
+    .map(([mid, required]) => {
       const have = Number(inventory[mid] || 0);
+      const short = Math.max(0, required - have);
+      const surplus = Math.max(0, have - required);
       return {
         mid,
         name: materialLookup.get(mid) || mid,
-        qty,
+        required,
         have,
-        deficit: Math.max(0, qty - have)
+        short,
+        surplus
       };
     })
     .sort((a, b) => {
-      if(b.deficit !== a.deficit) return b.deficit - a.deficit;
-      if(b.qty !== a.qty) return b.qty - a.qty;
+      if(b.short !== a.short) return b.short - a.short;
+      if(b.required !== a.required) return b.required - a.required;
       return a.name.localeCompare(b.name);
     });
 
   const requiredUnique = items.length;
-  const deficitUnique = items.reduce((count, item) => count + (item.have < item.qty ? 1 : 0), 0);
-  const coveredUnique = Math.max(0, requiredUnique - deficitUnique);
+  const shortUnique = items.reduce((count, item) => count + (item.short > 0 ? 1 : 0), 0);
+  const coveredUnique = Math.max(0, requiredUnique - shortUnique);
 
-  return { items, requiredUnique, deficitUnique, coveredUnique };
+  return { items, requiredUnique, shortUnique, coveredUnique };
 }
 
 function renderSummary(){
@@ -300,7 +303,7 @@ function renderSummary(){
         </div>
         <div class="materials-health">
           <div class="material-count">
-            <div class="label">Unique needed</div>
+            <div class="label">Unique required</div>
             <div class="value">${materialSummary.requiredUnique}</div>
           </div>
           <div class="material-count">
@@ -308,7 +311,7 @@ function renderSummary(){
             <div class="value">${materialSummary.coveredUnique}</div>
           </div>
         </div>
-        <div class="muted tiny">Based on remaining upgrades only</div>
+        <div class="muted tiny">Based on required materials for remaining upgrades</div>
       </div>
       </div>
 
@@ -331,13 +334,13 @@ function renderSummary(){
       </div>
     </div>
 
-    <div class="card" style="margin-top:12px">
-      <div class="summary-header">
-        <div>
-          <h3 style="margin:0">Top remaining materials</h3>
-          <div class="muted tiny">Based on current armor levels</div>
+      <div class="card" style="margin-top:12px">
+        <div class="summary-header">
+          <div>
+            <h3 style="margin:0">Top required materials</h3>
+            <div class="muted tiny">Based on current armor levels</div>
+          </div>
         </div>
-      </div>
 
       <div style="margin-top:10px; overflow:auto">
         <table class="table" id="topMaterialsTable">
@@ -350,27 +353,30 @@ function renderSummary(){
             </tr>
           </thead>
           <tbody>
-            ${materialSummary.items.slice(0, 18).map(({ mid, name, qty, have, deficit })=>{
-              const pct = qty > 0 ? Math.min(100, Math.round((have / qty) * 100)) : 100;
-              const badge = deficit === 0
-                ? `<span class="badge ok">OK</span>`
-                : `<span class="badge bad">Need</span>`;
+            ${materialSummary.items.slice(0, 18).map(({ mid, name, required, have, short, surplus })=>{
+              const pct = required > 0 ? Math.min(100, Math.round((have / required) * 100)) : 100;
+              let badge = `<span class="badge ok">Met</span>`;
+              if(short > 0){
+                badge = `<span class="badge bad"><b>Short</b> <span>${short}</span></span>`;
+              }else if(surplus > 0){
+                badge = `<span class="badge ok over"><b>Surplus</b> <span>+${surplus}</span></span>`;
+              }
               return `
                 <tr>
                   <td class="mat-name"><b>${escapeHtml(name || mid)}</b></td>
-                  <td class="mat-required">${qty}</td>
+                  <td class="mat-required">${required}</td>
                   <td class="mat-have">
                     <div class="have-values">
                       <span class="have-val">${have}</span>
-                      <span class="have-ratio">${have} / ${qty}</span>
+                      <span class="have-ratio">${have} / ${required}</span>
                     </div>
-                    <div class="material-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Have ${have} of ${qty} (${pct}%)">
+                    <div class="material-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Have ${have} of required ${required} (${pct}%)">
                       <div class="material-bar-fill" style="width:${pct}%"></div>
                     </div>
                   </td>
                   <td class="mat-short">
                     <div class="short-wrap">
-                      <span class="short-val">${deficit}</span>
+                      <span class="short-val">${short}</span>
                       ${badge}
                     </div>
                   </td>
@@ -695,11 +701,11 @@ function renderPiece(p){
             const acquisition = renderMaterialAcquisitionInline(material);
             let badge = "";
             if(diff < 0){
-              badge = `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
+              badge = `<span class="badge bad"><b>Short</b> <span>${-diff}</span></span>`;
             }else if(diff === 0){
-              badge = `<span class="badge ok"><b>HAVE</b></span>`;
+              badge = `<span class="badge ok"><b>Met</b></span>`;
             }else{
-              badge = `<span class="badge ok over"><b>OVER</b> <span>+${diff}</span></span>`;
+              badge = `<span class="badge ok over"><b>Surplus</b> <span>+${diff}</span></span>`;
             }
 
             return `
@@ -712,8 +718,8 @@ function renderPiece(p){
                   ${acquisition ? `<div class="mat-meta">${acquisition}</div>` : ""}
                 </td>
                 <td>
-                  <div class="inv-inline armor-mat-row">
-                    <div class="tiny muted" aria-hidden="true">Inventory</div>
+                    <div class="inv-inline armor-mat-row">
+                    <div class="tiny muted" aria-hidden="true">Have</div>
                     ${renderInvStepper(m.id, inv)}
                     ${badge}
                   </div>
@@ -822,14 +828,14 @@ function renderMaterials(){
       </div>
     </div>
 
-    <div class="card">
-      <h3 style="margin:0">Materials & inventory</h3>
-      <div class="muted tiny">Totals shown against remaining upgrades (above current levels)</div>
+      <div class="card">
+        <h3 style="margin:0">Materials & inventory</h3>
+        <div class="muted tiny">Totals are required for remaining upgrades above current levels</div>
 
       <div style="margin-top:12px; overflow:auto">
         <table class="table" id="matTable">
           <thead>
-            <tr><th>Material</th><th>Remaining</th><th>Inventory</th><th>Status</th></tr>
+            <tr><th>Material</th><th>Required</th><th>Have</th><th>Status</th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -858,19 +864,22 @@ function renderMaterials(){
 
     const rows = DATA.materials
       .map(m => {
-        const rem = Number(remainingReq.get(m.id) || 0);
-        const inv = Number(STATE.inventory[m.id] || 0);
-        const diff = inv - rem;
-        const needed = Math.max(0, rem - inv);
-        const badge = diff >= 0
-          ? `<span class="badge ok"><b>OK</b> <span>+${diff}</span></span>`
-          : `<span class="badge bad"><b>NEED</b> <span>${-diff}</span></span>`;
+        const required = Number(remainingReq.get(m.id) || 0);
+        const have = Number(STATE.inventory[m.id] || 0);
+        const surplus = Math.max(0, have - required);
+        const short = Math.max(0, required - have);
+        let badge = `<span class="badge ok">Met</span>`;
+        if(short > 0){
+          badge = `<span class="badge bad"><b>Short</b> <span>${short}</span></span>`;
+        }else if(surplus > 0){
+          badge = `<span class="badge ok over"><b>Surplus</b> <span>+${surplus}</span></span>`;
+        }
         const acquisition = renderMaterialAcquisition(m);
         const searchText = (m.tags || []).concat([m.name, acquisition.searchText]).join(" ").toLowerCase();
-        return { m, rem, inv, needed, badge, acquisition, searchText };
+        return { m, required, have, short, surplus, badge, acquisition, searchText };
       })
-      .filter(({ needed, searchText }) => {
-        if(settings.deficitsOnly && needed <= 0) return false;
+      .filter(({ short, searchText }) => {
+        if(settings.deficitsOnly && short <= 0) return false;
         if(q && !searchText.includes(q)) return false;
         return true;
       })
@@ -879,10 +888,10 @@ function renderMaterials(){
         if(settings.sort === "category"){
           return (a.m.category || "").localeCompare(b.m.category || "") || a.m.name.localeCompare(b.m.name);
         }
-        return b.needed - a.needed || a.m.name.localeCompare(b.m.name);
+        return b.short - a.short || a.m.name.localeCompare(b.m.name);
       });
 
-    tbody.innerHTML = rows.map(({ m, rem, inv, badge, acquisition }) => `
+    tbody.innerHTML = rows.map(({ m, required, have, badge, acquisition }) => `
       <tr data-mid="${m.id}">
         <td class="mat-main">
           <div class="mat-row-top">
@@ -892,12 +901,12 @@ function renderMaterials(){
           ${acquisition.html}
         </td>
         <td class="mat-remaining">
-          <div class="mat-col-label tiny muted">Remaining</div>
-          <div class="mat-col-value">${rem}</div>
+          <div class="mat-col-label tiny muted">Required</div>
+          <div class="mat-col-value">${required}</div>
         </td>
         <td class="mat-inventory">
-          <div class="mat-col-label tiny muted">Inventory</div>
-          ${renderInvStepper(m.id, inv)}
+          <div class="mat-col-label tiny muted">Have</div>
+          ${renderInvStepper(m.id, have)}
         </td>
         <td class="mat-status mat-status-desktop">${badge}</td>
       </tr>
@@ -996,8 +1005,8 @@ function renderAbout(){
       <h3>How upgrade totals are calculated</h3>
       <ul class="muted">
         <li><b>Levels 0–4:</b> set the level you have already upgraded to. Level 0 means unupgraded; level 4 is maxed out.</li>
-        <li><b>Remaining materials:</b> the materials list sums every upgrade cost above your current level for each piece.</li>
-        <li><b>Inventory check:</b> your recorded inventory is subtracted from those totals, showing what you still need to gather.</li>
+        <li><b>Required materials:</b> the materials list sums every upgrade cost above your current level for each piece.</li>
+        <li><b>Have check:</b> your recorded have counts are subtracted from those totals, showing where you are short.</li>
       </ul>
     </div>
   `;
