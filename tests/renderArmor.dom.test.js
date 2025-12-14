@@ -145,6 +145,27 @@ describe('renderArmor DOM behaviors', () => {
     expect(summaryTab.getAttribute('aria-selected')).toBe('false');
   });
 
+  it('renders accessible labels for armor and materials search inputs', () => {
+    setup();
+
+    const armorLabel = document.querySelector('label[for="armorSearch"]');
+    const armorSearch = document.querySelector('#armorSearch');
+
+    expect(armorLabel).not.toBeNull();
+    expect(armorLabel.textContent).toContain('Armor search');
+    expect(Array.from(armorSearch.labels)).toContain(armorLabel);
+
+    const matTab = document.querySelector('button[data-tab="materials"]');
+    matTab.click();
+
+    const materialLabel = document.querySelector('label[for="matSearch"]');
+    const materialSearch = document.querySelector('#matSearch');
+
+    expect(materialLabel).not.toBeNull();
+    expect(materialLabel.textContent).toContain('Materials search');
+    expect(Array.from(materialSearch.labels)).toContain(materialLabel);
+  });
+
   it('persists accordion open state when toggled', () => {
     const { storage } = setup();
     const firstAccordion = document.querySelector('.accordion');
