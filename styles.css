@@ -164,23 +164,29 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 }
 .search input:focus{border-color:rgba(57,214,197,.7)}
 
-.materials-toolbar{
+.materials-toolbar,
+.armor-toolbar{
   display:flex;
   align-items:center;
   gap:10px;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
   margin-bottom:10px;
+  overflow-x:auto;
+  padding-bottom:2px;
 }
-.materials-toolbar .search{flex:1; min-width:200px; margin-bottom:0}
-.mat-view-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; white-space:nowrap}
-.mat-view-controls select{
+.materials-toolbar .search,
+.armor-toolbar .search{flex:1; min-width:220px; margin-bottom:0}
+.mat-view-controls,
+.armor-view-controls{display:flex; align-items:center; gap:10px; flex-wrap:nowrap; white-space:nowrap}
+.mat-view-controls select,
+.armor-view-controls select{
   background:rgba(255,255,255,.03);
   color:var(--text);
   border:1px solid var(--line);
   border-radius:10px;
   padding:6px 8px;
 }
-.mat-view-controls input[type='checkbox']{accent-color:#39d6c5}
+.armor-view-controls select{min-width:130px}
 
 .accordion{
   border:1px solid var(--line);
@@ -390,7 +396,8 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   margin:14px 0 12px;
 }
 .level-buttons{display:flex; gap:8px; flex-wrap:wrap;}
-.show-levels-toggle{
+.show-levels-toggle,
+.filter-toggle{
   display:inline-flex;
   align-items:center;
   gap:8px;
@@ -400,12 +407,14 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   padding:8px 12px;
   color:var(--text);
 }
-.show-levels-toggle.active{
+.show-levels-toggle.active,
+.filter-toggle.active{
   background:linear-gradient(135deg, rgba(244,211,94,.22), rgba(57,214,197,.12));
   border-color:rgba(244,211,94,.6);
   box-shadow:0 0 0 1px rgba(57,214,197,.12);
 }
-.show-levels-toggle:focus-visible{
+.show-levels-toggle:focus-visible,
+.filter-toggle:focus-visible{
   outline:2px solid rgba(57,214,197,.65);
   outline-offset:2px;
 }
@@ -420,6 +429,8 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   font-size:18px;
   line-height:1.1;
   padding:2px 0;
+  white-space:nowrap;
+  flex-shrink:0;
 }
 .level-stars.ok{color:#c8ffd5}
 .level-stars.bad{color:#ffd7df}

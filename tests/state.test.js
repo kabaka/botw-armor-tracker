@@ -53,7 +53,13 @@ describe('data validation and defaults', () => {
     expect(state.schemaVersion).toBe(2);
     expect(state.levels).toEqual({ 'piece-1': 0, 'piece-2': 0 });
     expect(state.inventory).toEqual({ 'mat-a': 0, 'mat-b': 0 });
-    expect(state.ui).toEqual({ openCats: [], openPieces: [], showAllLevels: false, materials: { deficitsOnly: false, sort: 'needed' } });
+    expect(state.ui).toEqual({
+      openCats: [],
+      openPieces: [],
+      showAllLevels: false,
+      armor: { incompleteOnly: false, sort: 'alpha' },
+      materials: { deficitsOnly: false, sort: 'needed' }
+    });
   });
 });
 
@@ -73,7 +79,13 @@ describe('state migration and alignment', () => {
     expect(migrated.schemaVersion).toBe(2);
     expect(migrated.levels).toEqual({ 'piece-1': 2, 'piece-2': 1 });
     expect(migrated.inventory['mat-a']).toBe(5);
-    expect(migrated.ui).toEqual({ openCats: ['head'], openPieces: ['piece-1'], showAllLevels: false, materials: { deficitsOnly: false, sort: 'needed' } });
+    expect(migrated.ui).toEqual({
+      openCats: ['head'],
+      openPieces: ['piece-1'],
+      showAllLevels: false,
+      armor: { incompleteOnly: false, sort: 'alpha' },
+      materials: { deficitsOnly: false, sort: 'needed' }
+    });
     expect(migrated.lastUpdated).toBe('2023-01-01T00:00:00.000Z');
   });
 
@@ -89,7 +101,13 @@ describe('state migration and alignment', () => {
 
     expect(state.levels).toEqual({ 'piece-1': 1, 'piece-2': 0 });
     expect(state.inventory).toEqual({ 'mat-a': 0, 'mat-b': 0 });
-    expect(state.ui).toEqual({ openCats: [], openPieces: [], showAllLevels: false, materials: { deficitsOnly: false, sort: 'needed' } });
+    expect(state.ui).toEqual({
+      openCats: [],
+      openPieces: [],
+      showAllLevels: false,
+      armor: { incompleteOnly: false, sort: 'alpha' },
+      materials: { deficitsOnly: false, sort: 'needed' }
+    });
   });
 });
 

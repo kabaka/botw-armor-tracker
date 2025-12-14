@@ -11,6 +11,10 @@ function defaultUIState(){
     openCats: [],
     openPieces: [],
     showAllLevels: false,
+    armor: {
+      incompleteOnly: false,
+      sort: "alpha"
+    },
     materials: {
       deficitsOnly: false,
       sort: "needed"
@@ -114,6 +118,11 @@ function ensureStateAligned(data, state){
   state.ui.openCats ||= [];
   state.ui.openPieces ||= [];
   if(typeof state.ui.showAllLevels !== "boolean") state.ui.showAllLevels = false;
+  state.ui.armor ||= defaultUIState().armor;
+  if(!["alpha", "level-desc", "level-asc"].includes(state.ui.armor.sort)){
+    state.ui.armor.sort = "alpha";
+  }
+  state.ui.armor.incompleteOnly = Boolean(state.ui.armor.incompleteOnly);
   state.ui.materials ||= defaultUIState().materials;
   if(!["needed", "alpha", "category"].includes(state.ui.materials.sort)){
     state.ui.materials.sort = "needed";
