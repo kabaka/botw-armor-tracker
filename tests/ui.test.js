@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { cssEscape, escapeHtml, groupBy, sanitizeUrl, summarizeMaterialNeeds } from '../src/ui.js';
+import { cssEscape, escapeHtml, getAvailableUpgrades, groupBy, sanitizeUrl, summarizeMaterialNeeds } from '../src/ui.js';
 
 describe('ui helpers', () => {
   it('groups items by selector function', () => {
@@ -53,5 +53,29 @@ describe('ui helpers', () => {
 
     expect(summary.deficitUnique).toBe(1);
     expect(summary.coveredUnique).toBe(0);
+  });
+
+  it('surfaces upgrades available with the current inventory', () => {
+    const data = {
+      materials: [
+        { id: 'mat-a', name: 'Amber' },
+        { id: 'mat-b', name: 'Opal' }
+      ],
+      armorPieces: [
+        { id: 'cap', name: 'Hylian Hood', materialsByLevel: { 1: [{ material: 'mat-a', qty: 2 }] } },
+        { id: 'tunic', name: 'Hylian Tunic', materialsByLevel: { 1: [{ material: 'mat-b', qty: 3 }] } },
+        { id: 'boots', name: 'Hylian Trousers', materialsByLevel: { 1: [{ material: 'mat-a', qty: 2 }] } }
+      ]
+    };
+
+    const state = {
+      levels: { cap: 0, tunic: 0, boots: 1 },
+      inventory: { 'mat-a': 4, 'mat-b': 2 }
+    };
+
+    const upgrades = getAvailableUpgrades(data, state);
+
+    expect(upgrades.map(u => u.pieceId)).toEqual(['cap']);
+    expect(upgrades[0].targetLevel).toBe(1);
   });
 });

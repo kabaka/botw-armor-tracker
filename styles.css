@@ -131,6 +131,13 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 .summary-percent{font-size:36px; font-weight:800; letter-spacing:0.01em;}
 .summary-progress{height:10px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; border:1px solid var(--line);}
 .summary-progress-fill{height:100%; background:linear-gradient(90deg, rgba(57,214,197,.9), rgba(244,211,94,.7));}
+.upgrade-list{display:flex; flex-direction:column; gap:8px;}
+.upgrade-row{display:grid; grid-template-columns:1fr auto auto; gap:10px; align-items:center; padding:4px 0; border-bottom:1px solid var(--line);}
+.upgrade-row:last-child{border-bottom:none;}
+.upgrade-name{font-weight:600;}
+.upgrade-level{font-size:12px; color:var(--muted);}
+.upgrade-action{padding:6px 10px; margin-left:4px;}
+.upgrade-empty{padding:6px 0;}
 .materials-health{display:flex; gap:10px; flex-wrap:wrap; align-items:stretch;}
 .material-count{flex:1; min-width:140px; padding:10px 12px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.02);}
 .material-count .label{font-size:12px; color:var(--muted);}
