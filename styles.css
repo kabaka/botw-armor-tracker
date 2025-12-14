@@ -267,6 +267,11 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 }
 .mat-row-top{display:flex; align-items:center; justify-content:space-between; gap:8px;}
 .mat-name{display:flex; align-items:center; gap:6px;}
+.table td.mat-name{
+  display:table-cell;
+  align-items:unset;
+  gap:0;
+}
 .mat-info{margin-top:4px; line-height:1.4;}
 .mat-acq-inline{
   margin-left:6px;
