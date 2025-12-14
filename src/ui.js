@@ -215,8 +215,22 @@ function render(){
 function renderSummary(){
   const { remainingReq, completedLevels, totalLevels } = counts(DATA, STATE);
   const remainingItems = Array.from(remainingReq.entries())
-    .map(([mid,qty]) => ({ mid, qty }))
-    .sort((a,b)=>b.qty-a.qty);
+    .map(([mid,qty]) => {
+      const have = Number(STATE.inventory[mid]||0);
+      return {
+        mid,
+        qty,
+        have,
+        deficit: Math.max(0, qty - have)
+      };
+    })
+    .sort((a,b)=>{
+      if(b.deficit !== a.deficit) return b.deficit - a.deficit;
+      if(b.qty !== a.qty) return b.qty - a.qty;
+      const nameA = DATA.materials.find(m=>m.id===a.mid)?.name || a.mid;
+      const nameB = DATA.materials.find(m=>m.id===b.mid)?.name || b.mid;
+      return nameA.localeCompare(nameB);
+    });
 
   const deficitCount = remainingItems.filter(({mid,qty}) => (STATE.inventory[mid]||0) < qty).length;
 
@@ -270,22 +284,24 @@ function renderSummary(){
               <th>Material</th>
               <th>Remaining needed</th>
               <th>Inventory</th>
+              <th>Deficit</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            ${remainingItems.slice(0, 18).map(({mid,qty})=>{
+            ${remainingItems.slice(0, 18).map(({mid,qty,have,deficit})=>{
               const m = DATA.materials.find(x=>x.id===mid);
-              const have = Number(STATE.inventory[mid]||0);
-              const ok = have >= qty;
+              const ok = deficit === 0;
+              const surplus = Math.max(0, have - qty);
               const badge = ok
-                ? `<span class="badge ok"><b>OK</b> <span>+${have-qty}</span></span>`
-                : `<span class="badge bad"><b>NEED</b> <span>${qty-have}</span></span>`;
+                ? `<span class="badge ok"><b>OK</b> <span>${surplus ? `+${surplus}` : surplus}</span></span>`
+                : `<span class="badge bad"><b>NEED</b> <span>${deficit}</span></span>`;
               return `
                 <tr>
-                  <td><b>${escapeHtml(m?.name || mid)}</b></td>
-                  <td>${qty}</td>
-                  <td>${have}</td>
+                  <td class="mat-name"><b>${escapeHtml(m?.name || mid)}</b></td>
+                  <td class="mat-qty">${qty}</td>
+                  <td class="mat-have">${have}</td>
+                  <td class="mat-deficit">${deficit}</td>
                   <td>${badge}</td>
                 </tr>`;
             }).join("")}
