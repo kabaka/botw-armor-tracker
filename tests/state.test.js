@@ -57,6 +57,8 @@ describe('data validation and defaults', () => {
       openCats: [],
       openPieces: [],
       showAllLevels: false,
+      activeView: 'summary',
+      scrollPositions: {},
       armor: { incompleteOnly: false, sort: 'alpha' },
       materials: { deficitsOnly: false, sort: 'needed' }
     });
@@ -83,6 +85,8 @@ describe('state migration and alignment', () => {
       openCats: ['head'],
       openPieces: ['piece-1'],
       showAllLevels: false,
+      activeView: 'summary',
+      scrollPositions: {},
       armor: { incompleteOnly: false, sort: 'alpha' },
       materials: { deficitsOnly: false, sort: 'needed' }
     });
@@ -105,9 +109,25 @@ describe('state migration and alignment', () => {
       openCats: [],
       openPieces: [],
       showAllLevels: false,
+      activeView: 'summary',
+      scrollPositions: {},
       armor: { incompleteOnly: false, sort: 'alpha' },
       materials: { deficitsOnly: false, sort: 'needed' }
     });
+  });
+
+  it('normalizes view metadata when invalid', () => {
+    const state = {
+      schemaVersion: 2,
+      levels: { 'piece-1': 0, 'piece-2': 0 },
+      inventory: {},
+      ui: { activeView: 'unknown', scrollPositions: null, armor: {}, materials: {} }
+    };
+
+    ensureStateAligned(SAMPLE_DATA, state);
+
+    expect(state.ui.activeView).toBe('summary');
+    expect(state.ui.scrollPositions).toEqual({});
   });
 });
 
@@ -119,7 +139,14 @@ describe('upgrade calculations', () => {
       schemaVersion: 2,
       levels: { 'piece-1': 1, 'piece-2': 2 },
       inventory: { 'mat-a': 1, 'mat-b': 2 },
-      ui: { openCats: [], openPieces: [], showAllLevels: false, materials: { deficitsOnly: false, sort: 'needed' } }
+      ui: {
+        openCats: [],
+        openPieces: [],
+        showAllLevels: false,
+        activeView: 'summary',
+        scrollPositions: {},
+        materials: { deficitsOnly: false, sort: 'needed' }
+      }
     };
 
   });

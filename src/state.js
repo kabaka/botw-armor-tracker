@@ -11,6 +11,8 @@ function defaultUIState(){
     openCats: [],
     openPieces: [],
     showAllLevels: false,
+    activeView: "summary",
+    scrollPositions: {},
     armor: {
       incompleteOnly: false,
       sort: "alpha"
@@ -118,6 +120,12 @@ function ensureStateAligned(data, state){
   state.ui.openCats ||= [];
   state.ui.openPieces ||= [];
   if(typeof state.ui.showAllLevels !== "boolean") state.ui.showAllLevels = false;
+  if(!["summary", "armor", "materials", "about"].includes(state.ui.activeView)){
+    state.ui.activeView = "summary";
+  }
+  if(typeof state.ui.scrollPositions !== "object" || !state.ui.scrollPositions){
+    state.ui.scrollPositions = {};
+  }
   state.ui.armor ||= defaultUIState().armor;
   if(!["alpha", "level-desc", "level-asc"].includes(state.ui.armor.sort)){
     state.ui.armor.sort = "alpha";
