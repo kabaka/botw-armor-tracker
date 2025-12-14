@@ -364,7 +364,7 @@ describe('renderArmor DOM behaviors', () => {
 
     const rows = Array.from(document.querySelectorAll('#view-summary tbody tr'));
     const names = rows.map((row) => row.querySelector('.mat-name b').textContent);
-    const deficits = rows.map((row) => Number(row.querySelector('.mat-deficit').textContent));
+    const deficits = rows.map((row) => Number(row.querySelector('.short-val').textContent));
 
     expect(names).toEqual(['Molduga Guts', 'Bokoblin Horn']);
     expect(deficits).toEqual([1, 0]);

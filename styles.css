@@ -124,6 +124,18 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 .muted{color:var(--muted)}
 .tiny{font-size:12px}
 
+.summary-grid{align-items:stretch;}
+.summary-card{height:100%;}
+.summary-header{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;}
+.summary-meter{display:flex; flex-direction:column; gap:8px;}
+.summary-percent{font-size:36px; font-weight:800; letter-spacing:0.01em;}
+.summary-progress{height:10px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; border:1px solid var(--line);}
+.summary-progress-fill{height:100%; background:linear-gradient(90deg, rgba(57,214,197,.9), rgba(244,211,94,.7));}
+.materials-health{display:flex; gap:10px; flex-wrap:wrap; align-items:stretch;}
+.material-count{flex:1; min-width:140px; padding:10px 12px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.02);}
+.material-count .label{font-size:12px; color:var(--muted);}
+.material-count .value{font-size:26px; font-weight:780; margin-top:4px;}
+
 .kpis{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
 .kpi{
   padding:10px 12px; border-radius:16px;
@@ -285,6 +297,14 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   display:table-cell;
   text-align:right;
 }
+.have-values{display:flex; align-items:center; gap:10px; justify-content:flex-start;}
+.have-val{font-weight:750;}
+.have-ratio{display:none; font-size:12px; color:var(--muted);}
+.material-bar{height:8px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; border:1px solid var(--line); margin-top:6px;}
+.material-bar-fill{height:100%; background:linear-gradient(90deg, rgba(57,214,197,.85), rgba(244,211,94,.75));}
+.short-wrap{display:flex; align-items:center; justify-content:flex-end; gap:8px; white-space:nowrap;}
+.short-val{font-weight:750;}
+.mat-short .badge{padding:4px 8px; font-size:11px;}
 .mat-status-mobile{display:none;}
 .mat-col-label{display:none;}
 .mat-col-value{font-weight:750;}
@@ -617,6 +637,14 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
     margin-top:6px;
     white-space:normal;
   }
+
+  #topMaterialsTable .mat-required,
+  #topMaterialsTable th.mat-required{display:none;}
+  #topMaterialsTable .have-values{justify-content:space-between; width:100%;}
+  #topMaterialsTable .have-val{display:none;}
+  #topMaterialsTable .have-ratio{display:inline-flex; font-weight:700;}
+  #topMaterialsTable .mat-have{display:flex; flex-direction:column; gap:6px;}
+  #topMaterialsTable .mat-short{text-align:right;}
 }
 
 @media (max-width: 640px){

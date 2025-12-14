@@ -212,97 +212,116 @@ function render(){
   renderAbout();
 }
 
-function renderSummary(){
-  const { remainingReq, completedLevels, totalLevels } = counts(DATA, STATE);
-  const remainingItems = Array.from(remainingReq.entries())
-    .map(([mid,qty]) => {
-      const have = Number(STATE.inventory[mid]||0);
+function summarizeMaterialNeeds(remainingReq, inventory, materials){
+  const materialLookup = new Map(materials.map((m)=>[m.id, m.name]));
+  const items = Array.from(remainingReq.entries())
+    .map(([mid, qty]) => {
+      const have = Number(inventory[mid] || 0);
       return {
         mid,
+        name: materialLookup.get(mid) || mid,
         qty,
         have,
         deficit: Math.max(0, qty - have)
       };
     })
-    .sort((a,b)=>{
+    .sort((a, b) => {
       if(b.deficit !== a.deficit) return b.deficit - a.deficit;
       if(b.qty !== a.qty) return b.qty - a.qty;
-      const nameA = DATA.materials.find(m=>m.id===a.mid)?.name || a.mid;
-      const nameB = DATA.materials.find(m=>m.id===b.mid)?.name || b.mid;
-      return nameA.localeCompare(nameB);
+      return a.name.localeCompare(b.name);
     });
 
-  const deficitCount = remainingItems.filter(({mid,qty}) => (STATE.inventory[mid]||0) < qty).length;
+  const requiredUnique = items.length;
+  const deficitUnique = items.reduce((count, item) => count + (item.have < item.qty ? 1 : 0), 0);
+  const coveredUnique = Math.max(0, requiredUnique - deficitUnique);
+
+  return { items, requiredUnique, deficitUnique, coveredUnique };
+}
+
+function renderSummary(){
+  const { remainingReq, completedLevels, totalLevels } = counts(DATA, STATE);
+  const materialSummary = summarizeMaterialNeeds(remainingReq, STATE.inventory, DATA.materials);
+  const completionPct = totalLevels > 0 ? Math.round((completedLevels / totalLevels) * 100) : 0;
+  const remainingLevels = Math.max(0, totalLevels - completedLevels);
 
   const view = el("#view-summary");
   view.innerHTML = `
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>Progress</h3>
-        <div class="muted tiny">Upgrade levels across all armor pieces (0–4 per piece)</div>
-        <div class="kpis">
-          <div class="kpi">
-            <div class="label">Completed upgrade levels</div>
-            <div class="value">${completedLevels}</div>
+    <div class="grid cols-2 summary-grid">
+      <div class="card summary-card">
+        <div class="summary-header">
+          <h3>Progress</h3>
+        </div>
+        <div class="summary-meter">
+          <div class="summary-percent">${completionPct}%</div>
+          <div class="summary-progress" role="progressbar" aria-valuenow="${completionPct}" aria-valuemin="0" aria-valuemax="100" aria-label="Upgrade progress ${completionPct}%">
+            <div class="summary-progress-fill" style="width:${completionPct}%"></div>
           </div>
-          <div class="kpi">
-            <div class="label">Total upgrade levels</div>
-            <div class="value">${totalLevels}</div>
-          </div>
-          <div class="kpi">
-            <div class="label">Remaining upgrade levels</div>
-            <div class="value">${Math.max(0, totalLevels - completedLevels)}</div>
-          </div>
+          <div class="muted tiny">${completedLevels} / ${totalLevels} levels</div>
+          <div class="muted tiny">${remainingLevels} remaining</div>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Materials health</h3>
-        <div class="muted tiny">Deficits vs remaining upgrades</div>
-        <div class="muted tiny">Materials in deficit = unique materials still needed</div>
-        <div class="kpis">
-          <div class="kpi">
-            <div class="label">Materials in deficit</div>
-            <div class="value">${deficitCount}</div>
+      <div class="card summary-card">
+        <div class="summary-header">
+          <h3>Materials health</h3>
+        </div>
+        <div class="materials-health">
+          <div class="material-count">
+            <div class="label">Unique needed</div>
+            <div class="value">${materialSummary.requiredUnique}</div>
           </div>
-          <div class="kpi">
-            <div class="label">Materials OK / over</div>
-            <div class="value">${DATA.materials.length - deficitCount}</div>
+          <div class="material-count">
+            <div class="label">Unique covered</div>
+            <div class="value">${materialSummary.coveredUnique}</div>
           </div>
         </div>
+        <div class="muted tiny">Based on remaining upgrades only</div>
       </div>
     </div>
 
     <div class="card" style="margin-top:12px">
-      <h3 style="margin:0">Top remaining materials</h3>
-      <div class="muted tiny">Based on current armor levels (0–4)</div>
+      <div class="summary-header">
+        <div>
+          <h3 style="margin:0">Top remaining materials</h3>
+          <div class="muted tiny">Based on current armor levels</div>
+        </div>
+      </div>
 
       <div style="margin-top:10px; overflow:auto">
-        <table class="table">
+        <table class="table" id="topMaterialsTable">
           <thead>
             <tr>
               <th>Material</th>
-              <th>Remaining needed</th>
-              <th>Inventory</th>
-              <th>Deficit</th>
-              <th>Status</th>
+              <th class="mat-required">Required</th>
+              <th class="mat-have">Have</th>
+              <th class="mat-short">Short</th>
             </tr>
           </thead>
           <tbody>
-            ${remainingItems.slice(0, 18).map(({mid,qty,have,deficit})=>{
-              const m = DATA.materials.find(x=>x.id===mid);
-              const ok = deficit === 0;
-              const surplus = Math.max(0, have - qty);
-              const badge = ok
-                ? `<span class="badge ok"><b>OK</b> <span>${surplus ? `+${surplus}` : surplus}</span></span>`
-                : `<span class="badge bad"><b>NEED</b> <span>${deficit}</span></span>`;
+            ${materialSummary.items.slice(0, 18).map(({ mid, name, qty, have, deficit })=>{
+              const pct = qty > 0 ? Math.min(100, Math.round((have / qty) * 100)) : 100;
+              const badge = deficit === 0
+                ? `<span class="badge ok">OK</span>`
+                : `<span class="badge bad">Need</span>`;
               return `
                 <tr>
-                  <td class="mat-name"><b>${escapeHtml(m?.name || mid)}</b></td>
-                  <td class="mat-qty">${qty}</td>
-                  <td class="mat-have">${have}</td>
-                  <td class="mat-deficit">${deficit}</td>
-                  <td>${badge}</td>
+                  <td class="mat-name"><b>${escapeHtml(name || mid)}</b></td>
+                  <td class="mat-required">${qty}</td>
+                  <td class="mat-have">
+                    <div class="have-values">
+                      <span class="have-val">${have}</span>
+                      <span class="have-ratio">${have} / ${qty}</span>
+                    </div>
+                    <div class="material-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Have ${have} of ${qty} (${pct}%)">
+                      <div class="material-bar-fill" style="width:${pct}%"></div>
+                    </div>
+                  </td>
+                  <td class="mat-short">
+                    <div class="short-wrap">
+                      <span class="short-val">${deficit}</span>
+                      ${badge}
+                    </div>
+                  </td>
                 </tr>`;
             }).join("")}
           </tbody>
@@ -1120,5 +1139,6 @@ export {
   escapeHtml,
   sanitizeUrl,
   groupBy,
-  initUI
+  initUI,
+  summarizeMaterialNeeds
 };
