@@ -151,7 +151,16 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
 .pill.warn{border-color:rgba(244,211,94,.35); color:#fff2c7}
 
 .search{
-  display:flex; gap:10px; align-items:center; margin-bottom:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  align-items:stretch;
+  margin-bottom:10px;
+}
+.search .search-label{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.2;
 }
 .search input{
   width:100%;

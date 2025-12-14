@@ -321,6 +321,7 @@ function renderArmor(){
   view.innerHTML = `
     <div class="armor-toolbar">
       <div class="search">
+        <label class="search-label tiny muted" for="armorSearch">Armor search</label>
         <input id="armorSearch" placeholder="Search armor pieces or sets…" />
       </div>
       <div class="armor-view-controls">
@@ -716,6 +717,7 @@ function renderMaterials(){
   view.innerHTML = `
     <div class="materials-toolbar">
       <div class="search" style="margin-bottom:0">
+        <label class="search-label tiny muted" for="matSearch">Materials search</label>
         <input id="matSearch" placeholder="Search materials…" />
       </div>
       <div class="mat-view-controls">
