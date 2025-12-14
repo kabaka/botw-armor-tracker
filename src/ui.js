@@ -10,6 +10,7 @@ let SOURCES;
 let MATERIAL_SOURCES;
 let STORAGE;
 
+const ARMOR_SORTS = ["alpha", "level-desc", "level-asc"];
 const MATERIALS_SORTS = ["needed", "alpha", "category"];
 
 function initUI({ data, state, sources, materialSources, storage }){
@@ -50,6 +51,16 @@ function ensureMaterialsUIState(hasCategoryOption = false){
   }
   STATE.ui.materials.deficitsOnly = Boolean(STATE.ui.materials.deficitsOnly);
   return STATE.ui.materials;
+}
+
+function ensureArmorUIState(){
+  STATE.ui ||= {};
+  STATE.ui.armor ||= { incompleteOnly: false, sort: "alpha" };
+  if(!ARMOR_SORTS.includes(STATE.ui.armor.sort)){
+    STATE.ui.armor.sort = "alpha";
+  }
+  STATE.ui.armor.incompleteOnly = Boolean(STATE.ui.armor.incompleteOnly);
+  return STATE.ui.armor;
 }
 
 function toast(msg){
@@ -237,16 +248,36 @@ function renderSummary(){
 
 function renderArmor(){
   const view = el("#view-armor");
-  const categories = groupBy(DATA.armorPieces, p => p.setCategory || "Unsorted");
+  const armorUI = ensureArmorUIState();
+  const filteredPieces = DATA.armorPieces.filter(p => !armorUI.incompleteOnly || clampInt(STATE.levels[p.id] ?? 0) < 4);
+  const categories = groupBy(filteredPieces, p => p.setCategory || "Unsorted");
 
   view.innerHTML = `
-    <div class="search">
-      <input id="armorSearch" placeholder="Search armor pieces or sets…" />
+    <div class="armor-toolbar">
+      <div class="search">
+        <input id="armorSearch" placeholder="Search armor pieces or sets…" />
+      </div>
+      <div class="armor-view-controls">
+        <button type="button" id="armorIncompleteToggle" class="filter-toggle ${armorUI.incompleteOnly ? "active" : ""}" aria-pressed="${armorUI.incompleteOnly}">Incomplete only</button>
+        <label class="tiny muted armor-sort">
+          Sort
+          <select id="armorSort">
+            <option value="alpha">A–Z</option>
+            <option value="level-desc">Level ↓</option>
+            <option value="level-asc">Level ↑</option>
+          </select>
+        </label>
+      </div>
     </div>
     <div id="armorAccordions"></div>
   `;
 
   const root = el("#armorAccordions");
+  const sortSelect = el("#armorSort");
+  if(sortSelect){
+    sortSelect.value = ARMOR_SORTS.includes(armorUI.sort) ? armorUI.sort : "alpha";
+  }
+
   for(const [cat, pieces] of Array.from(categories.entries()).sort((a,b)=>a[0].localeCompare(b[0]))){
     const done = pieces.reduce((sum,p)=>sum + Number(STATE.levels[p.id]||0), 0);
     const total = pieces.length * 4;
@@ -267,8 +298,7 @@ function renderArmor(){
     root.appendChild(acc);
 
     const body = el(".acc-body", acc);
-    body.innerHTML = pieces
-      .sort((a,b)=>(a.slot||"").localeCompare(b.slot||"") || a.name.localeCompare(b.name))
+    body.innerHTML = sortArmorPieces(pieces, armorUI.sort)
       .map(p => renderPiece(p)).join("");
 
     const head = el(".acc-head", acc);
@@ -360,6 +390,10 @@ function renderArmor(){
     render();
   });
 
+  if(!root.children.length){
+    root.innerHTML = `<div class="muted" style="padding:8px 0">No armor pieces match the current filters.</div>`;
+  }
+
   const search = el("#armorSearch");
   search.addEventListener("input", ()=>{
     const q = search.value.trim().toLowerCase();
@@ -374,6 +408,37 @@ function renderArmor(){
       acc.style.display = any ? "" : "none";
     }
   });
+
+  const incompleteToggle = el("#armorIncompleteToggle");
+  incompleteToggle?.addEventListener("click", ()=>{
+    const settings = ensureArmorUIState();
+    settings.incompleteOnly = !settings.incompleteOnly;
+    incompleteToggle.classList.toggle("active", settings.incompleteOnly);
+    incompleteToggle.setAttribute("aria-pressed", settings.incompleteOnly);
+    persistState();
+    preserveOpenState();
+    render();
+  });
+
+  sortSelect?.addEventListener("change", ()=>{
+    const settings = ensureArmorUIState();
+    settings.sort = ARMOR_SORTS.includes(sortSelect.value) ? sortSelect.value : "alpha";
+    sortSelect.value = settings.sort;
+    persistState();
+    preserveOpenState();
+    render();
+  });
+}
+
+function sortArmorPieces(pieces, sortKey){
+  const arr = pieces.slice();
+  if(sortKey === "level-desc"){
+    return arr.sort((a,b)=> (clampInt(STATE.levels[b.id] ?? 0) - clampInt(STATE.levels[a.id] ?? 0)) || a.name.localeCompare(b.name));
+  }
+  if(sortKey === "level-asc"){
+    return arr.sort((a,b)=> (clampInt(STATE.levels[a.id] ?? 0) - clampInt(STATE.levels[b.id] ?? 0)) || a.name.localeCompare(b.name));
+  }
+  return arr.sort((a,b)=>a.name.localeCompare(b.name) || (a.slot||"").localeCompare(b.slot||""));
 }
 
 function renderLevelStars(level){
@@ -588,10 +653,7 @@ function renderMaterials(){
         <input id="matSearch" placeholder="Search materials…" />
       </div>
       <div class="mat-view-controls">
-        <label class="tiny muted mat-toggle">
-          <input type="checkbox" id="matDeficitsOnly" ${matUI.deficitsOnly ? "checked" : ""} />
-          Deficits only
-        </label>
+        <button type="button" id="matDeficitsOnly" class="filter-toggle ${matUI.deficitsOnly ? "active" : ""}" aria-pressed="${matUI.deficitsOnly}">Deficits only</button>
         <label class="tiny muted mat-sort">
           Sort
           <select id="matSort">
@@ -725,9 +787,11 @@ function renderMaterials(){
     renderTable();
   });
 
-  deficitsToggle?.addEventListener("change", ()=>{
+  deficitsToggle?.addEventListener("click", ()=>{
     const settings = ensureMaterialsUIState(hasCategoryOption);
-    settings.deficitsOnly = Boolean(deficitsToggle.checked);
+    settings.deficitsOnly = !settings.deficitsOnly;
+    deficitsToggle.classList.toggle("active", settings.deficitsOnly);
+    deficitsToggle.setAttribute("aria-pressed", settings.deficitsOnly);
     persistState();
     renderTable();
   });

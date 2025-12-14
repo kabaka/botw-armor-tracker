@@ -294,11 +294,41 @@ describe('renderArmor DOM behaviors', () => {
     sortSelect.dispatchEvent(new Event('change', { bubbles: true }));
 
     const deficitsToggle = document.querySelector('#matDeficitsOnly');
-    deficitsToggle.checked = true;
-    deficitsToggle.dispatchEvent(new Event('change', { bubbles: true }));
+    deficitsToggle.click();
 
     const saved = JSON.parse(storage.getItem(LS_STATE));
     expect(saved.ui.materials.sort).toBe('alpha');
     expect(saved.ui.materials.deficitsOnly).toBe(true);
+  });
+
+  it('filters armor list to incomplete pieces when toggled', () => {
+    setup();
+    document.querySelector('.acc-head').click();
+
+    const levelFourButton = document.querySelector("[data-piece='helm1'][data-kind='setLvl'][data-lvl='4']");
+    levelFourButton.click();
+
+    const incompleteToggle = document.querySelector('#armorIncompleteToggle');
+    incompleteToggle.click();
+
+    expect(document.querySelector("[data-piece='helm1']")).toBeNull();
+    expect(Array.from(document.querySelectorAll('.piece')).length).toBe(2);
+  });
+
+  it('sorts armor pieces by selected sort option', () => {
+    setup();
+    const hylianAcc = document.querySelector('.accordion[data-cat="Hylian"]');
+    hylianAcc.querySelector('.acc-head').click();
+
+    hylianAcc.querySelector("[data-piece='helm1'][data-kind='setLvl'][data-lvl='3']").click();
+    hylianAcc.querySelector("[data-piece='chest1'][data-kind='setLvl'][data-lvl='1']").click();
+
+    const sortSelect = document.querySelector('#armorSort');
+    sortSelect.value = 'level-desc';
+    sortSelect.dispatchEvent(new Event('change', { bubbles: true }));
+
+    const titles = Array.from(document.querySelectorAll('.accordion[data-cat="Hylian"] .piece .title')).map((el) => el.textContent);
+    expect(titles[0]).toBe('Hylian Helm');
+    expect(titles[1]).toBe('Hylian Tunic');
   });
 });
