@@ -281,7 +281,10 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   overflow-wrap:anywhere;
 }
 .mat-status{white-space:nowrap;}
-.mat-status-desktop{display:inline-flex;}
+.table td.mat-status-desktop{
+  display:table-cell;
+  text-align:right;
+}
 .mat-status-mobile{display:none;}
 .mat-col-label{display:none;}
 .mat-col-value{font-weight:750;}
@@ -594,7 +597,7 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   #matTable td + td{margin-top:6px;}
 
   .mat-row-top{align-items:flex-start;}
-  .mat-status-desktop{display:none;}
+  .table td.mat-status-desktop{display:none;}
   .mat-status-mobile{display:inline-flex;}
   .mat-col-label{display:block;}
 
