@@ -116,10 +116,11 @@ function createStorage(){
   };
 }
 
-function setup({ materialSources = {} } = {}){
+function setup({ materialSources = {}, adjustState } = {}){
   createDOM();
   const storage = createStorage();
   const state = defaultState(DATA_FIXTURE);
+  if(typeof adjustState === 'function') adjustState(state);
   initUI({ data: DATA_FIXTURE, state, sources: {}, materialSources, storage });
   return { storage, state };
 }
@@ -330,5 +331,21 @@ describe('renderArmor DOM behaviors', () => {
     const titles = Array.from(document.querySelectorAll('.accordion[data-cat="Hylian"] .piece .title')).map((el) => el.textContent);
     expect(titles[0]).toBe('Hylian Helm');
     expect(titles[1]).toBe('Hylian Tunic');
+  });
+
+  it('orders top materials by deficit and displays deficit values', () => {
+    setup({
+      adjustState: (state) => {
+        state.inventory.mat1 = 5;
+        state.inventory.mat2 = 0;
+      }
+    });
+
+    const rows = Array.from(document.querySelectorAll('#view-summary tbody tr'));
+    const names = rows.map((row) => row.querySelector('.mat-name b').textContent);
+    const deficits = rows.map((row) => Number(row.querySelector('.mat-deficit').textContent));
+
+    expect(names).toEqual(['Molduga Guts', 'Bokoblin Horn']);
+    expect(deficits).toEqual([1, 0]);
   });
 });
