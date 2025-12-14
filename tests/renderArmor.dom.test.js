@@ -248,7 +248,7 @@ describe('renderArmor DOM behaviors', () => {
     expect(info.textContent).toContain('Night only');
   });
 
-  it('keeps remaining labels intact after updating inventory in materials view', () => {
+  it('keeps required labels intact after updating inventory in materials view', () => {
     setup();
     const matTab = document.querySelector('button[data-tab="materials"]');
     matTab.click();
@@ -256,13 +256,13 @@ describe('renderArmor DOM behaviors', () => {
     const row = document.querySelector('tr[data-mid="mat1"]');
     const labelBefore = row.querySelector('.mat-col-label');
     expect(labelBefore).not.toBeNull();
-    expect(labelBefore.textContent).toContain('Remaining');
+    expect(labelBefore.textContent).toContain('Required');
 
     row.querySelector('button.step[data-kind="inc"]').click();
 
     const labelAfter = row.querySelector('.mat-col-label');
     expect(labelAfter).not.toBeNull();
-    expect(labelAfter.textContent).toContain('Remaining');
+    expect(labelAfter.textContent).toContain('Required');
   });
 
   it('filters to deficits and sorts after filtering', () => {
