@@ -12,6 +12,7 @@ let STORAGE;
 
 const ARMOR_SORTS = ["alpha", "level-desc", "level-asc"];
 const MATERIALS_SORTS = ["needed", "alpha", "category"];
+const VIEWS = ["summary", "armor", "materials", "about"];
 
 function initUI({ data, state, sources, materialSources, storage }){
   DATA = data;
@@ -23,6 +24,13 @@ function initUI({ data, state, sources, materialSources, storage }){
   wireTabs();
   wireHeader();
   render();
+
+  const activeView = getActiveView();
+  setActiveView(activeView, { persist: false });
+  if(typeof window !== "undefined"){
+    window.requestAnimationFrame(()=>restoreScrollPosition(activeView));
+    window.addEventListener("scroll", handleScroll, { passive: true });
+  }
 }
 
 function getStorage(){
@@ -41,6 +49,48 @@ function persistData(data){
 
 function persistState(){
   saveState(STATE, getStorage());
+}
+
+function getActiveView(){
+  const view = STATE?.ui?.activeView;
+  return VIEWS.includes(view) ? view : VIEWS[0];
+}
+
+function restoreScrollPosition(view, behavior = "auto"){
+  if(typeof window === "undefined" || typeof window.scrollTo !== "function") return;
+  if(typeof navigator !== "undefined" && /jsdom/i.test(navigator.userAgent || "")) return;
+  const saved = STATE?.ui?.scrollPositions?.[view];
+  const top = Number.isFinite(Number(saved)) ? Number(saved) : 0;
+  try {
+    window.scrollTo({ top, behavior });
+  } catch {
+    // ignored for non-browser test environments
+  }
+}
+
+function setActiveView(view, { persist = true, restoreScroll = false, behavior = "auto" } = {}){
+  const nextView = VIEWS.includes(view) ? view : VIEWS[0];
+  STATE.ui ||= {};
+  STATE.ui.activeView = nextView;
+
+  els(".tab").forEach(btn=>{
+    const isActive = btn.dataset.tab === nextView;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
+  els(".view").forEach(v=>v.classList.toggle("active", v.dataset.view === nextView));
+
+  if(restoreScroll) restoreScrollPosition(nextView, behavior);
+  if(persist) persistState();
+}
+
+function handleScroll(){
+  if(typeof window === "undefined" || !STATE) return;
+  const view = getActiveView();
+  STATE.ui.scrollPositions ||= {};
+  STATE.ui.scrollPositions[view] = Math.max(0, Math.round(window.scrollY));
+  window.clearTimeout(handleScroll._tm);
+  handleScroll._tm = window.setTimeout(()=>persistState(), 200);
 }
 
 function ensureMaterialsUIState(hasCategoryOption = false){
@@ -892,13 +942,7 @@ async function applyBackupFile(file){
 function wireTabs(){
   els(".tab").forEach(btn=>{
     btn.addEventListener("click", ()=>{
-      els(".tab").forEach(b=>{
-        b.classList.toggle("active", b===btn);
-        b.setAttribute("aria-selected", b===btn ? "true" : "false");
-      });
-      const tab = btn.dataset.tab;
-      els(".view").forEach(v=>v.classList.toggle("active", v.dataset.view === tab));
-      window.scrollTo({top:0, behavior:"smooth"});
+      setActiveView(btn.dataset.tab, { restoreScroll: true, behavior: "smooth" });
     });
   });
 }
