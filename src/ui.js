@@ -138,25 +138,57 @@ function renderInvStepper(mid, value){
   `;
 }
 
-function getMaterialLookups(){
-  const nameToId = new Map(DATA.materials.map(m => [m.name, m.id]));
+function getMaterialLookups(data = DATA){
+  const materials = data?.materials || [];
+  const nameToId = new Map(materials.map(m => [m.name, m.id]));
   return {
     nameToId,
-    idToName: new Map(DATA.materials.map(m => [m.id, m.name])),
-    byId: new Map(DATA.materials.map(m => [m.id, m])),
+    idToName: new Map(materials.map(m => [m.id, m.name])),
+    byId: new Map(materials.map(m => [m.id, m])),
     resolveId: (material) => nameToId.get(material) || material
   };
 }
 
-function getLevelRequirements(pieceId, level){
-  const piece = DATA.armorPieces.find(p => p.id === pieceId);
+function getLevelRequirements(pieceId, level, data = DATA){
+  const piece = data?.armorPieces?.find(p => p.id === pieceId);
   if(!piece || !piece.materialsByLevel) return [];
   const mats = piece.materialsByLevel[level];
   if(!Array.isArray(mats)) return [];
-  const lookups = getMaterialLookups();
+  const lookups = getMaterialLookups(data);
   return mats
     .map((m)=>({ mid: lookups.resolveId(m.material), qty: Number(m.qty || m.quantity || 0) }))
     .filter(({ mid, qty }) => mid && Number.isFinite(qty) && qty > 0);
+}
+
+function getAvailableUpgrades(data = DATA, state = STATE){
+  if(!data || !state) return [];
+
+  const upgrades = [];
+
+  for(const piece of data.armorPieces || []){
+    const currentLevel = clampInt(state.levels?.[piece.id] ?? 0);
+    if(currentLevel >= 4) continue;
+
+    const targetLevel = Math.min(4, currentLevel + 1);
+    const requirements = getLevelRequirements(piece.id, targetLevel, data);
+    if(!requirements.length) continue;
+
+    const canUpgrade = requirements.every(({ mid, qty }) => Number(state.inventory?.[mid] || 0) >= qty);
+    if(!canUpgrade) continue;
+
+    upgrades.push({
+      pieceId: piece.id,
+      name: piece.name,
+      currentLevel,
+      targetLevel
+    });
+  }
+
+  return upgrades.sort((a, b) => {
+    if(a.targetLevel !== b.targetLevel) return a.targetLevel - b.targetLevel;
+    if(a.currentLevel !== b.currentLevel) return a.currentLevel - b.currentLevel;
+    return (a.name || "").localeCompare(b.name || "");
+  });
 }
 
 function attemptQuickUpgrade(pieceId, level){
@@ -243,6 +275,7 @@ function renderSummary(){
   const materialSummary = summarizeMaterialNeeds(remainingReq, STATE.inventory, DATA.materials);
   const completionPct = totalLevels > 0 ? Math.round((completedLevels / totalLevels) * 100) : 0;
   const remainingLevels = Math.max(0, totalLevels - completedLevels);
+  const availableUpgrades = getAvailableUpgrades(DATA, STATE).slice(0, 6);
 
   const view = el("#view-summary");
   view.innerHTML = `
@@ -276,6 +309,25 @@ function renderSummary(){
           </div>
         </div>
         <div class="muted tiny">Based on remaining upgrades only</div>
+      </div>
+      </div>
+
+    <div class="card" style="margin-top:12px">
+      <div class="summary-header">
+        <div>
+          <h3 style="margin:0">Upgrades you can do now</h3>
+          <div class="muted tiny">Based on current inventory</div>
+        </div>
+      </div>
+
+      <div class="upgrade-list" aria-live="polite">
+        ${availableUpgrades.length ? availableUpgrades.map((upgrade)=>`
+          <div class="upgrade-row">
+            <div class="upgrade-name">${escapeHtml(upgrade.name || upgrade.pieceId)}</div>
+            <div class="upgrade-level">Lv${upgrade.currentLevel} → Lv${upgrade.targetLevel}</div>
+            <button type="button" class="upgrade-action" data-kind="summaryQuickUpgrade" data-piece="${upgrade.pieceId}" data-level="${upgrade.targetLevel}">Upgrade</button>
+          </div>
+        `).join("") : `<div class="upgrade-empty muted tiny">No upgrades available with current inventory.</div>`}
       </div>
     </div>
 
@@ -329,6 +381,24 @@ function renderSummary(){
       </div>
     </div>
   `;
+
+  if(!view.dataset.wiredSummary){
+    view.addEventListener("click", (e)=>{
+      const target = e.target;
+      if(!(target instanceof HTMLElement)) return;
+
+      const upgradeBtn = target.closest("button[data-kind='summaryQuickUpgrade']");
+      if(upgradeBtn){
+        const pid = upgradeBtn.dataset.piece;
+        const lvl = clampInt(upgradeBtn.dataset.level);
+        if(attemptQuickUpgrade(pid, lvl)){
+          render();
+        }
+      }
+    });
+
+    view.dataset.wiredSummary = "true";
+  }
 }
 
 function renderArmor(){
@@ -1140,5 +1210,6 @@ export {
   sanitizeUrl,
   groupBy,
   initUI,
-  summarizeMaterialNeeds
+  summarizeMaterialNeeds,
+  getAvailableUpgrades
 };
