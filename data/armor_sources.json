@@ -59,8 +59,8 @@
     "coordinates": [
       {
         "region": "Gerudo",
-        "lat": -1797.0,
-        "lon": -3350.0
+        "lat": -1785.0,
+        "lon": -3310.0
       }
     ]
   },
@@ -73,7 +73,7 @@
       {
         "region": "Akkala",
         "lat": 4654.0,
-        "lon": 3734.0
+        "lon": 3697.0
       }
     ]
   },
@@ -473,7 +473,7 @@
     "regions": [
       "Gerudo"
     ],
-    "where": "Earned via Bozai side quests (then can be repurchased from Grant\u00e9 if sold).",
+    "where": "Earned via Bozai side quests (then can be repurchased from Granté if sold).",
     "coordinates": [
       {
         "region": "Gerudo",
@@ -506,7 +506,7 @@
     "regions": [
       "Gerudo"
     ],
-    "where": "Earned via Bozai side quests (then can be repurchased from Grant\u00e9 if sold).",
+    "where": "Earned via Bozai side quests (then can be repurchased from Granté if sold).",
     "coordinates": [
       {
         "region": "Gerudo",

@@ -10,7 +10,8 @@
     "where": "Break ore deposits across Hyrule (notably Eldin and Hebra foothills).",
     "coordinates": [
       {"lat": 2380, "lon": 3000},
-      {"lat": -1680, "lon": 3620}
+      {"lat": -1680, "lon": 3620},
+      {"lat": -1683, "lon": -1297}
     ]
   },
   "ancient-core": {
@@ -94,7 +95,8 @@
     "where": "Rare ore deposits (Hebra, Eldin); reward from certain shrines.",
     "coordinates": [
       {"lat": -1000, "lon": 2200},
-      {"lat": 1500, "lon": 2500}
+      {"lat": 1500, "lon": 2500},
+      {"lat": -3865, "lon": -4647}
     ]
   },
   "dinraals-claw": {
@@ -367,7 +369,13 @@
     "where": "Found in Ore Deposits / Rare Ore Deposits and as Stone Talus drops. Can also be bought from the Goron merchant Kairo near Foothill Stable.",
     "coordinates": [
       {"lat": 1335, "lon": -3485},
-      {"lat": 2240, "lon": 2820}
+      {"lat": 2240, "lon": 2820},
+      {"lat": -1629, "lon": -1201},
+      {"lat": -1572, "lon": -972},
+      {"lat": -1575, "lon": 506},
+      {"lat": -1315, "lon": 236},
+      {"lat": -1844, "lon": 2531},
+      {"lat": -1822, "lon": 2074}
     ]
   },
   "red-chuchu-jelly": {
@@ -388,7 +396,9 @@
     "where": "Ore deposits in Eldin and Gerudo; Talus drops.",
     "coordinates": [
       {"lat": 2369, "lon": 2134},
-      {"lat": -3320, "lon": -2450}
+      {"lat": -3320, "lon": -2450},
+      {"lat": -944, "lon": -3619},
+      {"lat": -2369, "lon": 4122}
     ]
   },
   "rushroom": {
@@ -402,7 +412,10 @@
     "where": "Ore deposits in Hebra and Gerudo Highlands; Talus drops.",
     "coordinates": [
       {"lat": -3300, "lon": 3500},
-      {"lat": -3150, "lon": -2600}
+      {"lat": -3150, "lon": -2600},
+      {"lat": 81, "lon": -3907},
+      {"lat": 1947, "lon": -2622},
+      {"lat": 71, "lon": 2654}
     ]
   },
   "shard-of-dinraals-fang": {
@@ -521,7 +534,10 @@
     "where": "Ore deposits in Lanayru and Faron; Talus drops.",
     "coordinates": [
       {"lat": 3710, "lon": -1900},
-      {"lat": 1800, "lon": -1700}
+      {"lat": 1800, "lon": -1700},
+      {"lat": -2234, "lon": -2323},
+      {"lat": 1540, "lon": -1950},
+      {"lat": 1219, "lon": 914}
     ]
   },
   "voltfruit": {
