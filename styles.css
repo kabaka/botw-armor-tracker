@@ -299,6 +299,9 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   gap:0;
 }
 .mat-info{margin-top:4px; line-height:1.4;}
+.mat-info--with-map{display:grid; grid-template-columns:auto 1fr; gap:8px; align-items:start;}
+.mat-map-btn{margin-top:1px;}
+.mat-info-text > div + div{margin-top:2px;}
 .mat-acq-inline{
   margin-left:6px;
   font-size:11px;

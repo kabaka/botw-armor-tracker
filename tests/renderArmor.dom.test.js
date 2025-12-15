@@ -267,14 +267,18 @@ describe('renderArmor DOM behaviors', () => {
   });
 
   it('shows acquisition info for materials when available', () => {
-    setup({ materialSources: { mat1: { where: 'Hyrule Ridge', notes: 'Night only' } } });
+    setup({ materialSources: { mat1: { where: 'Hyrule Ridge', coords: '123, 456', coordinates: [{ lat: 10, lon: 20 }], notes: 'Night only' } } });
     const matTab = document.querySelector('button[data-tab="materials"]');
     matTab.click();
 
     const info = document.querySelector('.mat-info');
     expect(info).not.toBeNull();
-    expect(info.textContent).toContain('Hyrule Ridge');
-    expect(info.textContent).toContain('Night only');
+    const children = Array.from(info.children);
+    expect(children[0].querySelector('button[data-kind="showLocations"]')).not.toBeNull();
+    expect(children[1].classList.contains('mat-info-text')).toBe(true);
+    expect(children[1].textContent).toContain('Hyrule Ridge');
+    expect(children[1].textContent).toContain('123, 456');
+    expect(children[1].textContent).toContain('Night only');
   });
 
   it('keeps required labels intact after updating inventory in materials view', () => {
