@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir -p dist
           cp index.html app.js styles.css manifest.json sw.js dist/
-          cp -r icons data src dist/
+          cp -r assets icons data src dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

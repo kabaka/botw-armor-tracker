@@ -9,5 +9,5 @@ function getWorkflow(){
 
 test('deploy workflow packages src files for GitHub Pages', () => {
   const workflow = getWorkflow();
-  expect(workflow).toMatch(/cp -r\s+icons\s+data\s+src\s+dist\//);
+  expect(workflow).toMatch(/cp -r\s+assets\s+icons\s+data\s+src\s+dist\//);
 });

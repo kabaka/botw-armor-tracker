@@ -957,14 +957,22 @@ function getMaterialAcquisition(material){
 function renderMaterialAcquisition(material){
   const { where, coords, notes, coordinates } = getMaterialAcquisition(material);
   const locationBtn = coordinates.length ? renderLocationButton("material", material.id, "Map") : "";
-  const parts = [];
-  if(where) parts.push(`<div>${escapeHtml(where)}</div>`);
-  if(coords) parts.push(`<div class="muted tiny">${escapeHtml(coords)}</div>`);
-  if(notes) parts.push(`<div class="muted tiny">${escapeHtml(notes)}</div>`);
-  if(locationBtn) parts.push(`<div>${locationBtn}</div>`);
+  const textParts = [];
+  if(where) textParts.push(`<div>${escapeHtml(where)}</div>`);
+  if(coords) textParts.push(`<div class="muted tiny">${escapeHtml(coords)}</div>`);
+  if(notes) textParts.push(`<div class="muted tiny">${escapeHtml(notes)}</div>`);
+
+  const textHtml = textParts.length ? `<div class="mat-info-text">${textParts.join(" ")}</div>` : "";
+  const infoClasses = ["mat-info", "muted", "tiny"];
+
+  let mapHtml = "";
+  if(locationBtn){
+    infoClasses.push("mat-info--with-map");
+    mapHtml = `<div class="mat-map-btn">${locationBtn}</div>`;
+  }
 
   return {
-    html: parts.length ? `<div class="mat-info muted tiny">${parts.join(" ")}</div>` : "",
+    html: (mapHtml || textHtml) ? `<div class="${infoClasses.join(" ")}">${mapHtml}${textHtml}</div>` : "",
     searchText: [where, coords, notes].filter(Boolean).join(" ")
   };
 }
