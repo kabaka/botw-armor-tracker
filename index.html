@@ -72,6 +72,25 @@
       </div>
     </div>
   </dialog>
+  <dialog id="mapDialog" class="modal" aria-labelledby="mapTitle">
+    <div class="modal-card map-card">
+      <div class="map-card-head">
+        <div>
+          <div id="mapMeta" class="tiny muted"></div>
+          <h3 id="mapTitle">Locations</h3>
+        </div>
+        <button id="mapClose" type="button" class="ghost" data-focus-default>Close</button>
+      </div>
+      <p id="mapDescription" class="muted" style="margin: 6px 0 4px"></p>
+      <div id="mapNotes" class="tiny muted" style="margin: 0 0 8px"></div>
+      <div class="map-wrapper" role="presentation">
+        <img id="mapImage" src="assets/hyrule-map.jpg" alt="Hyrule world map" loading="lazy" />
+        <div id="mapMarkers" class="map-markers" aria-hidden="true"></div>
+      </div>
+      <div id="mapFallback" class="tiny muted" style="margin-top:8px; display:none"></div>
+      <ul id="mapCoordinateList" class="map-coordinates"></ul>
+    </div>
+  </dialog>
   <!-- toast -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 

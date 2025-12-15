@@ -84,6 +84,25 @@ function createDOM(){
         <button id="importCancel" type="button">Cancel</button>
       </div>
     </dialog>
+    <dialog id="mapDialog">
+      <div class="modal-card map-card">
+        <div class="map-card-head">
+          <div>
+            <div id="mapMeta"></div>
+            <h3 id="mapTitle">Locations</h3>
+          </div>
+          <button id="mapClose" type="button" data-focus-default>Close</button>
+        </div>
+        <p id="mapDescription"></p>
+        <div id="mapNotes"></div>
+        <div class="map-wrapper">
+          <img id="mapImage" />
+          <div id="mapMarkers"></div>
+        </div>
+        <div id="mapFallback"></div>
+        <ul id="mapCoordinateList"></ul>
+      </div>
+    </dialog>
   `;
 
   const dialog = document.querySelector('dialog#resetDialog');
@@ -105,6 +124,16 @@ function createDOM(){
     importDialog.removeAttribute('open');
     importDialog.open = false;
   };
+
+  const mapDialog = document.querySelector('dialog#mapDialog');
+  mapDialog.showModal = () => {
+    mapDialog.setAttribute('open', 'true');
+    mapDialog.open = true;
+  };
+  mapDialog.close = () => {
+    mapDialog.removeAttribute('open');
+    mapDialog.open = false;
+  };
 }
 
 function createStorage(){
@@ -116,12 +145,12 @@ function createStorage(){
   };
 }
 
-function setup({ materialSources = {}, adjustState } = {}){
+function setup({ materialSources = {}, sources = {}, adjustState } = {}){
   createDOM();
   const storage = createStorage();
   const state = defaultState(DATA_FIXTURE);
   if(typeof adjustState === 'function') adjustState(state);
-  initUI({ data: DATA_FIXTURE, state, sources: {}, materialSources, storage });
+  initUI({ data: DATA_FIXTURE, state, sources, materialSources, storage });
   return { storage, state };
 }
 
@@ -368,5 +397,47 @@ describe('renderArmor DOM behaviors', () => {
 
     expect(names).toEqual(['Molduga Guts', 'Bokoblin Horn']);
     expect(deficits).toEqual([1, 0]);
+  });
+
+  it('shows armor map triggers when coordinates are available', () => {
+    setup({
+      sources: {
+        helm1: {
+          where: 'Test area',
+          coordinates: [{ lat: 100, lon: 200, region: 'Test' }]
+        }
+      }
+    });
+
+    document.querySelector('.acc-head').click();
+    const mapButton = document.querySelector('[data-piece="helm1"] .armor-src [data-kind="showLocations"]');
+    expect(mapButton).not.toBeNull();
+
+    mapButton.click();
+    const dialog = document.querySelector('#mapDialog');
+    expect(dialog.open).toBe(true);
+    expect(document.querySelector('#mapCoordinateList').textContent).toContain('Test');
+  });
+
+  it('opens map modal for material sources', () => {
+    setup({
+      materialSources: {
+        mat1: {
+          where: 'Ridge',
+          coordinates: [{ lat: 10, lon: -20 }]
+        }
+      }
+    });
+
+    const matTab = document.querySelector('button[data-tab="materials"]');
+    matTab.click();
+
+    const mapButton = document.querySelector('tr[data-mid="mat1"] [data-kind="showLocations"]');
+    expect(mapButton).not.toBeNull();
+
+    mapButton.click();
+    const dialog = document.querySelector('#mapDialog');
+    expect(dialog.open).toBe(true);
+    expect(document.querySelector('#mapCoordinateList').textContent).toContain('10');
   });
 });

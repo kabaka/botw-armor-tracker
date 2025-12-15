@@ -82,6 +82,13 @@ button.primary{
   border-color:rgba(57,214,197,.55);
 }
 button.ghost{background:transparent}
+button.link-btn{
+  padding:6px 10px;
+  font-size:12px;
+  color:var(--muted);
+  border-color:rgba(215,244,245,.28);
+}
+button.link-btn:hover{color:var(--text); border-color:rgba(57,214,197,.45)}
 button.danger{border-color:rgba(255,92,122,.45); color:#ffd7df}
 button.danger:hover{border-color:rgba(255,92,122,.9)}
 
@@ -508,6 +515,36 @@ button.danger:hover{border-color:rgba(255,92,122,.9)}
   margin:0 0 6px;
   color:var(--text);
 }
+.map-card{width:min(720px, calc(100vw - 26px));}
+.map-card-head{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+.map-wrapper{
+  position:relative;
+  margin-top:8px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(215,244,245,.12);
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+}
+.map-wrapper img{display:block; width:100%; height:auto;}
+.map-markers{position:absolute; inset:0; pointer-events:none;}
+.map-marker{
+  position:absolute;
+  width:18px;
+  height:18px;
+  margin-left:-9px;
+  margin-top:-9px;
+  border-radius:50%;
+  background:rgba(244,211,94,.92);
+  box-shadow:0 0 0 3px rgba(11,27,31,.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#0b1b1f;
+  font-weight:800;
+  font-size:11px;
+}
+.map-coordinates{margin:10px 0 0 16px; color:var(--muted); line-height:1.4;}
+.map-coordinates li{margin-bottom:4px;}
 .modal-actions{
   display:flex;
   justify-content:flex-end;
