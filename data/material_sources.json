@@ -1,245 +1,569 @@
 {
   "acorn": {
-    "where": "Common drop from trees and squirrels in wooded areas."
+    "where": "Common drop from trees and squirrels in wooded areas.",
+    "coordinates": [
+      {"lat": 2810, "lon": -210},
+      {"lat": -225, "lon": -385}
+    ]
   },
   "amber": {
-    "where": "Break ore deposits across Hyrule (notably Eldin and Hebra foothills)."
+    "where": "Break ore deposits across Hyrule (notably Eldin and Hebra foothills).",
+    "coordinates": [
+      {"lat": 2380, "lon": 3000},
+      {"lat": -1680, "lon": 3620}
+    ]
   },
   "ancient-core": {
-    "where": "Rare drop from Guardians and mini Guardians in shrines."
+    "where": "Rare drop from Guardians and mini Guardians in shrines.",
+    "coordinates": [
+      {"lat": -400, "lon": 670},
+      {"lat": -220, "lon": -80}
+    ]
   },
   "ancient-gear": {
-    "where": "Dropped by most Guardians (including Decayed Guardians you can search) and found in some chests. Also sold by the wandering merchant Teli."
+    "where": "Dropped by most Guardians (including Decayed Guardians you can search) and found in some chests. Also sold by the wandering merchant Teli.",
+    "coordinates": [
+      {"lat": -40, "lon": -580},
+      {"lat": 310, "lon": 920}
+    ]
   },
   "ancient-screw": {
-    "where": "Common drop from broken Guardian parts and mini Guardians."
+    "where": "Common drop from broken Guardian parts and mini Guardians.",
+    "coordinates": [
+      {"lat": 310, "lon": 920},
+      {"lat": 450, "lon": 840}
+    ]
   },
   "ancient-shaft": {
-    "where": "Dropped by most Guardians (including Decayed Guardians you can search) and found in some chests. Also sold by the wandering merchant Teli."
+    "where": "Dropped by most Guardians (including Decayed Guardians you can search) and found in some chests. Also sold by the wandering merchant Teli.",
+    "coordinates": [
+      {"lat": 450, "lon": 840},
+      {"lat": 560, "lon": 1280}
+    ]
   },
   "ancient-spring": {
-    "where": "Common drop from destroyed Guardians and Guardian Stalkers."
+    "where": "Common drop from destroyed Guardians and Guardian Stalkers.",
+    "coordinates": [
+      {"lat": 560, "lon": 1280},
+      {"lat": 630, "lon": 1380}
+    ]
   },
   "blue-nightshade": {
-    "where": "Grows at night in forests around Kakariko Village."
+    "where": "Grows at night in forests around Kakariko Village.",
+    "coordinates": [
+      {"lat": -259, "lon": 175},
+      {"lat": 175, "lon": -230}
+    ]
   },
   "bokoblin-fang": {
-    "where": "Dropped by defeated Bokoblins everywhere."
+    "where": "Dropped by defeated Bokoblins everywhere.",
+    "coordinates": [
+      {"lat": -670, "lon": 910},
+      {"lat": 100, "lon": 840}
+    ]
   },
   "bokoblin-guts": {
-    "where": "Rare drop from strong Bokoblins in late-game areas."
+    "where": "Rare drop from strong Bokoblins in late-game areas.",
+    "coordinates": [
+      {"lat": -800, "lon": 1200},
+      {"lat": -1000, "lon": 1700}
+    ]
   },
   "bokoblin-horn": {
-    "where": "Common drop from any Bokoblin."
+    "where": "Common drop from any Bokoblin.",
+    "coordinates": [
+      {"lat": -670, "lon": 910},
+      {"lat": 100, "lon": 840}
+    ]
   },
   "chuchu-jelly": {
-    "where": "Dropped by any Chuchu."
+    "where": "Dropped by any Chuchu.",
+    "coordinates": [
+      {"lat": 2879, "lon": -121},
+      {"lat": 2400, "lon": -800}
+    ]
   },
   "courser-bee-honey": {
-    "where": "Shoot beehives in forests near Hateno and Faron."
+    "where": "Shoot beehives in forests near Hateno and Faron.",
+    "coordinates": [
+      {"lat": 3734, "lon": -2110},
+      {"lat": 1310, "lon": -3340}
+    ]
   },
   "diamond": {
-    "where": "Rare ore deposits (Hebra, Eldin); reward from certain shrines."
+    "where": "Rare ore deposits (Hebra, Eldin); reward from certain shrines.",
+    "coordinates": [
+      {"lat": -1000, "lon": 2200},
+      {"lat": 1500, "lon": 2500}
+    ]
   },
   "dinraals-claw": {
-    "where": "Shoot Dinraal's claw during its route (Eldin Great Skeleton → Tanagar Canyon)."
+    "where": "Shoot Dinraal's claw during its route (Eldin Great Skeleton → Tanagar Canyon).",
+    "coordinates": [
+      {"lat": 4200, "lon": 2372},
+      {"lat": 3500, "lon": 2150}
+    ]
   },
   "dinraals-scale": {
-    "where": "Shoot Dinraal's body during its route (Eldin Great Skeleton → Tanagar Canyon)."
+    "where": "Shoot Dinraal's body during its route (Eldin Great Skeleton → Tanagar Canyon).",
+    "coordinates": [
+      {"lat": 4200, "lon": 2372},
+      {"lat": 3500, "lon": 2150}
+    ]
   },
   "electric-keese-wing": {
-    "where": "Dropped by Electric Keese (commonly in Gerudo and Lanayru areas)."
+    "where": "Dropped by Electric Keese (commonly in Gerudo and Lanayru areas).",
+    "coordinates": [
+      {"lat": -2500, "lon": -2720},
+      {"lat": 3650, "lon": -2470}
+    ]
   },
   "energetic-rhino-beetle": {
-    "where": "Found on tree trunks (common in Akkala and Dueling Peaks / West Necluda forests). Stealth helps."
+    "where": "Found on tree trunks (common in Akkala and Dueling Peaks / West Necluda forests). Stealth helps.",
+    "coordinates": [
+      {"lat": 1800, "lon": -1650},
+      {"lat": 1950, "lon": -1500}
+    ]
   },
   "faroshs-claw": {
-    "where": "Shoot Farosh's claw (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+    "where": "Shoot Farosh's claw (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region).",
+    "coordinates": [
+      {"lat": 2595, "lon": -2125},
+      {"lat": -1030, "lon": -2380}
+    ]
   },
   "faroshs-scale": {
-    "where": "Shoot Farosh's body (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+    "where": "Shoot Farosh's body (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region).",
+    "coordinates": [
+      {"lat": 2595, "lon": -2125},
+      {"lat": -1030, "lon": -2380}
+    ]
   },
   "fire-keese-wing": {
-    "where": "Dropped by Fire Keese around Eldin volcano."
+    "where": "Dropped by Fire Keese around Eldin volcano.",
+    "coordinates": [
+      {"lat": 2100, "lon": 2550},
+      {"lat": 1980, "lon": 2700}
+    ]
   },
   "fireproof-lizard": {
-    "where": "Under rocks near the Southern Mine in Eldin."
+    "where": "Under rocks near the Southern Mine in Eldin.",
+    "coordinates": [
+      {"lat": 1690, "lon": 2145},
+      {"lat": 1800, "lon": 2250}
+    ]
   },
   "flint": {
-    "where": "Break ore deposits; plentiful around mountains."
+    "where": "Break ore deposits; plentiful around mountains.",
+    "coordinates": [
+      {"lat": -320, "lon": 340},
+      {"lat": 1800, "lon": 1600}
+    ]
   },
   "giant-ancient-core": {
-    "where": "Rare drop from Guardian Stalkers and shrine mini bosses."
+    "where": "Rare drop from Guardian Stalkers and shrine mini bosses.",
+    "coordinates": [
+      {"lat": -420, "lon": 870},
+      {"lat": 600, "lon": 1320}
+    ]
   },
   "hearty-bass": {
-    "where": "Lakes around Necluda and Hyrule Ridge; use bombs or arrows."
+    "where": "Lakes around Necluda and Hyrule Ridge; use bombs or arrows.",
+    "coordinates": [
+      {"lat": 3500, "lon": -1900},
+      {"lat": -475, "lon": 1500}
+    ]
   },
   "hightail-lizard": {
-    "where": "Common under rocks on roads in West Necluda."
+    "where": "Common under rocks on roads in West Necluda.",
+    "coordinates": [
+      {"lat": -150, "lon": -1330},
+      {"lat": 250, "lon": -1430}
+    ]
   },
   "hinox-guts": {
-    "where": "Dropped by Hinox and Stalnox bosses."
+    "where": "Dropped by Hinox and Stalnox bosses.",
+    "coordinates": [
+      {"lat": -1715, "lon": -3437},
+      {"lat": 3220, "lon": 3720}
+    ]
   },
   "hinox-toenail": {
-    "where": "Drop from Hinox after destroying their feet."
+    "where": "Drop from Hinox after destroying their feet.",
+    "coordinates": [
+      {"lat": -1715, "lon": -3437},
+      {"lat": 3220, "lon": 3720}
+    ]
   },
   "hinox-tooth": {
-    "where": "Dropped by Hinox; target the mouth when they fall."
+    "where": "Dropped by Hinox; target the mouth when they fall.",
+    "coordinates": [
+      {"lat": -1715, "lon": -3437},
+      {"lat": 3220, "lon": 3720}
+    ]
   },
   "hot-footed-frog": {
-    "where": "Near ponds after rain in West Necluda."
+    "where": "Near ponds after rain in West Necluda.",
+    "coordinates": [
+      {"lat": 2420, "lon": -1900},
+      {"lat": 2580, "lon": -1850}
+    ]
   },
   "hyrule-bass": {
-    "where": "Common fish in most rivers and ponds."
+    "where": "Common fish in most rivers and ponds.",
+    "coordinates": [
+      {"lat": 0, "lon": -150},
+      {"lat": 450, "lon": -200}
+    ]
   },
   "ice-keese-wing": {
-    "where": "Dropped by Ice Keese in Hebra and Gerudo Highlands."
+    "where": "Dropped by Ice Keese in Hebra and Gerudo Highlands.",
+    "coordinates": [
+      {"lat": -2800, "lon": 3500},
+      {"lat": -1900, "lon": -2500}
+    ]
   },
   "icy-lizalfos-tail": {
-    "where": "Dropped by Ice Lizalfos in Hebra and Gerudo Highlands."
+    "where": "Dropped by Ice Lizalfos in Hebra and Gerudo Highlands.",
+    "coordinates": [
+      {"lat": -2800, "lon": 3500},
+      {"lat": -1900, "lon": -2500}
+    ]
   },
   "keese-eyeball": {
-    "where": "Rare drop from any Keese when defeated."
+    "where": "Rare drop from any Keese when defeated.",
+    "coordinates": [
+      {"lat": 2660, "lon": -350},
+      {"lat": 900, "lon": 430}
+    ]
   },
   "keese-wing": {
-    "where": "Common drop from all Keese."
+    "where": "Common drop from all Keese.",
+    "coordinates": [
+      {"lat": 2660, "lon": -350},
+      {"lat": 900, "lon": 430}
+    ]
   },
   "lizalfos-horn": {
-    "where": "Common drop from any Lizalfos."
+    "where": "Common drop from any Lizalfos.",
+    "coordinates": [
+      {"lat": -820, "lon": -2340},
+      {"lat": 3100, "lon": -2140}
+    ]
   },
   "lizalfos-tail": {
-    "where": "Dropped by Lizalfos (tail drop rates vary by Lizalfos type; higher-tier Lizalfos tend to drop them more often)."
+    "where": "Dropped by Lizalfos (tail drop rates vary by Lizalfos type; higher-tier Lizalfos tend to drop them more often).",
+    "coordinates": [
+      {"lat": 3120, "lon": -2140},
+      {"lat": -820, "lon": -2340}
+    ]
   },
   "lizalfos-talon": {
-    "where": "Drop from Lizalfos; easy in Lanayru marshes."
+    "where": "Drop from Lizalfos; easy in Lanayru marshes.",
+    "coordinates": [
+      {"lat": 2860, "lon": -2700},
+      {"lat": 980, "lon": -2000}
+    ]
   },
   "luminous-stone": {
-    "where": "Mine from Luminous Stone Deposits (they glow at night) or from Luminous Stone Talus drops."
+    "where": "Mine from Luminous Stone Deposits (they glow at night) or from Luminous Stone Talus drops.",
+    "coordinates": [
+      {"lat": 1095, "lon": -3640},
+      {"lat": -200, "lon": 1400}
+    ]
   },
   "lynel-guts": {
-    "where": "Rare drop from Lynels in high-level regions."
+    "where": "Rare drop from Lynels in high-level regions.",
+    "coordinates": [
+      {"lat": -3010, "lon": 2000},
+      {"lat": 2310, "lon": 2730}
+    ]
   },
   "lynel-hoof": {
-    "where": "Drop from Lynels once defeated."
+    "where": "Drop from Lynels once defeated.",
+    "coordinates": [
+      {"lat": -3010, "lon": 2000},
+      {"lat": 2310, "lon": 2730}
+    ]
   },
   "lynel-horn": {
-    "where": "Common Lynel drop; even basic Lynels carry them."
+    "where": "Common Lynel drop; even basic Lynels carry them.",
+    "coordinates": [
+      {"lat": -3010, "lon": 2000},
+      {"lat": 2310, "lon": 2730}
+    ]
   },
   "moblin-fang": {
-    "where": "Dropped by Moblins throughout Hyrule."
+    "where": "Dropped by Moblins throughout Hyrule.",
+    "coordinates": [
+      {"lat": 100, "lon": 840},
+      {"lat": -300, "lon": 2200}
+    ]
   },
   "moblin-guts": {
-    "where": "Rare Moblin drop from blue/black/silver variants."
+    "where": "Rare Moblin drop from blue/black/silver variants.",
+    "coordinates": [
+      {"lat": -1100, "lon": 1700},
+      {"lat": 2300, "lon": 2000}
+    ]
   },
   "moblin-horn": {
-    "where": "Common drop from any Moblin."
+    "where": "Common drop from any Moblin.",
+    "coordinates": [
+      {"lat": -300, "lon": 2200},
+      {"lat": 100, "lon": 840}
+    ]
   },
   "molduga-fin": {
-    "where": "Dropped by Molduga minibosses in Gerudo Desert."
+    "where": "Dropped by Molduga minibosses in Gerudo Desert.",
+    "coordinates": [
+      {"lat": -3360, "lon": -1750},
+      {"lat": -3450, "lon": -1650}
+    ]
   },
   "molduga-guts": {
-    "where": "Dropped by Molduga (Gerudo Desert)."
+    "where": "Dropped by Molduga (Gerudo Desert).",
+    "coordinates": [
+      {"lat": -3360, "lon": -1750},
+      {"lat": -3450, "lon": -1650}
+    ]
   },
   "naydras-claw": {
-    "where": "Shoot Naydra's claw (Mount Lanayru / Lanayru Promenade are common farming routes)."
+    "where": "Shoot Naydra's claw (Mount Lanayru / Lanayru Promenade are common farming routes).",
+    "coordinates": [
+      {"lat": 4070, "lon": -830},
+      {"lat": 3900, "lon": -900}
+    ]
   },
   "naydras-scale": {
-    "where": "Shoot Naydra's body (Mount Lanayru / Lanayru Promenade are common farming routes)."
+    "where": "Shoot Naydra's body (Mount Lanayru / Lanayru Promenade are common farming routes).",
+    "coordinates": [
+      {"lat": 4070, "lon": -830},
+      {"lat": 3900, "lon": -900}
+    ]
   },
   "octo-balloon": {
-    "where": "Dropped by Octoroks, usually near water (rivers, lakes, and coastal areas)."
+    "where": "Dropped by Octoroks, usually near water (rivers, lakes, and coastal areas).",
+    "coordinates": [
+      {"lat": 2100, "lon": -3070},
+      {"lat": -3250, "lon": -1150}
+    ]
   },
   "octorok-eyeball": {
-    "where": "Rare drop from Octoroks of any type."
+    "where": "Rare drop from Octoroks of any type.",
+    "coordinates": [
+      {"lat": 2100, "lon": -3070},
+      {"lat": -3250, "lon": -1150}
+    ]
   },
   "octorok-tentacle": {
-    "where": "Common Octorok drop near rivers and seas."
+    "where": "Common Octorok drop near rivers and seas.",
+    "coordinates": [
+      {"lat": 2100, "lon": -3070},
+      {"lat": -3250, "lon": -1150}
+    ]
   },
   "opal": {
-    "where": "Found in Ore Deposits / Rare Ore Deposits and as Stone Talus drops. Can also be bought from the Goron merchant Kairo near Foothill Stable."
+    "where": "Found in Ore Deposits / Rare Ore Deposits and as Stone Talus drops. Can also be bought from the Goron merchant Kairo near Foothill Stable.",
+    "coordinates": [
+      {"lat": 1335, "lon": -3485},
+      {"lat": 2240, "lon": 2820}
+    ]
   },
   "red-chuchu-jelly": {
-    "where": "Burn Chuchu Jelly or defeat Fire Chuchu."
+    "where": "Burn Chuchu Jelly or defeat Fire Chuchu.",
+    "coordinates": [
+      {"lat": 1335, "lon": -3485},
+      {"lat": 2100, "lon": 2550}
+    ]
   },
   "red-lizalfos-tail": {
-    "where": "Dropped by Fire Lizalfos around Eldin."
+    "where": "Dropped by Fire Lizalfos around Eldin.",
+    "coordinates": [
+      {"lat": 2205, "lon": 2100},
+      {"lat": 2110, "lon": 2250}
+    ]
   },
   "ruby": {
-    "where": "Ore deposits in Eldin and Gerudo; Talus drops."
+    "where": "Ore deposits in Eldin and Gerudo; Talus drops.",
+    "coordinates": [
+      {"lat": 2369, "lon": 2134},
+      {"lat": -3320, "lon": -2450}
+    ]
   },
   "rushroom": {
-    "where": "Grows on cliffsides across Hyrule; plentiful in Gerudo Highlands."
+    "where": "Grows on cliffsides across Hyrule; plentiful in Gerudo Highlands.",
+    "coordinates": [
+      {"lat": -2812, "lon": 2380},
+      {"lat": -2900, "lon": 2200}
+    ]
   },
   "sapphire": {
-    "where": "Ore deposits in Hebra and Gerudo Highlands; Talus drops."
+    "where": "Ore deposits in Hebra and Gerudo Highlands; Talus drops.",
+    "coordinates": [
+      {"lat": -3300, "lon": 3500},
+      {"lat": -3150, "lon": -2600}
+    ]
   },
   "shard-of-dinraals-fang": {
-    "where": "Shoot Dinraal's mouth (fang) during its route (Eldin Great Skeleton → Tanagar Canyon)."
+    "where": "Shoot Dinraal's mouth (fang) during its route (Eldin Great Skeleton → Tanagar Canyon).",
+    "coordinates": [
+      {"lat": 4200, "lon": 2372},
+      {"lat": 3500, "lon": 2150}
+    ]
   },
   "shard-of-dinraals-horn": {
-    "where": "Shoot Dinraal's horn during its route (Eldin Great Skeleton → Tanagar Canyon)."
+    "where": "Shoot Dinraal's horn during its route (Eldin Great Skeleton → Tanagar Canyon).",
+    "coordinates": [
+      {"lat": 4200, "lon": 2372},
+      {"lat": 3500, "lon": 2150}
+    ]
   },
   "shard-of-faroshs-fang": {
-    "where": "Shoot Farosh's mouth (fang) (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+    "where": "Shoot Farosh's mouth (fang) (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region).",
+    "coordinates": [
+      {"lat": 2595, "lon": -2125},
+      {"lat": -1030, "lon": -2380}
+    ]
   },
   "shard-of-faroshs-horn": {
-    "where": "Shoot Farosh's horn (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region)."
+    "where": "Shoot Farosh's horn (commonly farmed near Lake Floria / Riola Spring, or Lake Hylia in the Faron region).",
+    "coordinates": [
+      {"lat": 2595, "lon": -2125},
+      {"lat": -1030, "lon": -2380}
+    ]
   },
   "shard-of-naydras-fang": {
-    "where": "Shoot Naydra's mouth (fang) (Mount Lanayru / Lanayru Promenade are common farming routes)."
+    "where": "Shoot Naydra's mouth (fang) (Mount Lanayru / Lanayru Promenade are common farming routes).",
+    "coordinates": [
+      {"lat": 4070, "lon": -830},
+      {"lat": 3900, "lon": -900}
+    ]
   },
   "shard-of-naydras-horn": {
-    "where": "Shoot Naydra's horn (Mount Lanayru / Lanayru Promenade are common farming routes)."
+    "where": "Shoot Naydra's horn (Mount Lanayru / Lanayru Promenade are common farming routes).",
+    "coordinates": [
+      {"lat": 4070, "lon": -830},
+      {"lat": 3900, "lon": -900}
+    ]
   },
   "silent-princess": {
-    "where": "Grows near Great Fairy Fountains and around Hyrule Castle."
+    "where": "Grows near Great Fairy Fountains and around Hyrule Castle.",
+    "coordinates": [
+      {"lat": 1766, "lon": -809},
+      {"lat": -250, "lon": 410}
+    ]
   },
   "silent-shroom": {
-    "where": "Found at the base of trees in forests and sometimes in caves (easy spots include the woods south of Kakariko / Dueling Peaks region)."
+    "where": "Found at the base of trees in forests and sometimes in caves (easy spots include the woods south of Kakariko / Dueling Peaks region).",
+    "coordinates": [
+      {"lat": -365, "lon": 450},
+      {"lat": 1200, "lon": -1400}
+    ]
   },
   "smotherwing-butterfly": {
-    "where": "Flutter near lava in Eldin; approach with fireproof gear."
+    "where": "Flutter near lava in Eldin; approach with fireproof gear.",
+    "coordinates": [
+      {"lat": 1950, "lon": 2240},
+      {"lat": 2100, "lon": 2380}
+    ]
   },
   "sneaky-river-snail": {
-    "where": "Found on riverbanks / lake shores near fresh water (notably around Zora's Domain and various rivers/ponds across Hyrule)."
+    "where": "Found on riverbanks / lake shores near fresh water (notably around Zora's Domain and various rivers/ponds across Hyrule).",
+    "coordinates": [
+      {"lat": 3300, "lon": 38},
+      {"lat": 1500, "lon": -200}
+    ]
   },
   "star-fragment": {
-    "where": "Falls at night; chase glowing comets on clear evenings."
+    "where": "Falls at night; chase glowing comets on clear evenings.",
+    "coordinates": [
+      {"lat": 0, "lon": 0},
+      {"lat": 200, "lon": -200}
+    ]
   },
   "stealthfin-trout": {
-    "where": "Found in the Great Hyrule Forest—especially Lake Mekar (around Korok Forest) and Lake Saria."
+    "where": "Found in the Great Hyrule Forest—especially Lake Mekar (around Korok Forest) and Lake Saria.",
+    "coordinates": [
+      {"lat": -1950, "lon": 2910},
+      {"lat": -1900, "lon": 3000}
+    ]
   },
   "sunset-firefly": {
-    "where": "Appears at night around Kakariko Village houses."
+    "where": "Appears at night around Kakariko Village houses.",
+    "coordinates": [
+      {"lat": -259, "lon": 175},
+      {"lat": -200, "lon": 200}
+    ]
   },
   "sunshroom": {
-    "where": "Warm areas like Eldin foothills and Gerudo Canyon."
+    "where": "Warm areas like Eldin foothills and Gerudo Canyon.",
+    "coordinates": [
+      {"lat": 1750, "lon": -1150},
+      {"lat": -2200, "lon": -1350}
+    ]
   },
   "swift-carrot": {
-    "where": "Buy at Kakariko Village or pick in nearby fields."
+    "where": "Buy at Kakariko Village or pick in nearby fields.",
+    "coordinates": [
+      {"lat": -259, "lon": 175},
+      {"lat": -240, "lon": 200}
+    ]
   },
   "swift-violet": {
-    "where": "Cliffside flowers in Gerudo Highlands and Hebra."
+    "where": "Cliffside flowers in Gerudo Highlands and Hebra.",
+    "coordinates": [
+      {"lat": -3486, "lon": 1830},
+      {"lat": -3330, "lon": 2000}
+    ]
   },
   "topaz": {
-    "where": "Ore deposits in Lanayru and Faron; Talus drops."
+    "where": "Ore deposits in Lanayru and Faron; Talus drops.",
+    "coordinates": [
+      {"lat": 3710, "lon": -1900},
+      {"lat": 1800, "lon": -1700}
+    ]
   },
   "voltfruit": {
-    "where": "Cacti in Gerudo Desert; also sold in Gerudo Town."
+    "where": "Cacti in Gerudo Desert; also sold in Gerudo Town.",
+    "coordinates": [
+      {"lat": -3370, "lon": -2300},
+      {"lat": -3800, "lon": -2250}
+    ]
   },
   "warm-safflina": {
-    "where": "Grows in Gerudo Desert sand dunes."
+    "where": "Grows in Gerudo Desert sand dunes.",
+    "coordinates": [
+      {"lat": -3300, "lon": -2500},
+      {"lat": -3200, "lon": -2600}
+    ]
   },
   "white-chuchu-jelly": {
-    "where": "Freeze Chuchu Jelly or defeat Ice Chuchu."
+    "where": "Freeze Chuchu Jelly or defeat Ice Chuchu.",
+    "coordinates": [
+      {"lat": -2800, "lon": 3500},
+      {"lat": -1900, "lon": -2500}
+    ]
   },
   "yellow-chuchu-jelly": {
-    "where": "Zap Chuchu Jelly or defeat Electric Chuchu."
+    "where": "Zap Chuchu Jelly or defeat Electric Chuchu.",
+    "coordinates": [
+      {"lat": -300, "lon": 2170},
+      {"lat": 450, "lon": 2000}
+    ]
   },
   "yellow-lizalfos-tail": {
-    "where": "Dropped by Electric Lizalfos around Gerudo Desert."
+    "where": "Dropped by Electric Lizalfos around Gerudo Desert.",
+    "coordinates": [
+      {"lat": -3100, "lon": -2400},
+      {"lat": -3200, "lon": -2300}
+    ]
   },
   "zapshroom": {
-    "where": "Gerudo Highlands cliffs and canyons."
+    "where": "Gerudo Highlands cliffs and canyons.",
+    "coordinates": [
+      {"lat": -3750, "lon": -2260},
+      {"lat": -3600, "lon": -2200}
+    ]
   }
 }
