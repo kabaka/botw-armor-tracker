@@ -9,7 +9,14 @@ let STATE;
 let SOURCES;
 let MATERIAL_SOURCES;
 let STORAGE;
-let MAP_BOUNDS = { latMin: -4500, latMax: 4500, lonMin: -4500, lonMax: 4500 };
+// Use fixed map bounds that match the full BOTW coordinate space.
+// Using data-derived bounds shrinks the box to "where items exist" and pushes markers toward edges.
+const MAP_BOUNDS = {
+  latMin: -5000,
+  latMax: 5000,
+  lonMin: -5000,
+  lonMax: 5000,
+};
 const MAP_IMAGE_SIZE = { width: 3840, height: 2160 };
 
 const ARMOR_SORTS = ["alpha", "level-desc", "level-asc"];
@@ -74,29 +81,7 @@ function isValidCoordinate(coord){
   return coord && Number.isFinite(Number(coord.lat)) && Number.isFinite(Number(coord.lon));
 }
 
-function computeMapBounds(){
-  const coords = [];
-  const collect = (sourceObj = {}) => {
-    for(const entry of Object.values(sourceObj)){
-      if(Array.isArray(entry?.coordinates)) coords.push(...entry.coordinates.filter(isValidCoordinate));
-    }
-  };
-
-  collect(SOURCES);
-  collect(MATERIAL_SOURCES);
-
-  if(!coords.length) return MAP_BOUNDS;
-
-  const lats = coords.map(c => Number(c.lat));
-  const lons = coords.map(c => Number(c.lon));
-  return {
-    latMin: Math.min(...lats),
-    latMax: Math.max(...lats),
-    lonMin: Math.min(...lons),
-    lonMax: Math.max(...lons)
-  };
-}
-
+function computeMapBounds() {}
 function getActiveView(){
   const view = STATE?.ui?.activeView;
   return VIEWS.includes(view) ? view : VIEWS[0];
