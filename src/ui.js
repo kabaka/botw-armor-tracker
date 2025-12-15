@@ -44,8 +44,6 @@ function initUI({ data, state, sources, materialSources, storage }){
   MATERIAL_SOURCES = materialSources || {};
   STORAGE = storage;
 
-  MAP_BOUNDS = computeMapBounds();
-
   wireTabs();
   wireHeader();
   wireMapDialog();
@@ -81,7 +79,6 @@ function isValidCoordinate(coord){
   return coord && Number.isFinite(Number(coord.lat)) && Number.isFinite(Number(coord.lon));
 }
 
-function computeMapBounds() {}
 function getActiveView(){
   const view = STATE?.ui?.activeView;
   return VIEWS.includes(view) ? view : VIEWS[0];
