@@ -1,5 +1,5 @@
 
-const CACHE = "botw-armor-tracker-v4";
+const CACHE = "botw-armor-tracker-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -11,6 +11,7 @@ const ASSETS = [
   "./data/botw_armor_data.json",
   "./data/armor_sources.json",
   "./data/material_sources.json",
+  "./assets/hyrule-map.jpg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/maskable-512.png",

@@ -9,10 +9,26 @@ let STATE;
 let SOURCES;
 let MATERIAL_SOURCES;
 let STORAGE;
+let MAP_BOUNDS = { latMin: -4500, latMax: 4500, lonMin: -4500, lonMax: 4500 };
+const MAP_IMAGE_SIZE = { width: 3840, height: 2160 };
 
 const ARMOR_SORTS = ["alpha", "level-desc", "level-asc"];
 const MATERIALS_SORTS = ["needed", "alpha", "category"];
 const VIEWS = ["summary", "armor", "materials", "about"];
+
+function formatCoordinatePair(coord){
+  if(!coord) return "";
+  const lat = Math.round(Number(coord.lat) || 0);
+  const lon = Math.round(Number(coord.lon) || 0);
+  const region = coord.region ? `${coord.region}: ` : "";
+  return `${region}${lat}, ${lon}`;
+}
+
+function formatCoordinateText(coords = []){
+  const validCoords = coords.filter(isValidCoordinate);
+  if(!validCoords.length) return "";
+  return validCoords.map(formatCoordinatePair).join(" • ");
+}
 
 function initUI({ data, state, sources, materialSources, storage }){
   DATA = data;
@@ -21,8 +37,11 @@ function initUI({ data, state, sources, materialSources, storage }){
   MATERIAL_SOURCES = materialSources || {};
   STORAGE = storage;
 
+  MAP_BOUNDS = computeMapBounds();
+
   wireTabs();
   wireHeader();
+  wireMapDialog();
   render();
 
   const activeView = getActiveView();
@@ -49,6 +68,33 @@ function persistData(data){
 
 function persistState(){
   saveState(STATE, getStorage());
+}
+
+function isValidCoordinate(coord){
+  return coord && Number.isFinite(Number(coord.lat)) && Number.isFinite(Number(coord.lon));
+}
+
+function computeMapBounds(){
+  const coords = [];
+  const collect = (sourceObj = {}) => {
+    for(const entry of Object.values(sourceObj)){
+      if(Array.isArray(entry?.coordinates)) coords.push(...entry.coordinates.filter(isValidCoordinate));
+    }
+  };
+
+  collect(SOURCES);
+  collect(MATERIAL_SOURCES);
+
+  if(!coords.length) return MAP_BOUNDS;
+
+  const lats = coords.map(c => Number(c.lat));
+  const lons = coords.map(c => Number(c.lon));
+  return {
+    latMin: Math.min(...lats),
+    latMax: Math.max(...lats),
+    lonMin: Math.min(...lons),
+    lonMax: Math.max(...lons)
+  };
 }
 
 function getActiveView(){
@@ -609,6 +655,125 @@ function renderLevelStars(level){
   return Array.from({ length: maxStars }, (_, i) => (i < safeLevel ? "★" : "☆")).join(" ");
 }
 
+function renderLocationButton(entity, id, label = "Map"){
+  return `<button type="button" class="link-btn" data-kind="showLocations" data-entity="${escapeHtml(entity)}" data-id="${escapeHtml(id)}">${escapeHtml(label)}</button>`;
+}
+
+function mapCoordinateToPercent(coord, mapImg){
+  const latRange = Math.max(1, (MAP_BOUNDS.latMax - MAP_BOUNDS.latMin) || 1);
+  const lonRange = Math.max(1, (MAP_BOUNDS.lonMax - MAP_BOUNDS.lonMin) || 1);
+  const width = mapImg?.naturalWidth || mapImg?.width || MAP_IMAGE_SIZE.width || 1;
+  const height = mapImg?.naturalHeight || mapImg?.height || MAP_IMAGE_SIZE.height || 1;
+  const xPct = ((Number(coord.lat) - MAP_BOUNDS.latMin) / latRange) * 100;
+  const yPct = ((MAP_BOUNDS.lonMax - Number(coord.lon)) / lonRange) * 100;
+  return {
+    x: Math.min(100, Math.max(0, xPct)),
+    y: Math.min(100, Math.max(0, yPct)),
+    width,
+    height
+  };
+}
+
+function renderMapMarkers(coords = []){
+  const markerHost = el("#mapMarkers");
+  const mapImg = el("#mapImage");
+  if(!markerHost || !mapImg){
+    return;
+  }
+  const validCoords = coords.filter(isValidCoordinate);
+  markerHost.innerHTML = validCoords.map((coord, idx)=>{
+    const pos = mapCoordinateToPercent(coord, mapImg);
+    return `<div class="map-marker" style="left:${pos.x}%; top:${pos.y}%" aria-label="Location ${idx+1}">${idx+1}</div>`;
+  }).join("");
+}
+
+function populateMapModal(payload){
+  const dialog = el("#mapDialog");
+  if(!dialog) return;
+
+  const title = el("#mapTitle", dialog);
+  const meta = el("#mapMeta", dialog);
+  const desc = el("#mapDescription", dialog);
+  const notes = el("#mapNotes", dialog);
+  const coordList = el("#mapCoordinateList", dialog);
+  const fallback = el("#mapFallback", dialog);
+
+  title.textContent = payload.title || "Locations";
+  meta.textContent = payload.meta || "";
+  desc.textContent = payload.description || "";
+  desc.style.display = payload.description ? "" : "none";
+  notes.textContent = payload.notes || "";
+  notes.style.display = payload.notes ? "" : "none";
+
+  const coords = (payload.coordinates || []).filter(isValidCoordinate);
+  coordList.innerHTML = coords.length
+    ? coords.map((c, idx)=>`<li><b>${idx+1}.</b> ${escapeHtml(formatCoordinatePair(c))}</li>`).join("")
+    : (payload.coordsText ? `<li>${escapeHtml(payload.coordsText)}</li>` : `<li>No coordinate data available.</li>`);
+
+  if(fallback){
+    fallback.style.display = coords.length ? "none" : payload.coordsText ? "none" : "block";
+    fallback.textContent = coords.length ? "" : "Map markers unavailable for this entry.";
+  }
+
+  renderMapMarkers(coords);
+}
+
+function getArmorLocationData(pieceId){
+  const piece = DATA.armorPieces.find(p => p.id === pieceId) || {};
+  const src = SOURCES[pieceId] || {};
+  const coordinates = Array.isArray(src.coordinates) ? src.coordinates.filter(isValidCoordinate) : [];
+  const coordsText = src.coords || formatCoordinateText(coordinates);
+
+  return {
+    title: piece.name || "Armor location",
+    meta: [piece.setName, piece.slot].filter(Boolean).join(" • "),
+    description: src.where || "",
+    notes: src.notes || "",
+    coordinates,
+    coordsText
+  };
+}
+
+function getMaterialLocationData(materialId){
+  const material = (DATA.materials || []).find(m => m.id === materialId) || {};
+  const src = MATERIAL_SOURCES?.[materialId] || {};
+  const coordinates = Array.isArray(src.coordinates) ? src.coordinates.filter(isValidCoordinate) : [];
+  const coordsText = src.coords || formatCoordinateText(coordinates);
+
+  return {
+    title: material.name || "Material location",
+    meta: material.category || "Material",
+    description: src.where || material.howToGet || "",
+    notes: src.notes || material.notes || "",
+    coordinates,
+    coordsText
+  };
+}
+
+function openLocationModal(payload){
+  const dialog = el("#mapDialog");
+  if(!dialog) return;
+
+  if(typeof dialog.showModal !== "function"){ // jsdom / fallback
+    dialog.showModal = () => {
+      dialog.setAttribute("open", "true");
+      dialog.open = true;
+    };
+  }
+  if(typeof dialog.close !== "function"){
+    dialog.close = () => {
+      dialog.removeAttribute("open");
+      dialog.open = false;
+    };
+  }
+
+  populateMapModal(payload);
+
+  dialog.showModal();
+  const closeBtn = el("#mapClose", dialog);
+  closeBtn?.focus();
+}
+
 function renderPiece(p){
   const lvl = clampInt(STATE.levels[p.id] ?? 0);
   const pillClass = lvl===4 ? "ok" : (lvl===0 ? "bad" : "warn");
@@ -618,14 +783,19 @@ function renderPiece(p){
   const src = SOURCES[p.id];
   const srcRegions = src?.regions?.length ? src.regions.join(" • ") : "";
   const srcWhere = src?.where || "";
-  const srcCoords = src?.coords || "";
+  const srcCoordsList = Array.isArray(src?.coordinates) ? src.coordinates.filter(isValidCoordinate) : [];
+  const srcCoords = src?.coords || formatCoordinateText(srcCoordsList);
   const srcUrl = sanitizeUrl(src?.url);
-  const srcHtml = (srcRegions || srcWhere || srcCoords) ? `
+  const srcLocationButton = srcCoordsList.length ? renderLocationButton("armor", p.id, "Map") : "";
+  const srcParts = [];
+  if(srcRegions) srcParts.push(`<span class="pill mini">${escapeHtml(srcRegions)}</span>`);
+  if(srcWhere) srcParts.push(`<span>${escapeHtml(srcWhere)}</span>`);
+  if(srcCoords) srcParts.push(`<span class="muted">(${escapeHtml(srcCoords)})</span>`);
+  if(srcUrl) srcParts.push(`<a class="muted" target="_blank" rel="noreferrer" href="${escapeHtml(srcUrl)}">(More info)</a>`);
+  if(srcLocationButton) srcParts.push(srcLocationButton);
+  const srcHtml = srcParts.length ? `
     <div class="tiny muted armor-src">
-      ${srcRegions ? `<span class="pill mini">${escapeHtml(srcRegions)}</span>` : ``}
-      ${srcWhere ? `<span>${escapeHtml(srcWhere)}</span>` : ``}
-      ${srcCoords ? `<span class="muted">(${escapeHtml(srcCoords)})</span>` : ``}
-      ${srcUrl ? `<a class="muted" target="_blank" rel="noreferrer" href="${escapeHtml(srcUrl)}">(More info)</a>` : ``}
+      ${srcParts.join(" ")}
     </div>
   ` : ``;
 
@@ -778,17 +948,20 @@ function renderPiece(p){
 function getMaterialAcquisition(material){
   const src = (MATERIAL_SOURCES && MATERIAL_SOURCES[material?.id]) || {};
   const where = src.where || src.location || material?.howToGet || "";
-  const coords = src.coords || "";
+  const coordinates = Array.isArray(src.coordinates) ? src.coordinates.filter(isValidCoordinate) : [];
+  const coords = src.coords || formatCoordinateText(coordinates);
   const notes = src.notes || material?.notes || "";
-  return { where, coords, notes };
+  return { where, coords, notes, coordinates };
 }
 
 function renderMaterialAcquisition(material){
-  const { where, coords, notes } = getMaterialAcquisition(material);
+  const { where, coords, notes, coordinates } = getMaterialAcquisition(material);
+  const locationBtn = coordinates.length ? renderLocationButton("material", material.id, "Map") : "";
   const parts = [];
   if(where) parts.push(`<div>${escapeHtml(where)}</div>`);
   if(coords) parts.push(`<div class="muted tiny">${escapeHtml(coords)}</div>`);
   if(notes) parts.push(`<div class="muted tiny">${escapeHtml(notes)}</div>`);
+  if(locationBtn) parts.push(`<div>${locationBtn}</div>`);
 
   return {
     html: parts.length ? `<div class="mat-info muted tiny">${parts.join(" ")}</div>` : "",
@@ -1185,6 +1358,48 @@ function wireResetDialog(){
   });
 
   return openDialog;
+}
+
+function wireMapDialog(){
+  const dialog = el("#mapDialog");
+  if(!dialog) return;
+
+  if(typeof dialog.showModal !== "function"){
+    dialog.showModal = () => {
+      dialog.setAttribute("open", "true");
+      dialog.open = true;
+    };
+  }
+  if(typeof dialog.close !== "function"){
+    dialog.close = () => {
+      dialog.removeAttribute("open");
+      dialog.open = false;
+    };
+  }
+
+  const ensureClose = () => {
+    if(typeof dialog.close === "function") dialog.close();
+    else dialog.removeAttribute("open");
+  };
+
+  dialog.addEventListener("cancel", (event)=>{
+    event.preventDefault();
+    ensureClose();
+  });
+  dialog.addEventListener("click", (event)=>{
+    if(event.target === dialog) ensureClose();
+  });
+
+  el("#mapClose", dialog)?.addEventListener("click", ensureClose);
+
+  document.addEventListener("click", (event)=>{
+    const btn = event.target.closest("[data-kind='showLocations']");
+    if(!btn) return;
+    const entity = btn.dataset.entity;
+    const id = btn.dataset.id;
+    const payload = entity === "armor" ? getArmorLocationData(id) : getMaterialLocationData(id);
+    openLocationModal(payload);
+  });
 }
 
 function wireHeader(){

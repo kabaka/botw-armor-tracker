@@ -7,6 +7,7 @@ A lightweight, offline-friendly tracker for managing armor sets, upgrades, and m
 - Track upgrade progress and required materials for each level.
 - Adjust material inventory directly from armor upgrade details or the Materials tab.
 - See concise acquisition tips for materials to quickly restock what you need.
+- Open an in-app map with pinned coordinates for armor pieces and materials.
 - Export and import JSON backups to move progress between browsers or devices.
 - Works offline using a service worker and cached assets.
 - Installable as a Progressive Web App (PWA).
