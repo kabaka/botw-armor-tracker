@@ -222,6 +222,36 @@ describe('renderArmor DOM behaviors', () => {
     expect(input.value).toBe('1');
   });
 
+  it('keeps focus and updates armor badges while typing inventory counts', () => {
+    setup();
+    document.querySelector('.acc-head').click();
+
+    const input = document.querySelector('.piece[data-piece="helm1"] input[data-kind="inv"]');
+    const badge = input.closest('.armor-mat-row').querySelector('.badge');
+
+    input.focus();
+    input.value = '2';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+
+    expect(document.activeElement).toBe(input);
+    expect(badge.textContent).toContain('Met');
+  });
+
+  it('keeps focus and updates materials rows while typing inventory counts', () => {
+    setup();
+    document.querySelector('button[data-tab="materials"]').click();
+
+    const input = document.querySelector('#matTable input[data-mid="mat1"]');
+    const row = input.closest('tr');
+
+    input.focus();
+    input.value = '2';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+
+    expect(document.activeElement).toBe(input);
+    expect(row.querySelector('.mat-status').textContent).toContain('Short');
+  });
+
   it('consumes materials and upgrades when ready button is clicked', () => {
     const { state } = setup();
     document.querySelector('.acc-head').click();

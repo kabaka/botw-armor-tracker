@@ -166,6 +166,70 @@ function renderInvStepper(mid, value){
   `;
 }
 
+function renderRequirementBadge(diff){
+  if(diff < 0){
+    return `<span class="badge bad"><b>Short</b> <span>${-diff}</span></span>`;
+  }
+  if(diff === 0){
+    return `<span class="badge ok"><b>Met</b></span>`;
+  }
+  return `<span class="badge ok over"><b>Surplus</b> <span>+${diff}</span></span>`;
+}
+
+function applyBadgeToElement(el, diff){
+  if(!el) return;
+  const classes = ["badge"];
+  if(diff < 0){
+    classes.push("bad");
+  }else{
+    classes.push("ok");
+    if(diff > 0) classes.push("over");
+  }
+
+  el.className = classes.join(" ");
+  if(diff < 0){
+    el.innerHTML = `<b>Short</b> <span>${-diff}</span>`;
+  }else if(diff === 0){
+    el.innerHTML = `<b>Met</b>`;
+  }else{
+    el.innerHTML = `<b>Surplus</b> <span>+${diff}</span>`;
+  }
+}
+
+function ensureBadge(container){
+  if(!container) return null;
+  let badge = container.querySelector(".badge");
+  if(!badge){
+    badge = document.createElement("span");
+    badge.className = "badge";
+    container.textContent = "";
+    container.appendChild(badge);
+  }
+  return badge;
+}
+
+function ensureLabel(cell, text){
+  if(!cell) return null;
+  let label = cell.querySelector(".mat-col-label");
+  if(!label){
+    label = document.createElement("div");
+    label.className = "mat-col-label tiny muted";
+    cell.prepend(label);
+  }
+  label.textContent = text;
+  return label;
+}
+
+function renderLevelStatus({ pieceId, level, done, ready }){
+  const statusLabel = `<span class="badge ${done || ready ? "ok" : "bad"} level-status"><b>${done || ready ? "HAVE" : "NEED"}</b></span>`;
+  const statusHint = done
+    ? `<span class="muted tiny">Completed</span>`
+    : (ready
+      ? `<button type="button" class="ready-upgrade" data-kind="quickUpgrade" data-piece="${pieceId}" data-level="${level}">Ready to upgrade</button>`
+      : `<span class="muted tiny">Missing materials</span>`);
+  return `${statusLabel}${statusHint}`;
+}
+
 function getMaterialLookups(data = DATA){
   const materials = data?.materials || [];
   const nameToId = new Map(materials.map(m => [m.name, m.id]));
@@ -530,7 +594,7 @@ function renderArmor(){
       STATE.inventory[mid] = next;
       persistState();
       preserveOpenState();
-      render();
+      refreshInventoryViews(mid);
       return;
     }
 
@@ -574,10 +638,11 @@ function renderArmor(){
     if(t.dataset.kind !== "inv") return;
     const mid = t.dataset.mid;
     const val = clampInt(t.value);
+    t.value = String(val);
     STATE.inventory[mid] = val;
     persistState();
     preserveOpenState();
-    render();
+    refreshInventoryViews(mid);
   });
 
   if(!root.children.length){
@@ -836,14 +901,6 @@ function renderPiece(p){
         ${visibleLevels.map(level => {
           const mats = [...(materialsByLevel.get(level) || [])];
           const { done, ready } = levelStates.get(level) || {};
-          const statusLabel = (done || ready)
-            ? `<span class="badge ok level-status"><b>HAVE</b></span>`
-            : `<span class="badge bad level-status"><b>NEED</b></span>`;
-          const statusHint = done
-            ? `<span class="muted tiny">Completed</span>`
-            : (ready
-              ? `<button type="button" class="ready-upgrade" data-kind="quickUpgrade" data-piece="${p.id}" data-level="${level}">Ready to upgrade</button>`
-              : `<span class="muted tiny">Missing materials</span>`);
           const donePill = done ? `<span class="pill ok mini">Done</span>` : "";
 
           const materialRows = mats.map(m => {
@@ -851,17 +908,10 @@ function renderPiece(p){
             const diff = inv - m.qty;
             const material = lookups.byId.get(m.id);
             const acquisition = renderMaterialAcquisitionInline(material);
-            let badge = "";
-            if(diff < 0){
-              badge = `<span class="badge bad"><b>Short</b> <span>${-diff}</span></span>`;
-            }else if(diff === 0){
-              badge = `<span class="badge ok"><b>Met</b></span>`;
-            }else{
-              badge = `<span class="badge ok over"><b>Surplus</b> <span>+${diff}</span></span>`;
-            }
+            const badge = renderRequirementBadge(diff);
 
             return `
-              <tr class="mat-row">
+              <tr class="mat-row" data-qty="${m.qty}">
                 <td>
                   <div class="mat-line">
                     <span class="mat-qty">${m.qty}×</span>
@@ -880,12 +930,12 @@ function renderPiece(p){
           }).join("");
 
           return `
-            <tbody class="level-block">
+            <tbody class="level-block" data-piece="${p.id}" data-level="${level}">
               <tr class="lvl-head-row">
                 <td colspan="2">
                   <div class="level-head row between">
                     <div class="level-label">Lv${level} ${donePill}</div>
-                    <div class="level-status-wrap">${statusLabel}${statusHint}</div>
+                    <div class="level-status-wrap">${renderLevelStatus({ pieceId: p.id, level, done, ready })}</div>
                   </div>
                 </td>
               </tr>
@@ -1017,7 +1067,15 @@ function renderMaterials(){
     sortSelect.value = validSort ? matUI.sort : "needed";
   }
 
-  function renderTable(){
+  function renderTable({ preserveInput } = {}){
+    const activeInput = (preserveInput instanceof HTMLInputElement) && preserveInput.dataset.mid
+      ? {
+          mid: preserveInput.dataset.mid,
+          selectionStart: preserveInput.selectionStart,
+          selectionEnd: preserveInput.selectionEnd
+        }
+      : null;
+
     const remainingReq = sumRemainingRequirements(DATA, STATE);
     const settings = ensureMaterialsUIState(hasCategoryOption);
     if(sortSelect && sortSelect.value !== settings.sort){
@@ -1031,12 +1089,7 @@ function renderMaterials(){
         const have = Number(STATE.inventory[m.id] || 0);
         const surplus = Math.max(0, have - required);
         const short = Math.max(0, required - have);
-        let badge = `<span class="badge ok">Met</span>`;
-        if(short > 0){
-          badge = `<span class="badge bad"><b>Short</b> <span>${short}</span></span>`;
-        }else if(surplus > 0){
-          badge = `<span class="badge ok over"><b>Surplus</b> <span>+${surplus}</span></span>`;
-        }
+        const badge = renderRequirementBadge(have - required);
         const acquisition = renderMaterialAcquisition(m);
         const searchText = (m.tags || []).concat([m.name, acquisition.searchText]).join(" ").toLowerCase();
         return { m, required, have, short, surplus, badge, acquisition, searchText };
@@ -1054,29 +1107,86 @@ function renderMaterials(){
         return b.short - a.short || a.m.name.localeCompare(b.m.name);
       });
 
-    tbody.innerHTML = rows.map(({ m, required, have, badge, acquisition }) => `
-      <tr data-mid="${m.id}">
-        <td class="mat-main">
-          <div class="mat-row-top">
-            <div class="mat-name"><b>${escapeHtml(m.name)}</b></div>
-            <span class="mat-status mat-status-mobile">${badge}</span>
-          </div>
-          ${acquisition.html}
-        </td>
-        <td class="mat-remaining">
-          <div class="mat-col-label tiny muted">Required</div>
-          <div class="mat-col-value">${required}</div>
-        </td>
-        <td class="mat-inventory">
-          <div class="mat-col-label tiny muted">Have</div>
-          ${renderInvStepper(m.id, have)}
-        </td>
-        <td class="mat-status mat-status-desktop">${badge}</td>
-      </tr>
-    `).join("");
+    const existingRows = new Map(Array.from(tbody.querySelectorAll("tr[data-mid]"))
+      .map(row => [row.dataset.mid, row]));
+
+    for(const { m, required, have, badge, acquisition } of rows){
+      let row = existingRows.get(m.id);
+      if(!row){
+        row = document.createElement("tr");
+        row.dataset.mid = m.id;
+        row.innerHTML = `
+          <td class="mat-main">
+            <div class="mat-row-top">
+              <div class="mat-name"><b>${escapeHtml(m.name)}</b></div>
+              <span class="mat-status mat-status-mobile">${badge}</span>
+            </div>
+            ${acquisition.html}
+          </td>
+          <td class="mat-remaining">
+            <div class="mat-col-label tiny muted">Required</div>
+            <div class="mat-col-value">${required}</div>
+          </td>
+          <td class="mat-inventory">
+            <div class="mat-col-label tiny muted">Have</div>
+            ${renderInvStepper(m.id, have)}
+          </td>
+          <td class="mat-status mat-status-desktop">${badge}</td>
+        `;
+      }
+
+      row.dataset.required = required;
+
+      const nameEl = row.querySelector(".mat-name b");
+      if(nameEl) nameEl.textContent = m.name;
+
+      const mainStatus = row.querySelector(".mat-status-mobile");
+      const desktopStatus = row.querySelector(".mat-status-desktop");
+      applyBadgeToElement(ensureBadge(mainStatus), have - required);
+      applyBadgeToElement(ensureBadge(desktopStatus), have - required);
+
+      const remainingCell = row.querySelector(".mat-remaining");
+      ensureLabel(remainingCell, "Required");
+      const requiredVal = remainingCell?.querySelector(".mat-col-value");
+      if(requiredVal) requiredVal.textContent = String(required);
+
+      const invInput = row.querySelector(`input[data-kind='inv'][data-mid='${cssEscape(m.id)}']`);
+      if(invInput){
+        invInput.value = String(have);
+      }
+
+      const invCell = row.querySelector(".mat-inventory");
+      ensureLabel(invCell, "Have");
+
+      tbody.appendChild(row);
+      existingRows.delete(m.id);
+    }
+
+    for(const leftover of existingRows.values()){
+      leftover.remove();
+    }
+
+    if(activeInput){
+      const nextInput = tbody.querySelector(`input[data-kind='inv'][data-mid='${cssEscape(activeInput.mid)}']`);
+      if(nextInput){
+        nextInput.focus();
+        if(Number.isInteger(activeInput.selectionStart) && Number.isInteger(activeInput.selectionEnd)){
+          try {
+            nextInput.setSelectionRange(activeInput.selectionStart, activeInput.selectionEnd);
+          } catch {
+            // ignore if input type or platform does not support selection
+          }
+        }
+      }
+    }
   }
+  tbl._renderTable = renderTable;
 
   renderTable();
+  for(const row of tbody.querySelectorAll("tr")){
+    ensureLabel(row.querySelector(".mat-remaining"), "Required");
+    ensureLabel(row.querySelector(".mat-inventory"), "Have");
+  }
 
   tbl.addEventListener("input", (e)=>{
     const t = e.target;
@@ -1088,8 +1198,8 @@ function renderMaterials(){
       STATE.inventory[mid] = v;
       persistState();
 
-      renderTable();
-      renderSummary();
+      renderTable({ preserveInput: t });
+      refreshInventoryViews(mid, { skipMaterials: true });
     }
   });
 
@@ -1108,8 +1218,8 @@ function renderMaterials(){
     const input = tbl.querySelector(`input[data-kind='inv'][data-mid='${cssEscape(mid)}']`);
     if(input) input.value = String(next);
 
-    renderTable();
-    renderSummary();
+    renderTable({ preserveInput: input });
+    refreshInventoryViews(mid, { skipMaterials: true });
   });
 
   search?.addEventListener("input", ()=>{
@@ -1132,6 +1242,89 @@ function renderMaterials(){
     persistState();
     renderTable();
   });
+}
+
+function hasMaterialCategories(){
+  return Array.isArray(DATA?.materials) && DATA.materials.some(m => m.category);
+}
+
+function updateMaterialRow(mid){
+  const row = el(`#matTable tr[data-mid='${cssEscape(mid)}']`);
+  if(!row) return;
+
+  const required = Number(row.dataset.required || 0);
+  const have = Number(STATE.inventory[mid] || 0);
+  const diff = have - required;
+  for(const statusCell of row.querySelectorAll(".mat-status")){
+    const badge = ensureBadge(statusCell);
+    applyBadgeToElement(badge, diff);
+  }
+
+  const input = row.querySelector(`input[data-kind='inv'][data-mid='${cssEscape(mid)}']`);
+  if(input){
+    input.value = String(have);
+  }
+
+  const settings = ensureMaterialsUIState(hasMaterialCategories());
+  const short = Math.max(0, required - have);
+  row.style.display = settings.deficitsOnly && short <= 0 ? "none" : "";
+}
+
+function updateArmorMaterialRows(mid){
+  const inputs = els(`#view-armor input[data-kind='inv'][data-mid='${cssEscape(mid)}']`);
+  const rows = inputs.map(inp => inp.closest(".mat-row")).filter(Boolean);
+  if(!rows.length) return;
+
+  const have = Number(STATE.inventory[mid] || 0);
+  for(const row of rows){
+    const qty = Number(row.dataset.qty || row.querySelector(".mat-qty")?.textContent || 0);
+    const diff = have - qty;
+    const badge = row.querySelector(".badge");
+    if(badge){
+      applyBadgeToElement(badge, diff);
+    }
+
+    const input = row.querySelector(`input[data-kind='inv'][data-mid='${cssEscape(mid)}']`);
+    if(input){
+      input.value = String(have);
+    }
+  }
+
+  const levelBlocks = new Set(rows.map(r => r.closest("tbody.level-block")));
+  for(const block of levelBlocks){
+    if(!block) continue;
+    const pieceId = block.dataset.piece;
+    const level = Number(block.dataset.level);
+    const currentLevel = clampInt(STATE.levels[pieceId] ?? 0);
+    const done = currentLevel >= level;
+    const ready = Array.from(block.querySelectorAll(".mat-row")).every(row => {
+      const rowMid = row.querySelector("input[data-kind='inv']")?.dataset.mid;
+      const needed = Number(row.dataset.qty || row.querySelector(".mat-qty")?.textContent || 0);
+      return Number(STATE.inventory[rowMid] || 0) >= needed;
+    });
+
+    const statusWrap = block.querySelector(".level-status-wrap");
+    if(statusWrap){
+      statusWrap.innerHTML = renderLevelStatus({ pieceId, level, done, ready });
+    }
+  }
+}
+
+function refreshInventoryViews(mid, { skipMaterials = false } = {}){
+  if(!skipMaterials){
+    const tbl = el("#matTable");
+    const renderFn = tbl?._renderTable;
+    const preserveInput = (document.activeElement instanceof HTMLInputElement && tbl?.contains(document.activeElement))
+      ? document.activeElement
+      : null;
+    if(typeof renderFn === "function"){
+      renderFn({ preserveInput });
+    }else{
+      updateMaterialRow(mid);
+    }
+  }
+  updateArmorMaterialRows(mid);
+  renderSummary();
 }
 
 function renderAbout(){
