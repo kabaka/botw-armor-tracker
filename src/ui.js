@@ -19,10 +19,10 @@ const MAP_BOUNDS = {
 };
 const MAP_IMAGE_SIZE = { width: 2395, height: 1996 };
 const MAP_IMAGE_MARGINS_PCT = {
-  top: (135 / MAP_IMAGE_SIZE.height) * 100,
-  left: (135 / MAP_IMAGE_SIZE.width) * 100,
-  right: (80 / MAP_IMAGE_SIZE.width) * 100,
-  bottom: (100 / MAP_IMAGE_SIZE.height) * 100,
+  top: (50 / MAP_IMAGE_SIZE.height) * 100,
+  left: (50 / MAP_IMAGE_SIZE.width) * 100,
+  right: (-50 / MAP_IMAGE_SIZE.width) * 100,
+  bottom: (-50 / MAP_IMAGE_SIZE.height) * 100,
 };
 const MAP_PLAYABLE_PCT = {
   width: 100 - MAP_IMAGE_MARGINS_PCT.left - MAP_IMAGE_MARGINS_PCT.right,
