@@ -451,6 +451,48 @@ describe('renderArmor DOM behaviors', () => {
     expect(document.querySelector('#mapCoordinateList').textContent).toContain('Test');
   });
 
+  it('positions map markers within playable map margins', () => {
+    setup({
+      sources: {
+        helm1: {
+          where: 'Test area',
+          coordinates: [
+            { lat: -5000, lon: 5000, region: 'NW' },
+            { lat: 5000, lon: -5000, region: 'SE' }
+          ]
+        }
+      }
+    });
+
+    document.querySelector('.acc-head').click();
+    const mapButton = document.querySelector('[data-piece="helm1"] .armor-src [data-kind="showLocations"]');
+    expect(mapButton).not.toBeNull();
+
+    mapButton.click();
+
+    const markers = Array.from(document.querySelectorAll('#mapMarkers .map-marker'));
+    expect(markers).toHaveLength(2);
+
+    const width = 2395;
+    const height = 1996;
+    const leftPct = (135 / width) * 100;
+    const rightPct = (80 / width) * 100;
+    const topPct = (135 / height) * 100;
+    const bottomPct = (100 / height) * 100;
+
+    const firstStyle = markers[0].getAttribute('style') || '';
+    const firstLeft = Number(firstStyle.match(/left:([^%]+)%/)?.[1]);
+    const firstTop = Number(firstStyle.match(/top:([^%]+)%/)?.[1]);
+    expect(firstLeft).toBeCloseTo(leftPct, 3);
+    expect(firstTop).toBeCloseTo(topPct, 3);
+
+    const lastStyle = markers[1].getAttribute('style') || '';
+    const lastLeft = Number(lastStyle.match(/left:([^%]+)%/)?.[1]);
+    const lastTop = Number(lastStyle.match(/top:([^%]+)%/)?.[1]);
+    expect(lastLeft).toBeCloseTo(100 - rightPct, 3);
+    expect(lastTop).toBeCloseTo(100 - bottomPct, 3);
+  });
+
   it('opens map modal for material sources', () => {
     setup({
       materialSources: {

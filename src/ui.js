@@ -17,7 +17,17 @@ const MAP_BOUNDS = {
   lonMin: -5000,
   lonMax: 5000,
 };
-const MAP_IMAGE_SIZE = { width: 3840, height: 2160 };
+const MAP_IMAGE_SIZE = { width: 2395, height: 1996 };
+const MAP_IMAGE_MARGINS_PCT = {
+  top: (135 / MAP_IMAGE_SIZE.height) * 100,
+  left: (135 / MAP_IMAGE_SIZE.width) * 100,
+  right: (80 / MAP_IMAGE_SIZE.width) * 100,
+  bottom: (100 / MAP_IMAGE_SIZE.height) * 100,
+};
+const MAP_PLAYABLE_PCT = {
+  width: 100 - MAP_IMAGE_MARGINS_PCT.left - MAP_IMAGE_MARGINS_PCT.right,
+  height: 100 - MAP_IMAGE_MARGINS_PCT.top - MAP_IMAGE_MARGINS_PCT.bottom
+};
 
 const ARMOR_SORTS = ["alpha", "level-desc", "level-asc"];
 const MATERIALS_SORTS = ["needed", "alpha", "category"];
@@ -711,8 +721,12 @@ function mapCoordinateToPercent(coord, mapImg){
   const lonRange = Math.max(1, (MAP_BOUNDS.lonMax - MAP_BOUNDS.lonMin) || 1);
   const width = mapImg?.naturalWidth || mapImg?.width || MAP_IMAGE_SIZE.width || 1;
   const height = mapImg?.naturalHeight || mapImg?.height || MAP_IMAGE_SIZE.height || 1;
-  const xPct = ((Number(coord.lat) - MAP_BOUNDS.latMin) / latRange) * 100;
-  const yPct = ((MAP_BOUNDS.lonMax - Number(coord.lon)) / lonRange) * 100;
+  const xNorm = (Number(coord.lat) - MAP_BOUNDS.latMin) / latRange;
+  const yNorm = (MAP_BOUNDS.lonMax - Number(coord.lon)) / lonRange;
+  const safeX = Math.min(1, Math.max(0, xNorm));
+  const safeY = Math.min(1, Math.max(0, yNorm));
+  const xPct = MAP_IMAGE_MARGINS_PCT.left + safeX * MAP_PLAYABLE_PCT.width;
+  const yPct = MAP_IMAGE_MARGINS_PCT.top + safeY * MAP_PLAYABLE_PCT.height;
   return {
     x: Math.min(100, Math.max(0, xPct)),
     y: Math.min(100, Math.max(0, yPct)),
