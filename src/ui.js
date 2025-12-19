@@ -753,9 +753,16 @@ function populateMapModal(payload){
   notes.style.display = payload.notes ? "" : "none";
 
   const coords = (payload.coordinates || []).filter(isValidCoordinate);
-  coordList.innerHTML = coords.length
-    ? coords.map((c, idx)=>`<li><b>${idx+1}.</b> ${escapeHtml(formatCoordinatePair(c))}</li>`).join("")
-    : (payload.coordsText ? `<li>${escapeHtml(payload.coordsText)}</li>` : `<li>No coordinate data available.</li>`);
+  if(payload.hideCoordinateList){
+    const countLabel = coords.length === 1 ? "1 location shown on the map." : `${coords.length} locations shown on the map.`;
+    coordList.innerHTML = coords.length
+      ? `<li>${countLabel}</li>`
+      : (payload.coordsText ? `<li>${escapeHtml(payload.coordsText)}</li>` : `<li>No coordinate data available.</li>`);
+  }else{
+    coordList.innerHTML = coords.length
+      ? coords.map((c, idx)=>`<li><b>${idx+1}.</b> ${escapeHtml(formatCoordinatePair(c))}</li>`).join("")
+      : (payload.coordsText ? `<li>${escapeHtml(payload.coordsText)}</li>` : `<li>No coordinate data available.</li>`);
+  }
 
   if(fallback){
     fallback.style.display = coords.length ? "none" : payload.coordsText ? "none" : "block";
@@ -793,7 +800,8 @@ function getMaterialLocationData(materialId){
     description: src.where || material.howToGet || "",
     notes: src.notes || material.notes || "",
     coordinates,
-    coordsText
+    coordsText,
+    hideCoordinateList: true
   };
 }
 
@@ -981,17 +989,15 @@ function getMaterialAcquisition(material){
   const src = (MATERIAL_SOURCES && MATERIAL_SOURCES[material?.id]) || {};
   const where = src.where || src.location || material?.howToGet || "";
   const coordinates = Array.isArray(src.coordinates) ? src.coordinates.filter(isValidCoordinate) : [];
-  const coords = src.coords || formatCoordinateText(coordinates);
   const notes = src.notes || material?.notes || "";
-  return { where, coords, notes, coordinates };
+  return { where, notes, coordinates };
 }
 
 function renderMaterialAcquisition(material){
-  const { where, coords, notes, coordinates } = getMaterialAcquisition(material);
+  const { where, notes, coordinates } = getMaterialAcquisition(material);
   const locationBtn = coordinates.length ? renderLocationButton("material", material.id, "Map") : "";
   const textParts = [];
   if(where) textParts.push(`<div>${escapeHtml(where)}</div>`);
-  if(coords) textParts.push(`<div class="muted tiny">${escapeHtml(coords)}</div>`);
   if(notes) textParts.push(`<div class="muted tiny">${escapeHtml(notes)}</div>`);
 
   const textHtml = textParts.length ? `<div class="mat-info-text">${textParts.join(" ")}</div>` : "";
@@ -1005,16 +1011,15 @@ function renderMaterialAcquisition(material){
 
   return {
     html: (mapHtml || textHtml) ? `<div class="${infoClasses.join(" ")}">${mapHtml}${textHtml}</div>` : "",
-    searchText: [where, coords, notes].filter(Boolean).join(" ")
+    searchText: [where, notes].filter(Boolean).join(" ")
   };
 }
 
 function renderMaterialAcquisitionInline(material){
-  const { where, coords, notes } = getMaterialAcquisition(material);
+  const { where, notes } = getMaterialAcquisition(material);
   const text = [where, notes].filter(Boolean).join(" • ");
-  if(!text && !coords) return "";
-  const coordsHtml = coords ? ` <span class="muted">(${escapeHtml(coords)})</span>` : "";
-  return `<span class="mat-acq-inline tiny muted">${escapeHtml(text)}${coordsHtml}</span>`;
+  if(!text) return "";
+  return `<span class="mat-acq-inline tiny muted">${escapeHtml(text)}</span>`;
 }
 
 function renderMaterials(){

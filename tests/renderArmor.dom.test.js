@@ -293,7 +293,6 @@ describe('renderArmor DOM behaviors', () => {
     const inlineInfo = document.querySelector('.mat-acq-inline');
     expect(inlineInfo).not.toBeNull();
     expect(inlineInfo.textContent).toContain('Hyrule Ridge');
-    expect(inlineInfo.textContent).toContain('123, 456, 789');
   });
 
   it('shows acquisition info for materials when available', () => {
@@ -307,7 +306,6 @@ describe('renderArmor DOM behaviors', () => {
     expect(children[0].querySelector('button[data-kind="showLocations"]')).not.toBeNull();
     expect(children[1].classList.contains('mat-info-text')).toBe(true);
     expect(children[1].textContent).toContain('Hyrule Ridge');
-    expect(children[1].textContent).toContain('123, 456');
     expect(children[1].textContent).toContain('Night only');
   });
 
@@ -472,6 +470,6 @@ describe('renderArmor DOM behaviors', () => {
     mapButton.click();
     const dialog = document.querySelector('#mapDialog');
     expect(dialog.open).toBe(true);
-    expect(document.querySelector('#mapCoordinateList').textContent).toContain('10');
+    expect(document.querySelector('#mapCoordinateList').textContent).toContain('location shown on the map');
   });
 });
