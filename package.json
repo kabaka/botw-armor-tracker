@@ -19,6 +19,6 @@
   "devDependencies": {
     "husky": "^9.1.6",
     "jsdom": "^27.3.0",
-    "vitest": "^4.0.15"
+    "vitest": "^4.0.18"
   }
 }
